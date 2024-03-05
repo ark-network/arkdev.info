@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkark_website=self.webpackChunkark_website||[]).push([[822],{5621:e=>{e.exports=JSON.parse('{"label":"bitcoin","permalink":"/blog/tags/bitcoin","allTagsPath":"/blog/tags","count":1}')}}]);
