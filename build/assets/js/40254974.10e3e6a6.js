@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkark_website=self.webpackChunkark_website||[]).push([[9],{9230:a=>{a.exports=JSON.parse('{"label":"ark","permalink":"/blog/tags/ark","allTagsPath":"/blog/tags","count":1}')}}]);
