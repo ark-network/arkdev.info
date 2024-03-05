@@ -103,7 +103,7 @@ Different ASPs can use different ways for users to board their Ark.
 | VTXO spending `Alice + ASP`          | `ASP`   |
 | Connector from next Pool transaction |
 
-### Pool transaction (aka Ark transaction)
+### Pool transaction
 
 - Funded by the ASP, creates VTXOs
 - Has at least two outputs:
@@ -116,7 +116,7 @@ Different ASPs can use different ways for users to board their Ark.
 | ASP UTXO | Shared output     |
 |          | Connectors output |
 
-### Shared output (aka Shared UTXO)
+### Shared output
 
 - Represents a tree of transactions
 - In an optimistic scenario, this tree is never revealed

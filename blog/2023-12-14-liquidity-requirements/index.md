@@ -47,7 +47,7 @@ flowchart LR
 Since this an onchain transaction, and VTXOs should be virtual, we marked it as VTXO\*.
 :::
 
-When Alice makes her initial payment, for example, 1 BTC to Bob, the VTXO\* will be utilized to finance the [Pool transaction](/learn/nomenclature#pool-transaction-aka-ark-transaction), so again, the ASP will **not** need to supply any additional liquidity:
+When Alice makes her initial payment, for example, 1 BTC to Bob, the VTXO\* will be utilized to finance the [Pool transaction](/docs/learn/nomenclature#pool-transaction), so again, the ASP will **not** need to supply any additional liquidity:
 
 ```mermaid
 flowchart LR
@@ -67,7 +67,7 @@ flowchart LR
   pool --> VTXOs
 ```
 
-But if Alice tries to make a second payment, for example, 1 BTC to Charlie, she will now be utilizing a genuine virtual VTXO. In this case, the ASP will need to finance the following [Pool transaction](/learn/nomenclature#pool-transaction-aka-ark-transaction):
+But if Alice tries to make a second payment, for example, 1 BTC to Charlie, she will now be utilizing a genuine virtual VTXO. In this case, the ASP will need to finance the following [Pool transaction](/docs/learn/nomenclature#pool-transaction):
 
 ```mermaid
 flowchart LR
