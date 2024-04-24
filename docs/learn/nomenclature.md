@@ -58,18 +58,9 @@ Periodic transaction crafted by the ASP that hits mainchain and creates new VTXO
 
 | Inputs                       | Outputs                              |
 | ---------------------------- | ------------------------------------ |
-| Boarding or Pool transaction | `(Alice + ASP) or (Alice after 24h)` |
+| Boarding or Round transaction | `(Alice + ASP) or (Alice after 24h)` |
 
-### Boarding transaction
-
-There are 2 different ways a user can board the Ark:
-
-- With luggage
-- Without luggage
-
-Different ASPs can use different ways for users to board their Ark.
-
-#### With luggage
+### Boarding
 
 - Initially proposed by [Steven Roose](https://roose.io/presentations/understanding-ark.pdf)
 - Alice funds an output that can be **accepted as a VTXO** in a future round
@@ -81,29 +72,18 @@ Different ASPs can use different ways for users to board their Ark.
 | ------------ | ----------------------------------------------------------- |
 | Alice’s UTXO | `(ASP after 4w) or cov((Alice + ASP) or (Alice after 24h))` |
 
-#### Without luggage
-
-- Initially proposed by [Burak](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2023-May/021694.html)
-- Alice funds an output that can be **accepted as a VTXO** in a future round
-- If ASP is not cooperative, **Alice** can unlock after a timeout ie. _1 year_
-- Alice is **not required to be online** to maintain access to funds: after the timeout, she becomes the only owner of the funds
-
-| Inputs       | Outputs                             |
-| ------------ | ----------------------------------- |
-| Alice’s UTXO | `(Alice after 1y) or (Alice + ASP)` |
-
-### Forfeit transaction\*
+### Forfeit transaction
 
 - Insurance for the ASP, in case Alice tries to double spend her VTXO after spending it inside Ark
-- Before the ASP funds Bob’s VTXO in the next Pool transaction, he must receive this transaction signed by Alice
-- Uses a connector from the next Pool transaction to achieve atomicity
+- Before the ASP funds Bob’s VTXO in the next Round transaction, he must receive this transaction signed by Alice
+- Uses a connector from the next Round transaction to achieve atomicity
 
 | Inputs                               | Outputs |
 | ------------------------------------ | ------- |
 | VTXO spending `Alice + ASP`          | `ASP`   |
-| Connector from next Pool transaction |
+| Connector from next Round transaction |
 
-### Pool transaction
+### Round transaction
 
 - Funded by the ASP, creates VTXOs
 - Has at least two outputs:

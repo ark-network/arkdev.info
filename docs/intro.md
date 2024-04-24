@@ -5,11 +5,17 @@ slug: /
 title: Introduction
 ---
 
-**Welcome to Ark's developer hub.** Here, you'll find detailed information about the protocol, guidance on providing liquidity, and instructions on how to efficiently spend your coins off-chain in a secure manner.
+:::info
+🚧 **Work in progress**
+The current Ark implementation requires [Elements introspection opcodes](https://github.com/ElementsProject/elements/blob/master/doc/tapscript_opcodes.md).
+For the covenant-less version, code-named **clArk**, please check out the [GitHub repository](https://github.com/ark-network/ark).
+:::
 
 <div align="center">
   <img src="/img/ark-banner.png" alt="Noah designing the ark to onboard Bitcoin users"/>
 </div>
+
+
 
 ### 🤔 Why Ark?
 
@@ -27,18 +33,14 @@ She can use this check for payment with anyone else using the same digital bank,
 
 Should the digital bank cease to exist, **users can still retrieve their digital gold without the bank's assistance**. This is similar to withdrawing gold from a defunct traditional bank, but in Ark's case, the process is enforced and automated by the Bitcoin blockchain. This ensures that your digital gold remains safe and accessible.
 
-### 🔨 How Does it Work?
+### 📜 How Does Ark Work?
 
 Start by exploring the [Nomenclature](./learn/nomenclature.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./learn/boarding.md), [Send Payments](./learn/payments.md), and eventually [Leave the Ark](./learn/leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.
+To better understand the impact of covenant capabilites, check out the [Ark vs clArk](./learn/clark) section.
 
-### 🏃‍♀️ Running Ark
+### 🏃‍♀️ Running Ark (on Liquid)
 
-:::info
-🚧 **Work in progress**
-The Ark reference implementation is currently under development. Please check back soon for updates.
-:::
-
-You can join an existing Ark service provider or run your own.
+You can join an existing Ark service provider or run your own on the Liquid Network. To get started, follow the guides below:
 
 - [Join an Ark as User](./user/intro.md)
 - [Operate an Ark as Liquidity Provider](./provider/intro.md)
@@ -56,15 +58,10 @@ You can [integrate Ark](./developers/get-started.md) into your wallet or applica
 
 We welcome contributions from the community. If you'd like to contribute to the reference implementation, please see the [Ark GitHub repository](https://github.com/ark-network/ark) repository.
 
-### 🤓 Protocol Specifications
-
-Follow the [BOATS GitHub repository](https://github.com/ark-network/boats) for updates.
-
 ### ➰ Stay in the Loop
 
 - Join our community on [Telegram](https://t.me/ark_network_community).
 - Ask questions or get help on [Stack Overflow](https://bitcoin.stackexchange.com/questions/tagged/ark).
-- To propose protocol improvements, [open an issue on GitHub](https://github.com/ark-network/boats/issues/new).
 
 ### ⚖️ License
 
