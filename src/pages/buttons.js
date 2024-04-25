@@ -37,18 +37,31 @@ const Button = ({ children, onClick, colored }) => {
 }
 
 const Section = ({ children }) => (
-  <div style={{ margin: '10vh 0', maxWidth: '600px' }}>{children}</div>
-)
+  <div style={{ 
+    display: 'flex', 
+    flexDirection: 'column', 
+    justifyContent: 'center', // Added this line
+    alignItems: 'center', 
+    margin: '10vh 0', 
+    maxWidth: '600px' 
+  }}>
+    {children}
+  </div>
+);
 
 const SpaceBetween = ({ children }) => (
   <div
     style={{
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'space-between', 
+      alignItems: 'center',
+      width: '100%', 
+      maxWidth: '600px', // Limit the width of the container
+      margin: '0 auto', // Center the container
     }}>
     {children}
   </div>
-)
+);
 
 export default function Buttons() {
   const [binaryUrl, setBinaryUrl] = useState('')
