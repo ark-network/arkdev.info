@@ -56,7 +56,7 @@ You can [integrate Ark](./developers/get-started.md) into your wallet or applica
 
 ### ⌨️ Contributing
 
-We welcome contributions from the community. If you'd like to contribute to the reference implementation, please see the [Ark GitHub repository](https://github.com/ark-network/ark) repository.
+We welcome contributions from the community. If you'd like to contribute to the reference implementation, please see the [Ark GitHub](https://github.com/ark-network).
 
 ### ➰ Stay in the Loop
 
