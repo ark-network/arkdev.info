@@ -1,10 +1,10 @@
 ---
 sidebar_position: 2
 sidebar_label: CLI
-title: Wallet CLI for Ark Next
+title: Wallet CLI for Ark
 ---
 
-This is a reference implementation of client for the Ark protocol. It allows you to create a wallet, connect to an Ark service provider (ASP), and make payments off-chain.
+This is a reference implementation of client for the Ark protocol. It allows you to create an Ark wallet on the Liquid Network (or other Elements-compatible blockchains), connect to an Ark service provider (ASP), and make payments off-chain.
 
 ## ▶️ Install
 
