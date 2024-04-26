@@ -1,0 +1,30 @@
+/* index.module.css */
+.hero {
+  height: 50vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+  background-color: #121212; /* Dark background for contrast */
+  color: #ffffff; /* White text color */
+}
+.hero__logo {
+  width: 100px; /* Set the width of the image */
+  height: auto; /* Let the height be automatically calculated */
+  object-fit: contain; /* Resize the image while maintaining its aspect ratio */
+}
+.features {
+  padding: 4rem 0; /* Spacing above and below the features */
+}
+
+.feature {
+  margin-top: 3rem; /* Spacing between feature blocks */
+}
+
+.feature h2 {
+  color: white;
+}
+
+.feature p {
+  margin-bottom: 1rem;
+}

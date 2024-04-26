@@ -5,7 +5,6 @@ image: /img/ark-agora.png
 slug: liquidity-requirements
 tags: [liquidity, ark, bitcoin]
 title: Understanding Ark Liquidity Requirements
-unlisted: true
 ---
 
 ![Bitcoin agora](/img/ark-agora.png)
@@ -47,7 +46,7 @@ flowchart LR
 Since this an onchain transaction, and VTXOs should be virtual, we marked it as VTXO\*.
 :::
 
-When Alice makes her initial payment, for example, 1 BTC to Bob, the VTXO\* will be utilized to finance the [Pool transaction](/docs/learn/nomenclature#pool-transaction), so again, the ASP will **not** need to supply any additional liquidity:
+When Alice makes her initial payment, for example, 1 BTC to Bob, the VTXO\* will be utilized to finance the [Pool transaction](/docs/learn/nomenclature#round-transaction), so again, the ASP will **not** need to supply any additional liquidity:
 
 ```mermaid
 flowchart LR
@@ -67,7 +66,7 @@ flowchart LR
   pool --> VTXOs
 ```
 
-But if Alice tries to make a second payment, for example, 1 BTC to Charlie, she will now be utilizing a genuine virtual VTXO. In this case, the ASP will need to finance the following [Pool transaction](/docs/learn/nomenclature#pool-transaction):
+But if Alice tries to make a second payment, for example, 1 BTC to Charlie, she will now be utilizing a genuine virtual VTXO. In this case, the ASP will need to finance the following [Pool transaction](/docs/learn/nomenclature#round-transaction):
 
 ```mermaid
 flowchart LR
@@ -473,14 +472,8 @@ The liquidity requirements for an ASP will depend on three major factors:
 
 ## References
 
-- Velocity of M2 Money Stock
-  by St Louis Fed
-  <https://fred.stlouisfed.org/series/M2V>
+- [Velocity of M2 Money Stock by St Louis Fed](https://fred.stlouisfed.org/series/M2V)
 
-- Lightning Report
-  by River
-  <https://river.com/learn/files/river-lightning-report-2023.pdf>
+- [Lightning Report by River](https://river.com/learn/files/river-lightning-report-2023.pdf)
 
-- Cryptocurrencies and the Velocity of Money
-  by Ingolf Gunnar Anton Pernice, Georg Gentzen, and Hermann Elendner
-  <https://cryptoeconomicsystems.pubpub.org/pub/pernice-cryptocurrencies-velocity/release/9>
+- [Cryptocurrencies and the Velocity of Money by Ingolf Gunnar Anton Pernice, Georg Gentzen, and Hermann Elendner](https://cryptoeconomicsystems.pubpub.org/pub/pernice-cryptocurrencies-velocity/release/9)

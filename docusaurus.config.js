@@ -1,24 +1,29 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// `@type` JSDoc annotations allow editor autocompletion and type checking
+// (when paired with `@ts-check`).
+// There are various equivalent ways to declare your Docusaurus config.
+// See: https://docusaurus.io/docs/api/docusaurus-config
 
-const lightCodeTheme = require('prism-react-renderer/themes/synthwave84')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ark',
-  tagline: 'TBD',
-  favicon: 'img/ark-logo.png',
+  title: 'ARK Bitcoin',
+  tagline: 'cheap, fast and confidential bitcoin transactions',
+  favicon: 'img/favicon.ico',
+
+  // Set the production url of your site here
   url: 'https://arkdev.info',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-  organizationName: 'Ark',
-  projectName: 'Ark Website',
+
+
+  organizationName: 'ark-network', // Usually your GitHub org/user name.
+  projectName: 'arkdev.info', // Usually your repo name.
+
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
 
   presets: [
     [
@@ -26,137 +31,123 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/docs',
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/ark-network/ark/edit/master/website/',
-          exclude: [
-            '**/provider/gateway/**',
-            '**/provider/coordinator/**',
-            '**/provider/treasury/**',
-            '**/user/ark-cli.md',
-          ],
+          sidebarPath: './sidebars.js',
         },
         blog: {
-          showReadingTime: true,
-          editUrl:
-            'https://github.com/ark-network/ark/edit/master/website/blog',
-
           blogTitle: 'Blog',
-          blogDescription: 'Posts about Ark development',
+          blogDescription: 'cheap, fast and confidential bitcoin transactions',
+          postsPerPage: 'ALL',
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
+          path: './blog', // Add this line
+          routeBasePath: '/blog',
+          showReadingTime: true,
+        },
+        theme: {
+          customCss: './src/css/custom.css',
         },
       }),
     ],
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      // Replace with your project's social card
-      image: 'img/ark-banner.png',
-      navbar: {
-        title: 'Ark',
-        logo: {
-          alt: 'Ark Logo',
-          src: 'img/ark-logo.png',
-          srcDark: 'img/ark-logo.png',
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  ({
+    // Replace with your project's social card
+    image: 'img/ark-banner.png',
+    navbar: {
+      title: 'Ark',
+      logo: {
+        alt: 'Ark Logo',
+        src: 'img/ark-logo.png',
+        srcDark: 'img/ark-logo.png',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          position: 'left',
+          label: 'Docs',
         },
-        items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
-          },
-          { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            href: 'https://github.com/ark-network',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        links: [
-          {
-            title: 'LEARN',
-            items: [
-              {
-                label: 'Nomenclature',
-                to: '/docs/learn/nomenclature',
-              },
-              {
-                label: 'Board an Ark',
-                to: '/docs/learn/boarding',
-              },
-              {
-                label: 'Send Payments',
-                to: '/docs/learn/payments',
-              },
-              {
-                label: 'Leave an Ark',
-                to: '/docs/learn/leaving',
-              },
-            ],
-          },
-          {
-            title: 'DOCS',
-            items: [
-              {
-                label: 'Overview',
-                to: '/docs',
-              },
-              {
-                label: 'Join an Ark',
-                to: '/docs/user/intro',
-              },
-              {
-                label: 'Create an Ark',
-                to: '/docs/provider/intro',
-              },
-            ],
-          },
-          {
-            title: 'COMMUNITY',
-            items: [
-              {
-                label: 'Telegram',
-                href: 'https://t.me/ark_network_community',
-              },
-              {
-                label: 'Stack Exchange',
-                href: 'https://bitcoin.stackexchange.com/questions/tagged/ark',
-              },
-              {
-                label: 'Github',
-                href: 'https://github.com/ark-network',
-              },
-            ],
-          },
-          {
-            title: 'MORE',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-            ],
-          },
-        ],
-      },
-      colorMode: {
-        defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: true,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
-  markdown: {
-    mermaid: true,
-  },
-  themes: ['@docusaurus/theme-mermaid'],
+        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          href: 'https://github.com/ark-network',
+          label: 'GitHub',
+          position: 'right',
+        },
+      ],
+    },
+    footer: {
+      links: [
+        {
+          title: 'LEARN',
+          items: [
+            {
+              label: 'Nomenclature',
+              to: '/docs/learn/nomenclature',
+            },
+            {
+              label: 'Board an Ark',
+              to: '/docs/learn/boarding',
+            },
+            {
+              label: 'Send Payments',
+              to: '/docs/learn/payments',
+            },
+            {
+              label: 'Leave an Ark',
+              to: '/docs/learn/leaving',
+            },
+          ],
+        },
+        {
+          title: 'DOCS',
+          items: [
+            {
+              label: 'Overview',
+              to: '/docs',
+            },
+            {
+              label: 'Join an Ark',
+              to: '/docs/user/intro',
+            },
+            {
+              label: 'Create an Ark',
+              to: '/docs/provider/intro',
+            },
+          ],
+        },
+        {
+          title: 'COMMUNITY',
+          items: [
+            {
+              label: 'Telegram',
+              href: 'https://t.me/ark_network_community',
+            },
+            {
+              label: 'Stack Exchange',
+              href: 'https://bitcoin.stackexchange.com/questions/tagged/ark',
+            },
+            {
+              label: 'Github',
+              href: 'https://github.com/ark-network',
+            },
+          ],
+        }
+      ],
+    },
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
+    prism: {
+      darkTheme: prismThemes.oneDark,
+    },
+  }),
+markdown: {
+  mermaid: true,
+}
 }
 
-module.exports = config
+export default config;
