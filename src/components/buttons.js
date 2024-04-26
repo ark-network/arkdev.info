@@ -89,7 +89,7 @@ export default function Buttons() {
 
   const downloadAlpha = () => {
     // if we know user OS and architecture, start download immediately
-    if (!binaryUrl) window.open(binaryUrl, '_blank')
+    if (binaryUrl) window.open(binaryUrl, '_blank')
     document.querySelector('#available-binaries').scrollIntoView({
       behavior: 'smooth',
     })
