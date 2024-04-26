@@ -45,7 +45,7 @@ const HomePage = () => {
                 title="Start using Ark"
                 buttonTitle={'Get Started'}
                 buttonLink={'/docs/user/intro'}
-                description="Implement ARK into your apps for cheap and fast bitcoin transactions with ease"
+                description="Use ARK for easy, cheap and fast bitcoin transactions"
               />
               <Feature
                 title="Provide Liquidity to an Ark"
