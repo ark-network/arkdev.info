@@ -8,7 +8,7 @@ title: Introduction
 :::info
 🚧 **Work in progress**
 The current Ark implementation requires [Elements introspection opcodes](https://github.com/ElementsProject/elements/blob/master/doc/tapscript_opcodes.md).
-For the covenant-less version, code-named **clArk**, please check out the [GitHub repository](https://github.com/ark-network/ark).
+For the covenant-less version, code-named **clArk**, please check out the [clArk GitHub repository](https://github.com/ark-network/clArk).
 :::
 
 <div align="center">

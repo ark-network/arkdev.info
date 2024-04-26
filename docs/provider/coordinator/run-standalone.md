@@ -5,7 +5,7 @@ title: Run Standalone
 
 The Coordinator can be served as a standalone binary by following the steps below:
 
-1.  Download the lastest [release](https://github.com/ark-network/ark-coordinator/releases) of the service and the CLI for Linux or MacOS.
+1.  Download the lastest [release](https://github.com/ark-network/ark/releases) of the service and the CLI for Linux or MacOS.
 2.  Rename the binaries `coordinatord` and `coordinator` , move them to your _PATH_ (eg. `/usr/local/bin`), and grant them exec permissions with `chmod +x /usr/local/bin/coordinatord` and `chmod +x /usr/local/bin/coordinator`.
 3.  Start the service with
 
