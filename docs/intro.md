@@ -33,10 +33,13 @@ She can use this check for payment with anyone else using the same digital bank,
 
 Should the digital bank cease to exist, **users can still retrieve their digital gold without the bank's assistance**. This is similar to withdrawing gold from a defunct traditional bank, but in Ark's case, the process is enforced and automated by the Bitcoin blockchain. This ensures that your digital gold remains safe and accessible.
 
+### 🧐 Does Ark requires covenants?
+
+Yes and No. To better understand the impact of covenants, check out the [Ark vs clArk](./learn/clark) page to see the differences between the two implementations.
+
 ### 📜 How Does Ark Work?
 
 Start by exploring the [Nomenclature](./learn/nomenclature.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./learn/boarding.md), [Send Payments](./learn/payments.md), and eventually [Leave the Ark](./learn/leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.
-To better understand the impact of covenant capabilites, check out the [Ark vs clArk](./learn/clark) section.
 
 ### 🏃‍♀️ Running Ark (on Liquid)
 
@@ -52,7 +55,7 @@ You can join an existing Ark service provider or run your own on the Liquid Netw
 The Ark libraries and developer tools are currently under development. Please check back soon for updates.
 :::
 
-You can [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain.
+You ~~can~~ will [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain.
 
 ### ⌨️ Contributing
 

@@ -85,7 +85,7 @@ export default function Buttons() {
   })
 
   const viewOnGithub = () =>
-    window.open('https://github.com/ark-network/ark', '_blank')
+    window.open('https://github.com/ark-network/ark-next', '_blank')
 
   const downloadAlpha = () => {
     // if we know user OS and architecture, start download immediately

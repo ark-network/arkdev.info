@@ -1,0 +1,29 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-family-base: 'Montserrat', sans-serif;
+  --ifm-color-primary: #ff7f00;
+  --ifm-color-primary-dark: #e67100;
+  --ifm-color-primary-darker: #cc6600;
+  --ifm-color-primary-darkest: #b35900;
+  --ifm-color-primary-light: #ff8c1a;
+  --ifm-color-primary-lighter: #ff9933;
+  --ifm-color-primary-lightest: #ffad4d;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #ff7f00;
+  --ifm-color-primary-dark: #e67100;
+  --ifm-color-primary-darker: #cc6600;
+  --ifm-color-primary-darkest: #b35900;
+  --ifm-color-primary-light: #ff8c1a;
+  --ifm-color-primary-lighter: #ff9933;
+  --ifm-color-primary-lightest: #ffad4d;
+}

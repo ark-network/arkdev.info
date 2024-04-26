@@ -60,9 +60,8 @@ Periodic transaction crafted by the ASP that hits mainchain and creates new VTXO
 | ---------------------------- | ------------------------------------ |
 | Boarding or Round transaction | `(Alice + ASP) or (Alice after 24h)` |
 
-### Boarding
+### Boarding transaction
 
-- Initially proposed by [Steven Roose](https://roose.io/presentations/understanding-ark.pdf)
 - Alice funds an output that can be **accepted as a VTXO** in a future round
 - A covenant forces the creation of an output with the same script as [**VTXO**](#vtxo-1). No need for interactivity after funding it, anyone can spend.
 - **ASP** can unlock after a timeout ie. _4 weeks_
