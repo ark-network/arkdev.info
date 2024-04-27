@@ -14,8 +14,8 @@ Start by downloading a compatible binary from the Latest Releases
 
 #### Linux
 
-- [Linux AMD64](https://install-latest-cli.arkdev.info/latest-release/ark-linux-amd64)
-- [Linux ARM64](https://install-latest-cli.arkdev.info/latest-release/ark-linux-arm64)
+- [Linux amd64](https://install-latest-cli.arkdev.info/latest-release/ark-linux-amd64)
+- [Linux arm64](https://install-latest-cli.arkdev.info/latest-release/ark-linux-arm64)
 
 #### MacOS
 
@@ -36,7 +36,7 @@ chmod +x /usr/local/bin/ark
 The CLI requires an initial setup to initialize the wallet and connect to the liquidity provider running an `arkd` server
 
 ```bash
-ark init --password <password> --ark-url https://asp.arkdev.info
+ark init --network testnet --password <password> --ark-url https://asp-testnet.arkdev.info
 ```
 
 You can also restore a wallet by specifying the hex encoded private key with the `--prvkey` flag.
@@ -138,7 +138,7 @@ To create a second CLI, on a different terminal use a different datadir by expor
 
 ```bash
 export ARK_WALLET_DATADIR=path/to/custom
-ark init --password <password> --ark-url https://asp.arkdev.info
+ark init --network testnet --password <password> --ark-url https://asp.arkdev.info
 ```
 
 :::info

@@ -21,10 +21,7 @@ const HomePage = () => {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="The developer portal for Ark, the ultimate Bitcoin Scaling Solution"
-    >
+    <Layout>
       <main>
         <div className={styles.hero}>
           <div className="container">
