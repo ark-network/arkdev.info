@@ -39,7 +39,7 @@ Yes and No. To better understand the impact of covenants, check out the [Ark vs 
 
 ### 📜 How Does Ark Work?
 
-Start by exploring the [Nomenclature](./learn/nomenclature.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./learn/boarding.md), [Send Payments](./learn/payments.md), and eventually [Leave the Ark](./learn/leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.
+Head over our [Learn](./learn/intro.md) section to understand the Ark protocol in detail.
 
 ### 🏃‍♀️ Running Ark (on Liquid)
 

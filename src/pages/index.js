@@ -35,7 +35,7 @@ const HomePage = () => {
             <div className="row">
               <Feature
                 title="Learn Ark"
-                buttonLink={'/docs/learn/nomenclature'}
+                buttonLink={'/docs/learn/intro'}
                 description="Dive into the world of Ark with comprehensive learning resources tailored for developers."
               />
               <Feature
