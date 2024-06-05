@@ -23,7 +23,7 @@ docker run -d \
 --name oceand \
 -v oceand:/app/data/oceand \
 -v ocean:/app/data/ocean \
-ghcr.io/vulpemventures/ocean:latest
+ghcr.io/vulpemventures/oceand:latest
 ```
 
 :::warning
