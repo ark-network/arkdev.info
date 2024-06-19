@@ -19,7 +19,9 @@ Head over our [Learn](./learn/intro.md) section to understand the Ark protocol i
 
 ### 🏃‍♀️ Running Ark (on Liquid)
 
-You can join an existing Ark service provider or run your own on the Liquid Network. To get started, follow the guides below:
+You can join an existing Ark service provider or run your own on the Liquid Network. The support for the covenant-less version for Bitcoin is work in progress and [tracked on Github](https://github.com/ark-network/ark/issues/147). 
+
+To get started, follow the guides below:
 
 - [Join an Ark as User](./user/intro.md)
 - [Operate an Ark as Liquidity Provider](./provider/intro.md)
