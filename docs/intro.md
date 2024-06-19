@@ -5,23 +5,13 @@ slug: /
 title: Introduction
 ---
 
-:::info
-🚧 **Work in progress**
-The current Ark implementation requires [Elements introspection opcodes](https://github.com/ElementsProject/elements/blob/master/doc/tapscript_opcodes.md).
-For the covenant-less version, code-named **clArk**, please check out the [clArk GitHub repository](https://github.com/ark-network/clArk).
-:::
-
-<div align="center">
-  <img src="/img/ark-banner.png" alt="Noah designing the ark to onboard Bitcoin users"/>
-</div>
-
 ### 🤔 Why Ark?
 
 Bitcoin is the world's most secure and censorship-resistant blockchain. However, it's not the fastest or the cheapest. Ark is a **second-layer solution** designed to **scale Bitcoin transactions**. It uses a shared UTXO model for confidential and off-chain payments through an intermediary server that cannot access your funds.
 
 ### 🧐 Does Ark require covenants?
 
-Yes and No. To better understand the impact of covenants, check out the [Ark vs clArk](./learn/clark) page to see the differences between the two implementations.
+No (but they improve Ark a lot!). To better understand the impact of covenants, check out the [Ark vs clArk](./learn/clark) page to see the differences between the two implementations.
 
 ### 📜 How Does Ark Work?
 
