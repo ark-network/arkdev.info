@@ -23,7 +23,7 @@ Ark is a promising second-layer solution for Bitcoin that improves the scalabili
 - **Secure**: Ark is a secure solution that is built on top of the Bitcoin blockchain.
 
 :::tip
-It's recommended to read the [nomenclature](/docs/learn/nomenclature) first.
+It's recommended to read the [Key Concepts](/docs/learn/concepts) page first.
 :::
 
 ## Ark liquidity requirements
@@ -32,106 +32,20 @@ It's recommended to read the [nomenclature](/docs/learn/nomenclature) first.
 
 When Alice wishes to board an Ark, she finances an output that is eligible to be recognized as a VTXO in a future round. This does **not** necessitate any liquidity from the ASP:
 
-```mermaid
-flowchart LR
-    subgraph Onchain
-        direction LR
-        Alice
-        vtxo(10 BTC VTXO*)
-        Alice --> vtxo
-    end
-```
+![Oboard from onchain](/img/onboard-blog.png)
 
 :::info
 Since this an onchain transaction, and VTXOs should be virtual, we marked it as VTXO\*.
 :::
 
-When Alice makes her initial payment, for example, 1 BTC to Bob, the VTXO\* will be utilized to finance the [Pool transaction](/docs/learn/nomenclature#round-transaction), so again, the ASP will **not** need to supply any additional liquidity:
+When Alice makes her initial payment, for example, 1 BTC to Bob, the VTXO\* will be utilized to finance the [Round transaction](/docs/learn/concepts#round-transaction), so again, the ASP will **not** need to supply any additional liquidity. But if Alice tries to make a second payment, for example, 1 BTC to Charlie, she will now be utilizing a genuine virtual VTXO. In this case, the ASP will need to finance the following [Round transaction](/docs/learn/concepts#round-transaction):
 
-```mermaid
-flowchart LR
-  subgraph Onchain
-    direction LR
-    vtxo(10 BTC VTXO*)
-    pool(Pool transaction)
-    vtxo --> pool
-  end
-  subgraph Virtual
-    subgraph VTXOs
-      direction LR
-      change(9 BTC Alice)
-      bob(1 BTC Bob)
-    end
-  end
-  pool --> VTXOs
-```
-
-But if Alice tries to make a second payment, for example, 1 BTC to Charlie, she will now be utilizing a genuine virtual VTXO. In this case, the ASP will need to finance the following [Pool transaction](/docs/learn/nomenclature#round-transaction):
-
-```mermaid
-flowchart LR
-  subgraph Onchain
-    direction LR
-    vtxo(10 BTC VTXO*)
-    pool(Pool transaction)
-    vtxo --> pool
-    ASP(9 BTC ASP)
-    pool2(Pool transaction 2)
-    ASP --> pool2
-  end
-  subgraph Virtual
-    subgraph VTXOs
-      direction LR
-      change(9 BTC Alice)
-      bob(1 BTC Bob)
-    end
-    subgraph new_VTXOs
-      direction LR
-      charlie(1 BTC Charlie)
-      change2(8 BTC Alice)
-    end
-    forfeit(Forfeit to ASP)
-    change --> forfeit
-  end
-  pool --> VTXOs
-  pool2 --> new_VTXOs
-```
+![Round from onchain](/img/round-blog.png)
 
 Finally, let's assume Alice also pays 1 BTC to Dave:
 
-```mermaid
-flowchart LR
-  subgraph Onchain
-    direction LR
-    vtxo(10 BTC VTXO*)
-    pool(Pool transaction)
-    vtxo --> pool
-    ASP(9 BTC ASP)
-    pool2(Pool transaction 2)
-    ASP --> pool2
-    ASP2(8 BTC ASP)
-    pool3(Pool transaction 3)
-    ASP2 --> pool3
-  end
-  subgraph Virtual
-    subgraph VTXOs
-      direction LR
-      bob(1 BTC Bob)
-      charlie(1 BTC Charlie)
-      change2(8 BTC Alice)
-    end
-    subgraph new_VTXOs
-      direction LR
-      dave(1 BTC Dave)
-      change3(7 BTC Alice)
-    end
-    forfeit(Forfeit to ASP)
-    change2 --> forfeit
-  end
-  pool --> VTXOs
-  pool2 --> VTXOs
-  pool3 --> new_VTXOs
-```
+![Round 2 from onchain](/img/round2-blog.png)
+
 
 ### Summary
 

@@ -14,12 +14,12 @@ Alice wants to send funds to Bob inside the Ark.
 
 ### Timeline of events
 
-1. Alice tells ASP to send [VTXO](/docs/learn/nomenclature#vtxo-1) to Bob
-2. ASP (with Alice) prepares next [Pool transaction](/docs/learn/nomenclature#round-transaction)
-3. Alice creates a [Forfeit transaction](/docs/learn/nomenclature#forfeit-transaction):
+1. Alice tells ASP to send [VTXO](/docs/learn/concepts#vtxo) to Bob
+2. ASP (with Alice) prepares next [Round transaction](/docs/learn/concepts#round-transaction)
+3. Alice creates a [Forfeit transaction](/docs/learn/concepts#forfeit-transaction):
    - spends from VTXO (1) via `Alice + ASP`
-   - adds connector output from Pool transaction (2) as input
+   - adds connector output from Round transaction (2) as input
    - signs (SIGHASH_ALL) and sends it to the ASP
-4. ASP broadcasts [Pool transaction](/docs/learn/nomenclature#round-transaction)
-5. Bob has now a new [VTXO](/docs/learn/nomenclature#vtxo-1)
-6. For at most 4 weeks, Alice will be able to double spend her [VTXO](/docs/learn/nomenclature#vtxo-1), but if she does it, the ASP will have time to grab the funds from the [VTXO](/docs/learn/nomenclature#vtxo-1) to itself using the [Forfeit transaction](/docs/learn/nomenclature#forfeit-transaction)
+4. ASP broadcasts [Round transaction](/docs/learn/concepts#round-transaction)
+5. Bob has now a new [VTXO](/docs/learn/concepts#vtxo)
+6. For at most 4 weeks, Alice will be able to double spend her [VTXO](/docs/learn/concepts#vtxo), but if she does it, the ASP will have time to grab the funds from the [VTXO](/docs/learn/concepts#vtxo) to itself using the [Forfeit transaction](/docs/learn/concepts#forfeit-transaction)

@@ -23,7 +23,7 @@ It exposes a gRPC interface that Ark wallets can use to interact with the Provid
     - [x] Tap Leaf Script Validation
     - [x] Unroll Clause Transaction Builder.
   - [ ] Verifiy forfeit transactions
-- [x] Sign & Broadcast Pool transactions
+- [x] Sign & Broadcast Round transactions
 - [x] Sweep expired VTXOs
 - [ ] Accept VTXOs from Boarding transactions
 - [ ] Detect double spends to recover with forfeit transactions
@@ -32,7 +32,7 @@ It exposes a gRPC interface that Ark wallets can use to interact with the Provid
 
 Status: Not started yet
 
-The Ark Explorer module will consist of a console and an Electrum-like server. It will allow users to retrieve VTXOs, pool transactions, and access transaction data. More details about this module will be provided as development progresses.
+The Ark Explorer module will consist of a console and an Electrum-like server. It will allow users to retrieve VTXOs, Round transactions, and access transaction data. More details about this module will be provided as development progresses.
 
 ### 👩‍💻 `ark` - Ark CLI
 

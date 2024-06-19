@@ -83,8 +83,8 @@ const config = {
           title: 'LEARN',
           items: [
             {
-              label: 'Nomenclature',
-              to: '/docs/learn/nomenclature',
+              label: 'Key Concepts',
+              to: '/docs/learn/concepts',
             },
             {
               label: 'Board an Ark',
@@ -145,9 +145,6 @@ const config = {
       darkTheme: prismThemes.oneDark,
     },
   }),
-markdown: {
-  mermaid: true,
-}
 }
 
 export default config;

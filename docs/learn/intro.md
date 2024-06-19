@@ -3,12 +3,6 @@ sidebar_position: 1
 title: 'Overview'
 ---
 
-:::info
-🚧 **Work in progress**
-The current Ark implementation requires [Elements introspection opcodes](https://github.com/ElementsProject/elements/blob/master/doc/tapscript_opcodes.md).
-For the covenant-less version, code-named **clArk**, please check out the [clArk GitHub repository](https://github.com/ark-network/clArk).
-:::
-
 ### 👶🏼 ELI5: Ark in Simple Terms
 
 Consider the early private banks that issued banknotes in exchange for gold deposits. These banknotes were redeemable for gold at any time. The banknotes were more convenient to use than gold, but they were only as good as the bank that issued them. If the bank went bankrupt, the banknotes would become worthless.
@@ -23,4 +17,4 @@ Should the digital bank cease to exist, **users can still retrieve their digital
 
 ### 📜 How Does Ark Work?
 
-Start by exploring the [Nomenclature](./nomenclature.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./boarding.md), [Send Payments](./payments.md), and eventually [Leave the Ark](./leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.
+Start by exploring the [Key Concepts](./concepts.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./boarding.md), [Send Payments](./payments.md), and eventually [Leave the Ark](./leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.

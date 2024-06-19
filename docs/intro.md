@@ -11,7 +11,11 @@ Bitcoin is the world's most secure and censorship-resistant blockchain. However,
 
 ### 🧐 Does Ark require covenants?
 
-No (but they improve Ark a lot!). To better understand the impact of covenants, check out the [Ark vs clArk](./learn/clark) page to see the differences between the two implementations.
+No (but they improve Ark a lot!). A covenant-less version of **Ark is possible on Bitcoin** today!
+
+To better understand the impact of covenants and the drawbacks of clArk, check out the [Ark vs clArk](./learn/clark) page to see the differences between the two implementations.
+
+Through the documentation, we will refer to the covenant-less version as **clArk** and the covenant version as **Ark**.
 
 ### 📜 How Does Ark Work?
 
