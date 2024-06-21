@@ -18,6 +18,15 @@ toc_max_heading_level: 5
   - [Forfeit transaction](#forfeit-transaction)
   - [Round transaction](#round-transaction)
 
+<details>
+<summary>Legend</summary>
+- **Alice**: Alice signature is required
+- **ASP**: ASP signature is required
+- **cov\*\*(script)**: covenant that forces the spending transaction to have a mandatory first output with the **script**
+- **and(Alice,Bob)**: both conditions needed to unlock
+- **or(Alice,Bob)**: only one condition needed to unlock
+</details>
+
 ## 🕴️ Actors
 
 ### ASP
@@ -35,16 +44,16 @@ All time periods used on timelocks (**5s**, **24h**, **4w**, **1y**) are arbitra
 
 ### VTXO
 
-A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is a Bitcoin transaction output that is held by a user, but is not confirmed on the chain. is the leaf of the [VTXO tree](#vtxo-tree) commited by the [Shared Output](#shared-output) in the blockchain when the ASP broadcast his [round transaction](#round-transaction). The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
+A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) commited by the [Shared Output](#shared-output) in the blockchain when the ASP broadcast his [round transaction](#round-transaction). The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
 
-The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It has 2 tapscript closures:
+The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It has 2 tapscript closures
 
 1. **Redeem** lets to spend the VTXO onchain after a CSV delay. the delay prevents the ASP to lost a VTXO spent off-chain.
 2. **Forfeit** expects both parties (owner and ASP) to sign the spending transaction. It is used to spend the VTXO off-chain.
 
-| Inputs                       | Outputs                              |
-| ---------------------------- | ------------------------------------ |
-| Boarding or Round transaction | `VTXO script` |
+```hack
+(Alice + ASP) OR (Alice after 24h)
+```
 
 ### VTXO Tree
 
@@ -64,8 +73,8 @@ A shared output is a bitcoin transaction output locked by a taproot script with 
 
 1. **Unroll** forces the spending transaction format. The tx creates the next level of the script tree on-chain. Splitting the value into 2 outputs with the children taproot scripts.
 2. **Sweep** lets the Ark Service Provider to spend the whole shared output after a timeout.
+
 ![shared output](/img/shared-output.png)
-- Tree can have a radix higher than 2 (ex: radix 4)
 
 ### Rounds
 
@@ -83,15 +92,6 @@ To allow users to spend their VTXOs more quickly, out-of-round (OOR) payments ar
 OOR payments are co-signed by the ASP. Users **trust that the ASP and sender won't collude** for a double spend. The recipient can either rely on the ASP's reputation and keep the OOR VTXO or choose to convert it into a regular VTXO in the next Ark round for added security.
 
 ## ⛓️‍💥 Transactions
-
-<details>
-<summary>Legend</summary>
-- **Alice**: Alice signature is required
-- **ASP**: ASP signature is required
-- **cov\*\*(script)**: covenant that forces the spending transaction to have a mandatory first output with the **script**
-- **and(Alice,Bob)**: both conditions needed to unlock
-- **or(Alice,Bob)**: only one condition needed to unlock
-</details>
 
 :::note
 The boarding transaction is peculiar to the Ark protocol with covenants. It is used to fund a VTXO by sending it directly to a boarding address without having to interact with the ASP. In the covenant-less version, Alice and ASP MUST interact to finalize the funding and redeem transactions.
