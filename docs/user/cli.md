@@ -36,7 +36,7 @@ chmod +x /usr/local/bin/ark
 The CLI requires an initial setup to initialize the wallet and connect to the liquidity provider running an `arkd` server
 
 ```bash
-ark init --network testnet --password <password> --ark-url https://asp-testnet.arkdev.info
+ark init --network testnet --password <password> --ark-url https://asp.arkdev.info
 ```
 
 You can also restore a wallet by specifying the hex encoded private key with the `--prvkey` flag.
