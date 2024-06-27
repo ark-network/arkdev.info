@@ -60,7 +60,7 @@ docker run -d \
 --name arkd \
 -v arkd:/app/data \
 -v ark:/app/wallet-data \
-ghcr.io/ark-network/ark:v0.1.0
+ghcr.io/ark-network/ark:latest
 ```
 
 **Note:** On startup `arkd` will create an account `ark` on oceand.
