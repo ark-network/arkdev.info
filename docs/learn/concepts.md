@@ -11,12 +11,12 @@ toc_max_heading_level: 5
   - [Shared Output](#shared-output)
   - [Rounds](#rounds)
   - [Connectors](#connectors)
-  - [Out of Round](#out-of-round)
 - [⛓️‍💥 Transactions](#️-transactions)
 
 <details>
 <summary>Legend</summary>
 - **Alice**: Alice signature is required
+- **Bob**: Bob signature is required
 - **ASP**: ASP signature is required
 - **cov\*\*(script)**: covenant that forces the spending transaction to have a mandatory first output with the **script**
 - **and(Alice,Bob)**: both conditions needed to unlock
@@ -44,7 +44,7 @@ A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be s
 
 The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It has 2 tapscript closures
 
-1. **Redeem** lets to spend the VTXO onchain after a CSV delay. the delay prevents the ASP to lost a VTXO spent off-chain.
+1. **Redeem** lets to spend the VTXO onchain after a CSV delay. the delay prevents the ASP to loose a VTXO spent off-chain.
 2. **Forfeit** expects both parties (owner and ASP) to sign the spending transaction. It is used to spend the VTXO off-chain.
 
 ```hack
@@ -80,12 +80,6 @@ To participate, users sign an off-chain [forfeit transaction](#forfeit-transacti
 ### Connectors
 
 To ensure atomicity—preventing users from losing their VTXOs without confirmation of the new ones—the forfeit transaction is contingent on the new shared UTXO transaction. This is achieved by using connector outputs, which are part of the shared UTXO transaction and serve as inputs for the forfeit transactions.
-
-### Out of round
-
-Rounds require user interaction and result in an on-chain transaction that must be confirmed before finalizing. This process can be time-consuming.
-To allow users to spend their VTXOs more quickly, out-of-round (OOR) payments are available. These enable participants to make instant payments directly from one party to another without waiting for an Ark round.
-OOR payments are co-signed by the ASP. Users **trust that the ASP and sender won't collude** for a double spend. The recipient can either rely on the ASP's reputation and keep the OOR VTXO or choose to convert it into a regular VTXO in the next Ark round for added security.
 
 ## ⛓️‍💥 Transactions
 
