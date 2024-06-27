@@ -71,7 +71,7 @@ const config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/ark-network',
+          href: 'https://github.com/ark-network/ark',
           label: 'GitHub',
           position: 'right',
         },
@@ -130,7 +130,7 @@ const config = {
             },
             {
               label: 'Github',
-              href: 'https://github.com/ark-network',
+              href: 'https://github.com/ark-network/ark',
             },
           ],
         }

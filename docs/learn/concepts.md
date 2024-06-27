@@ -4,19 +4,15 @@ title: 'Key Concepts'
 toc_max_heading_level: 5
 ---
 
-- [Actors](#️-actors)
-  - [ASP](#asp)
-  - [Users](#users)
-- [Contracts and Primitives](#-contracts-and-primitives)
+- [🕴️ Actors](#️-actors)
+- [📝 Contracts and Primitives](#-contracts-and-primitives)
   - [VTXO](#vtxo)
   - [VTXO Tree](#vtxo-tree)
-  - [Shared output](#shared-output)
+  - [Shared Output](#shared-output)
   - [Rounds](#rounds)
   - [Connectors](#connectors)
-- [Transactions](#️-transactions)
-  - [Boarding transaction](#boarding-transaction)
-  - [Forfeit transaction](#forfeit-transaction)
-  - [Round transaction](#round-transaction)
+  - [Out of Round](#out-of-round)
+- [⛓️‍💥 Transactions](#️-transactions)
 
 <details>
 <summary>Legend</summary>

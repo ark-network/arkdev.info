@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 sidebar_label: Ark vs clArk
 title: covenant-less Ark
 toc_max_heading_level: 5
