@@ -37,7 +37,7 @@ In the clArk protocol, the process of funding and redeeming VTXOs is more intera
 
 ### Funding Transaction
 
-#### 1. Creation of PSBT by Alice**
+#### 1. Creation of PSBT by Alice
 
 Alice begins by creating a PSBT, adding any SegWit UTXO as an input. She then adds an output with the script `(Alice + ASP) or (ASP after 1 month)`. This PSBT is sent to the ASP for further processing.
 
@@ -47,7 +47,7 @@ Alice begins by creating a PSBT, adding any SegWit UTXO as an input. She then ad
 
 ### Redeem Transaction
 
-#### 2. Creation of Redeem PSBT by ASP**
+#### 2. Creation of Redeem PSBT by ASP
 
 The ASP takes the output from the funding transaction and creates a new PSBT. This PSBT spends from the cooperative path `(Alice + ASP)` and adds an output with the script `(Alice + ASP) or (Alice after 24h)`, setting up the conditions for the VTXO.
 
