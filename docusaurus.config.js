@@ -121,6 +121,10 @@ const config = {
           title: 'COMMUNITY',
           items: [
             {
+              label: 'Discord',
+              href: 'https://discord.gg/5XwckYtXAG',
+            },
+            {
               label: 'Telegram',
               href: 'https://t.me/ark_network_community',
             },

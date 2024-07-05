@@ -42,8 +42,9 @@ We welcome contributions from the community. If you'd like to contribute to the 
 
 ### ➰ Stay in the Loop
 
-- Join our community on [Telegram](https://t.me/ark_network_community).
+- Join our developer chat on [Discord](https://discord.gg/5XwckYtXAG).
 - Ask questions or get help on [Stack Overflow](https://bitcoin.stackexchange.com/questions/tagged/ark).
+- Join our community on [Telegram](https://t.me/ark_network_community).
 
 ### ⚖️ License
 
