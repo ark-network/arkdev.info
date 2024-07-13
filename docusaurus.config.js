@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ARK Bitcoin',
-  tagline: 'cheap, fast and confidential bitcoin transactions',
+  tagline: 'Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for confidential and off-chain payments through an intermediary server that cannot access your funds.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -35,7 +35,7 @@ const config = {
         },
         blog: {
           blogTitle: 'Blog',
-          blogDescription: 'cheap, fast and confidential bitcoin transactions',
+          blogDescription: 'Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for off-chain payments through an intermediary server that cannot access your funds.',
           postsPerPage: 'ALL',
           blogSidebarTitle: 'All posts',
           blogSidebarCount: 'ALL',
@@ -55,6 +55,11 @@ const config = {
   ({
     // Replace with your project's social card
     image: 'img/ark-banner.png',
+    metadata: [
+      {name: 'description', content: 'Ark is a layer-two protocol designed to scale Bitcoin transactions through a shared UTXO model'},
+      {property: 'og:description', content: 'Ark is a layer-two protocol designed to scale Bitcoin transactions through a shared UTXO model'},
+      {property: 'og:title', content: 'ARK - Bitcoin Layer-Two Protocol'},
+    ],
     navbar: {
       title: 'Ark',
       logo: {

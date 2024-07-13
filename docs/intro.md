@@ -7,7 +7,7 @@ title: Introduction
 
 ### 🤔 Why Ark?
 
-Bitcoin is the world's most secure and censorship-resistant blockchain. However, it's not the fastest or the cheapest. Ark is a **second-layer solution** designed to **scale Bitcoin transactions**. It uses a shared UTXO model for confidential and off-chain payments through an intermediary server that cannot access your funds.
+Bitcoin is the world's most secure and censorship-resistant blockchain. However, it's not the fastest or the cheapest. Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for off-chain payments through an intermediary server that cannot access your funds.
 
 ### 🧐 Does Ark require covenants?
 
