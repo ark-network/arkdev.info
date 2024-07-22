@@ -23,8 +23,12 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@algolia/client-search": "^4.24.0",
     "@docusaurus/module-type-aliases": "^3.4.0",
-    "@docusaurus/types": "^3.4.0"
+    "@docusaurus/types": "^3.4.0",
+    "@types/react": "^18.3.3",
+    "search-insights": "^2.15.0",
+    "typescript": "^5.5.3"
   },
   "browserslist": {
     "production": [
