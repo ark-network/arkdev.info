@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ARK Bitcoin',
+  title: 'ARK - Bitcoin Layer-Two Protocol',
   tagline: 'Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for confidential and off-chain payments through an intermediary server that cannot access your funds.',
   favicon: 'img/favicon.ico',
 

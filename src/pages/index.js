@@ -35,8 +35,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
-      description="Build on Ark - Cheap, fast and confidential Bitcoin transactions">
+      title={siteConfig.title}
+      description="Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for confidential and off-chain payments through an intermediary server that cannot access your funds.">
       <HomepageHeader />
       <main className={styles.main}>
         <section className={styles.features}>
