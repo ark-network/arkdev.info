@@ -21,6 +21,53 @@
   align-items: center;
 }
 
+.heroButtons,
+.featureButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 120px;
+  font-family: var(--ifm-font-family-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonPrimary {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-text-color);
+  border: none;
+}
+
+.buttonPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+.buttonSecondary {
+  background: transparent;
+  color: var(--ifm-text-color);
+  border: 1px solid var(--ifm-text-color);
+}
+
+.buttonSecondary:hover {
+  background: rgba(251, 251, 251, 0.1);
+  text-decoration: none;
+}
+
+.buttonIcon {
+  margin-left: 4px;
+}
+
 .arkCubes {
   width: 80px; /* Adjust as needed */
   height: auto;
@@ -104,6 +151,16 @@
   .heroBanner {
     padding: 2rem 0;
     height: 50vh;
+  }
+
+  .heroButtons,
+  .featureButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 200px; /* or any appropriate width for mobile */
   }
 
   .arkCubes {

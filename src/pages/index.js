@@ -26,6 +26,14 @@ function HomepageHeader() {
         <img src="/img/ark-cubes.png" alt="Ark Cubes" className={styles.arkCubes} />
         <h1 className={styles.heroTitle}>Build on Ark</h1>
         <p className={styles.heroSubtitle}>Cheap, fast and confidential Bitcoin transactions</p>
+        <div className={styles.heroButtons}>
+          <Link to="/docs/quick-start/intro" className={`${styles.button} ${styles.buttonPrimary}`}>
+            Quick Start <span className={styles.buttonIcon}>⏱️</span>
+          </Link>
+          <Link to="/blog" className={`${styles.button} ${styles.buttonSecondary}`}>
+            Blog
+          </Link>
+        </div>
       </div>
     </header>
   );
