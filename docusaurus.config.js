@@ -151,7 +151,7 @@ const config = {
       respectPrefersColorScheme: false,
     },
     prism: {
-      darkTheme: prismThemes.oneDark,
+      darkTheme: prismThemes.shadesOfPurple,
     },
   }),
 }
