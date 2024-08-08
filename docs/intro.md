@@ -34,7 +34,7 @@ To get started, follow the guides below:
 The Ark libraries and developer tools are currently under development. Please check back soon for updates.
 :::
 
-You ~~can~~ will [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain.
+You ~~can~~ will [integrate Ark](./sdks/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain.
 
 ### ⌨️ Contributing
 

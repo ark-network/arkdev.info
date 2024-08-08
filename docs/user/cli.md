@@ -1,7 +1,6 @@
 ---
 sidebar_position: 2
-sidebar_label: CLI
-title: Ark Wallet CLI Guide
+title: CLI Guide
 ---
 
 import Tabs from '@theme/Tabs';

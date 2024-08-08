@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # Docker
 
-This guide will walk you through setting up Ocean wallet and Ark using Docker. We'll cover everything from initial setup to funding your wallet.
+Here you will learn how to get your Ark server ready for processing offchain payments. We'll cover everything from initial setup to funding your wallet.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,6 +14,10 @@ import TabItem from '@theme/TabItem';
   <TabItem value="covenant" label="Ark">
 
 ## Setup
+
+This version of the Ark server uses an external wallet called [Ocean](https://github.com/vulpemventures/ocean).
+
+Before setting up the Ark server you must start the Ocean wallet as described below.
 
 ### 1.1 Setting up the Ocean wallet
 
