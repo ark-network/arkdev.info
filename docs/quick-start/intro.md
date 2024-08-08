@@ -5,7 +5,7 @@ title: 'Introduction'
 
 Welcome to the **Ark** quick-start guide! In this guide, you'll learn how to run a **covenant-less** Ark for **Bitcoin** regtest locally with just a few commands. We'll walk you through setting up a local Bitcoin testing environment, running and provisioning the `arkd` server (an ASP implementation), and making off-chain transactions with the `ark` client.
 
-### What is Ark?
+### Tell me more about Ark
 
 - **`ark`**: A simple Ark-enabled Bitcoin wallet in the form of a command-line interface. It connects to an Ark Server to perform off-chain transactions. The `ark` client has both an on-chain and off-chain Bitcoin wallet, allowing you to send and receive Bitcoin on-chain and off-chain through the Ark protocol. If the server is unresponsive or disappears, it can unilaterally exit by unrolling the [VTXO tree](../learn/concepts.md#vtxo-tree).
 

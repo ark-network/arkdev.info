@@ -10,7 +10,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 const config = {
   title: "ARK - Bitcoin Layer-Two Protocol",
   tagline:
-    "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for confidential and off-chain payments.",
+    "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -36,7 +36,7 @@ const config = {
         blog: {
           blogTitle: "ARK - Blog",
           blogDescription:
-            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for confidential and off-chain payments.",
+            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.",
           postsPerPage: "ALL",
           blogSidebarTitle: "All posts",
           blogSidebarCount: "ALL",
@@ -60,12 +60,12 @@ const config = {
         {
           name: "description",
           content:
-            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for confidential and off-chain payments.",
+            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.",
         },
         {
           property: "og:description",
           content:
-            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for confidential and off-chain payments.",
+            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.",
         },
         { property: "og:title", content: "ARK - Bitcoin Layer-Two Protocol" },
       ],
