@@ -7,16 +7,14 @@ Welcome to the client-facing Go SDK for Ark! This SDK provides a simple way to i
 
 ## Documentation
 
-The complete API documentation for the Go SDK is automatically generated and published on [pkg.go.dev](https://pkg.go.dev) with each GitHub release. This ensures that you always have access to the most up-to-date documentation for the version you're using.
-
-To view the documentation, visit: [https://pkg.go.dev/github.com/ark-network/ark-sdk](https://pkg.go.dev/github.com/ark-network/ark-sdk)
+The complete API documentation for the Go SDK is automatically generated and published on **pkg.go.dev** with each GitHub release. To view the documentation, visit: [https://pkg.go.dev/github.com/ark-network/ark-sdk](https://pkg.go.dev/github.com/ark-network/ark-sdk)
 
 ## Installation
 
 To install the Ark Go SDK, use the following command:
 
 ```bash
-go get github.com/ark-network/ark-sdk
+go get github.com/ark-network/ark-sdk@latest
 ```
 
 ## Usage
