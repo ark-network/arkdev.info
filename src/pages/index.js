@@ -1,4 +1,3 @@
-// index.js
 import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
@@ -72,9 +71,9 @@ export default function Home() {
           <FeatureItem
             icon="/img/use-ark.png"
             title="Start Using Ark"
-            description="Use ARK for easy, cheap and fast bitcoin transactions."
+            description="Integrate ARK in your own bitcoin wallet for easy, cheap and fast bitcoin transactions."
             buttonText="Build now"
-            buttonLink="/docs/user/intro"
+            buttonLink="/docs/developers/get-started"
           />
           <Separator />
           <FeatureItem
