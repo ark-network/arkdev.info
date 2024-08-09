@@ -33,7 +33,7 @@ function HomepageHeader() {
         </p>
         <div className={styles.heroButtons}>
           <Link
-            to="/docs/quick-start/intro"
+            to="/docs/quick-start/overview"
             className={`${styles.button} ${styles.buttonPrimary}`}
           >
             Quick Start <span className={styles.buttonIcon}>⏱️</span>

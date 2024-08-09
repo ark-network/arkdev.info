@@ -6,7 +6,7 @@ title: Introduction
 ---
 
 :::tip Quick Start Guide
-For a quick start, check out our [Quick Start Guide](./quick-start/intro.md) to get up and running an Ark local environment.
+For a quick start, check out our [Quick Start Guide](./quick-start/overview.md) to get up and running an Ark local environment.
 :::
 
 ### 🤔 Why Ark?
