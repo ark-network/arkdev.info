@@ -94,21 +94,57 @@ func setupFileBasedArkClient() (arksdk.ArkClient, error) {
 }
 ```
 
+
 ### 2. Client Configuration Options
 
-The `Init` function accepts various configuration options. Here's a breakdown of all available options:
+The `Init` function accepts various configuration options through the `InitArgs` struct. Here's a breakdown of all available options:
 
 ```go
 type InitArgs struct {
-    WalletType string  // "singlekey" or "hd"
-    ClientType string  // "grpc" or "rest"
-    AspUrl     string  // URL of the Ark Service Provider
-    Password   string  // Wallet password
-    Network    string  // "bitcoin" or "liquid"
-    Mnemonic   string  // Optional: Mnemonic for wallet restoration
-    PrivateKey string  // Optional: Private key for wallet restoration
+    ClientType string // Type of client connection (e.g., "grpc" or "rest")
+    WalletType string // Type of wallet (e.g., "singlekey" or "hd")
+    AspUrl     string // URL of the Ark Service Provider
+    Seed       string // Private Key hex encoded for wallet initialization or restoration
+    Password   string // Wallet password
 }
 ```
+
+Let's explore each field in detail:
+
+- `ClientType`: Specifies the type of connection to use with the Ark Service Provider. Common values are:
+  - `"grpc"`: Uses gRPC for communication (recommended for better performance)
+  - `"rest"`: Uses REST API for communication
+
+- `WalletType`: Defines the type of wallet to create or restore. Options include:
+  - `"singlekey"`: A wallet using a single key for all transactions
+  - `"hd"`: A Hierarchical Deterministic wallet, which generates new addresses for each transaction
+
+- `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:8080"` for a local instance.
+
+- `Seed`: A seed phrase or private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup seed for restoring an existing wallet.
+
+- `Password`: The password used to encrypt and protect the wallet.
+
+Here's an example of how to use these options when initializing an Ark client:
+
+```go
+client, err := arksdk.NewCovenantlessClient(storeSvc)
+if err != nil {
+    return nil, fmt.Errorf("failed to setup ark client: %s", err)
+}
+
+if err := client.Init(context.Background(), arksdk.InitArgs{
+    ClientType: arksdk.GrpcClient,
+    WalletType: arksdk.SingleKeyWallet,
+    AspUrl:     "localhost:8080",
+    Seed:       "private key hex-encoded",
+    Password:   "your-strong-password",
+}); err != nil {
+    return nil, fmt.Errorf("failed to initialize wallet: %s", err)
+}
+```
+
+Note: Always ensure that you keep your seed phrase and password secure. Never share them or store them in plaintext.
 
 ### 3. Wallet Operations
 
