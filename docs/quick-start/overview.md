@@ -1,9 +1,11 @@
 ---
 sidebar_position: 1
-title: 'Introduction'
+title: 'Overview'
 ---
+## Local Docker Setup 
 
-Welcome to the **Ark** quick-start guide! In this guide, you'll learn how to run a **covenant-less** Ark for **Bitcoin** regtest locally with just a few commands. We'll walk you through setting up a local Bitcoin testing environment, running and provisioning the `arkd` server (an ASP implementation), and making off-chain transactions with the `ark` client.
+Welcome to the **Ark** quick-start guide! 
+In this guide, you'll learn how to run a **covenant-less** Ark for **Bitcoin regtest** locally with just a few commands. We'll walk you through setting up a local Bitcoin testing environment, running and provisioning the `arkd` server (an ASP implementation), and making off-chain transactions with the `ark` client.
 
 ### Tell me more about Ark
 

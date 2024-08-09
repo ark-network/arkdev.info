@@ -5,6 +5,10 @@ title: 'Requirements'
 
 ## Setting Up a Bitcoin Testing Environment
 
+:::tip
+If you already have `docker` and `nigiri` installed, you can skip this setup process and proceed directly to the [Run the Server](./server.md) section.
+:::
+
 The most straightforward way to begin is by using Docker and Nigiri CLI to set up a local Bitcoin, Liquid, and Lightning testing environment. Nigiri is a powerful command-line tool that allows you to launch a complete Bitcoin environment with a single command, leveraging the Docker engine.
 
 ### What Nigiri Provides
@@ -16,9 +20,7 @@ The most straightforward way to begin is by using Docker and Nigiri CLI to set u
 - `nigiri rpc` exposes JSON-RPC interface for the Bitcoin Core node
 - Automatic block generation when transactions are broadcast through the local block explorer
 
-:::tip
-If you already have `docker` and `nigiri` installed, you can skip this setup process and proceed directly to the [Run the Server](./server.md) section.
-:::
+
 
 ### Install Instructions
 
