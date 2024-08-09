@@ -23,9 +23,11 @@ Here's a comprehensive guide on how to use the Ark Go SDK:
 
 ### 1. Setting up the Ark Client
 
-The Ark client can be set up with different storage options and configurations. Here's how you can create and initialize an Ark client:
+The Ark client can be set up with different storage options and configurations. Here's how you can create and initialize an Ark client with different storage options:
 
-#### Using In-Memory Storage (for testing)
+#### Using In-Memory Storage (only for testing)
+
+The code snippet below demonstrates how to set up an Ark client with in-memory storage. This will create a neew seed and holds it in the storeSvc variable.
 
 ```go
 import (
@@ -194,10 +196,10 @@ log.Infof("Redeemed with tx: %s", txid)
 
 ## Full Example
 
-For a complete end-to-end example demonstrating the usage of the Ark Go SDK, including setting up multiple clients, onboarding, and transferring funds, please refer to our [GitHub repository](https://github.com/ark-network/ark-sdk/examples/covenant_example.go).
+For a complete end-to-end example demonstrating the usage of the Ark Go SDK, including setting up multiple clients, onboarding, and transferring funds, please refer to our [GitHub repository](https://github.com/ark-network/ark/blob/master/pkg/client-sdk/example/covenantless/alice_to_bob.go).
 
 ## Support
 
-If you encounter any issues or have questions, please file an issue on our [GitHub repository](https://github.com/ark-network/ark-sdk/issues).
+If you encounter any issues or have questions, please file an issue on our [GitHub repository](https://github.com/ark-network/ark/issues).
 
 Happy coding with Ark and Go! 🚀
