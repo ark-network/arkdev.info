@@ -1,5 +1,20 @@
 bordalix:
   name: João Bordalo
-  title: Developer
+  title: Ark Labs
   url: https://github.com/bordalix
   image_url: https://github.com/bordalix.png
+tiero:
+  name: Marco Argentieri
+  title: Ark Labs
+  url: https://github.com/tiero
+  image_url: https://github.com/tiero.png
+altafan:
+  name: Pietralberto Mazza
+  title: Ark Labs
+  url: https://github.com/altafan
+  image_url: https://github.com/altafan.png
+louisinger:
+  name: Louis Singer
+  title: Ark Labs
+  url: https://github.com/louisinger
+  image_url: https://github.com/louisinger.png

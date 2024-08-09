@@ -1,26 +1,10 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* src/css/custom.css */
+
  @import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap');
 
  /* You can override the default Infima variables here. */
  :root {
    --ifm-font-family-base: 'Switzer Variable', sans-serif;
-   --ifm-color-primary: #FC8D4E;
-   --ifm-color-primary-dark: #F5894C;
-   --ifm-color-primary-darker: #E67940;
-   --ifm-color-primary-darkest: #D66A34;
-   --ifm-color-primary-light: #FD9C66;
-   --ifm-color-primary-lighter: #FEAB7E;
-   --ifm-color-primary-lightest: #FFBA96;
-   --ifm-background-color: #121212;
-   --ifm-text-color: #FBFBFB;
- }
- 
- /* For readability concerns, you should choose a lighter palette in dark mode. */
- [data-theme='dark'] {
    --ifm-color-primary: #FC8D4E;
    --ifm-color-primary-dark: #F5894C;
    --ifm-color-primary-darker: #E67940;
@@ -39,4 +23,53 @@
    color: var(--ifm-text-color);
  }
  
- /* You can add more global styles here if needed */
+ /* Warp-like styles for code blocks only */
+ .theme-code-block,
+ .theme-code-block pre,
+ pre code,
+ .prism-code {
+   background-color: #0E2A2E !important; /* Adjusted to better match Warp terminal */
+   color: #E0E0E0 !important;
+ }
+ 
+ /* Warp-like syntax highlighting */
+ .token.comment { color: #7A7F8A !important; }
+ .token.punctuation { color: #E0E0E0 !important; }
+ .token.property,
+ .token.tag,
+ .token.constant,
+ .token.symbol,
+ .token.deleted { color: #FF7AB2 !important; }
+ .token.boolean,
+ .token.number { color: #FF8F40 !important; }
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted { color: #4CC38A !important; }
+ .token.operator,
+ .token.entity,
+ .token.url,
+ .language-css .token.string,
+ .style .token.string { color: #E0E0E0 !important; }
+ .token.atrule,
+ .token.attr-value,
+ .token.keyword { color: #FF7AB2 !important; }
+ .token.function,
+ .token.class-name { color: #5BA2FF !important; }
+ .token.regex,
+ .token.important,
+ .token.variable { color: #F8F8F2 !important; }
+ 
+ /* Styles for command-line elements */
+ .command-line-prompt {
+   border-right: 1px solid #3A3F4B;
+   margin-right: 1em;
+   padding-right: 1em;
+   color: #7A7F8A !important;
+ }
+ .token.command,
+ .token.parameter { color: #5BA2FF !important; }
+ .token.option { color: #FF7AB2 !important; }
+ .token.interpolation { color: #4CC38A !important; }
