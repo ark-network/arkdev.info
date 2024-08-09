@@ -160,7 +160,9 @@ const config = {
         respectPrefersColorScheme: false,
       },
       prism: {
-        darkTheme: prismThemes.shadesOfPurple,
+        theme: prismThemes.vsDark,
+        darkTheme: prismThemes.vsDark,
+        additionalLanguages: ['bash', 'diff', 'json'],
       },
     }),
 };
