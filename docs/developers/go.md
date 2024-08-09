@@ -14,7 +14,7 @@ The complete API documentation for the Go SDK is automatically generated and pub
 To install the Ark Go SDK, use the following command:
 
 ```bash
-go get github.com/ark-network/ark-sdk@latest
+go get github.com/ark-network/ark/pkg/client-sdk@latest
 ```
 
 ## Usage
