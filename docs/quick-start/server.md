@@ -25,7 +25,7 @@ docker run -d --name arkd \
   -v ark:/app/wallet-data \
   -v arkd:/app/data \
   --network nigiri \
-  -p 6060:6060 \
+  -p 7070:7070 \
   -e ARK_NETWORK=regtest \
   -e ARK_TX_BUILDER_TYPE=covenantless \
   -e ARK_ROUND_INTERVAL=5 \

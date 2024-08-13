@@ -49,7 +49,7 @@ func setupInMemoryArkClient() (arksdk.ArkClient, error) {
     if err := client.Init(context.Background(), arksdk.InitArgs{
         WalletType: arksdk.SingleKeyWallet,
         ClientType: arksdk.GrpcClient,
-        AspUrl:     "localhost:6060",
+        AspUrl:     "localhost:7070",
         Password:   "password",
     }); err != nil {
         return nil, fmt.Errorf("failed to initialize wallet: %s", err)
@@ -83,7 +83,7 @@ func setupFileBasedArkClient() (arksdk.ArkClient, error) {
     if err := client.Init(context.Background(), arksdk.InitArgs{
         WalletType: arksdk.SingleKeyWallet,
         ClientType: arksdk.GrpcClient,
-        AspUrl:     "localhost:6060",
+        AspUrl:     "localhost:7070",
         Password:   "password",
         Network:    "bitcoin",  // or "liquid" for Liquid network
     }); err != nil {
@@ -119,7 +119,7 @@ Let's explore each field in detail:
   - `"singlekey"`: A wallet using a single key for all transactions
   - `"hd"`: A Hierarchical Deterministic wallet, which generates new addresses for each transaction
 
-- `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:6060"` for a local instance.
+- `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:7070"` for a local instance.
 
 - `Seed`: A seed phrase or private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup seed for restoring an existing wallet.
 
@@ -136,7 +136,7 @@ if err != nil {
 if err := client.Init(context.Background(), arksdk.InitArgs{
     ClientType: arksdk.GrpcClient,
     WalletType: arksdk.SingleKeyWallet,
-    AspUrl:     "localhost:6060",
+    AspUrl:     "localhost:7070",
     Seed:       "private key hex-encoded",
     Password:   "your-strong-password",
 }); err != nil {
