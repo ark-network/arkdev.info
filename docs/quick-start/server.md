@@ -56,6 +56,23 @@ Create a new wallet with a password:
 arkd wallet create --password password
 ```
 
+:::note
+If you have already created a wallet in the past, best to clear the default wallet data directory before creating a new one:
+
+Remove the docker container named `arkd`:
+
+```sh
+docker rm arkd 
+```
+
+Delete the volumes
+
+```sh
+docker volume rm ark arkd
+```
+
+:::
+
 ### 2. Unlock the Wallet
 
 Unlock the wallet using the password:

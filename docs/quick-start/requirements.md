@@ -20,17 +20,17 @@ The most straightforward way to begin is by using Docker and Nigiri CLI to set u
 - `nigiri rpc` exposes JSON-RPC interface for the Bitcoin Core node
 - Automatic block generation when transactions are broadcast through the local block explorer
 
-
-
 ### Install Instructions
 
 #### 1. Install Docker
 
 - **Mac Users**: Download and install [OrbStack for Mac](https://orbstack.dev/).
 - **Linux Users**: Install Docker using the following convenience script:
+
   ```sh
   curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh
   ```
+  
   For alternative installation methods, refer to the [official Docker documentation](https://docs.docker.com/desktop/install/linux-install/).
 
 #### 2. Install Nigiri Bitcoin

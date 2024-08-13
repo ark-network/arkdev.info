@@ -5,7 +5,6 @@ title: 'Overview'
 
 Welcome to the **Ark** quick-start guide! This guide will help you set up a local Ark server and client to perform off-chain transactions with Bitcoin.
 
-
 ### Components
 
 - **`ark`**: A simple Ark-enabled Bitcoin wallet in the form of a command-line interface. It connects to an Ark Server to perform off-chain transactions. The `ark` client has both an on-chain and off-chain Bitcoin wallet, allowing you to send and receive Bitcoin on-chain and off-chain through the Ark protocol using `ark send --to alice --amount 21000`. If the server is unresponsive or disappears,thet can unilaterally exit by unrolling the [VTXO tree](../learn/concepts.md#vtxo-tree).
