@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="covenant" label="Ark">
 
-## Setup
+## Setup Covenant Ark Server
 
 This version of the Ark server uses an external wallet called [Ocean](https://github.com/vulpemventures/ocean).
 
@@ -126,7 +126,7 @@ By following these steps, you'll have a fully functional Ocean wallet and Ark se
 
   <TabItem value="covenant-less" label="clArk" default>
 
-## Setup
+## Setup Covenant-less Ark Server
 
 ### 1.1 Run arkd
 
