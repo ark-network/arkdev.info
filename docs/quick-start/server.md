@@ -4,6 +4,8 @@ title: 'Run the Server'
 ---
 This guide will walk you through the process of running and provisioning an Ark Server using Docker.
 
+If you don't have **Docker** or **Nigiri** installed and running, please refer back to the [requirements](requirements.md) page for instructions on how to install and set them up before proceeding with the steps mentioned above.
+
 ## Running the Ark Server
 
 ### 1. Download the Latest Docker Image
@@ -30,6 +32,8 @@ docker run -d --name arkd \
   -e ARK_MIN_RELAY_FEE=200 \
   -e ARK_NEUTRINO_PEER=bitcoin:18444 \
   -e ARK_ESPLORA_URL=http://chopsticks:3000 \
+  -e ARK_NO_TLS=true \
+  -e ARK_NO_MACAROONS=true \
   ghcr.io/ark-network/ark:latest
 ```
 
@@ -62,10 +66,16 @@ arkd wallet unlock --password password
 
 ### 3. Fund the Wallet
 
+Get the address of the wallet:
+
+```sh
+arkd --no-macaroon wallet address
+```
+
 Use the Nigiri faucet to fund your wallet:
 
 ```sh
-nigiri faucet $(arkd wallet address)
+nigiri faucet address
 ```
 
 ### 4. Check the Balance
@@ -73,7 +83,7 @@ nigiri faucet $(arkd wallet address)
 Verify the wallet balance:
 
 ```sh
-arkd wallet balance
+arkd --no-macaroon wallet balance
 ```
 
 ## Conclusion
