@@ -7,7 +7,7 @@ Welcome to the client-facing Go SDK for Ark! This SDK provides a simple way to i
 
 ## Documentation
 
-The complete API documentation for the Go SDK is automatically generated and published on **pkg.go.dev** with each GitHub release. To view the documentation, visit: [https://pkg.go.dev/github.com/ark-network/ark-sdk](https://pkg.go.dev/github.com/ark-network/ark-sdk)
+The complete API documentation for the Go SDK is automatically generated and published on **pkg.go.dev** with each GitHub release. To view the documentation, visit: [https://pkg.go.dev/github.com/ark-network/ark/pkg/client-sdk](https://pkg.go.dev/github.com/ark-network/ark/pkg/client-sdk)
 
 ## Installation
 
@@ -50,7 +50,7 @@ func setupInMemoryArkClient() (arksdk.ArkClient, error) {
         WalletType: arksdk.SingleKeyWallet,
         ClientType: arksdk.GrpcClient,
         AspUrl:     "localhost:7070",
-        Password:   "password",
+        Password:   "your_password",
     }); err != nil {
         return nil, fmt.Errorf("failed to initialize wallet: %s", err)
     }
@@ -84,8 +84,7 @@ func setupFileBasedArkClient() (arksdk.ArkClient, error) {
         WalletType: arksdk.SingleKeyWallet,
         ClientType: arksdk.GrpcClient,
         AspUrl:     "localhost:7070",
-        Password:   "password",
-        Network:    "bitcoin",  // or "liquid" for Liquid network
+        Password:   "your_password",
     }); err != nil {
         return nil, fmt.Errorf("failed to initialize wallet: %s", err)
     }
@@ -93,7 +92,6 @@ func setupFileBasedArkClient() (arksdk.ArkClient, error) {
     return client, nil
 }
 ```
-
 
 ### 2. Client Configuration Options
 
@@ -121,7 +119,7 @@ Let's explore each field in detail:
 
 - `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:7070"` for a local instance.
 
-- `Seed`: A seed phrase or private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup seed for restoring an existing wallet.
+- `Seed`: The hex-encoded private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup key for restoring an existing wallet.
 
 - `Password`: The password used to encrypt and protect the wallet.
 
