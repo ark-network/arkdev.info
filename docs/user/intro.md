@@ -3,12 +3,13 @@ sidebar_position: 1
 title: Overview
 ---
 
-An Ark client is a software that allows users to interact with the Ark Service Provider. It can be a CLI, a Progressive Web Application or native app for desktop and mobile. 
+## Available Ark-enabled Wallets
 
-The Ark client is responsible for creating wallets, sending and receiving payments, and managing the user's funds. It communicates with the Ark Service Provider to perform these actions off-chain.
+- [`ark` CLI](./cli.md)
+- Ark Node (Coming Soon)
+- Progressive Web App (Coming Soon)
+- Mobile App (Coming Soon)
 
-- [Wallet CLI for Ark](./cli)
-- Wallet PWA for Ark (Coming Soon)
+## Intrgrate Ark into Your Application
 
-
-
+If you are a developer and want to integrate Ark into your Bitcoin wallet, we have a dedicated [Developers](../developers/get-started.md) section for you. There, you can find information on client SDKs that are currently being worked on. Stay tuned for updates and resources to help you seamlessly integrate Ark into your wallet.

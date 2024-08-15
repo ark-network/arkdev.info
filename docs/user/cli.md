@@ -1,140 +1,177 @@
 ---
 sidebar_position: 2
-sidebar_label: CLI
-title: Wallet CLI for Ark
+title: CLI Guide
 ---
 
-This is a reference implementation of client for the Ark protocol. It allows you to create an Ark wallet on the Liquid Network (or other Elements-compatible blockchains), connect to an Ark service provider (ASP), and make payments off-chain.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## ▶️ Install
+## What is the Ark Wallet CLI?
 
-Start by downloading a compatible binary from the Latest Releases
+The Ark Wallet CLI (Command Line Interface) is a powerful tool that allows users to interact with the Ark protocol directly from their terminal. It provides a streamlined way to manage your Ark wallet, conduct transactions, and interact with Ark Service Providers (ASPs) without the need for a graphical interface.
 
-### Available binaries
+## Key Features and Roadmap
+
+The following roadmap outlines the key features of the Ark Wallet CLI. As development progresses, more features may be added or existing ones enhanced:
+
+- [x] **Wallet Creation and Management**: Create new wallets or restore existing ones with a private key.
+- [x] **ASP Connection**: Connect to Ark Service Providers for off-chain transactions.
+- [x] **Balance**: View both onchain and offchain balances.
+- [x] **Offline Fund Reception**: Claim offline payments for pending off-chain transactions before expiration.
+- [x] **Onboarding**: Transfer funds from onchain to offchain balance.
+- [x] **Off-chain Payments**: Send funds to one or multiple recipients off-chain.
+- [x] **Collaborative Redemption**: Work with ASPs to redeem funds onchain to an address of your choice.
+- [x] **Unilateral Redemption**: Force redemption of all funds if ASP is unresponsive.
+- [ ] **Determinsitic Wallet**: (Planned) Manage multiple keys from a single BIP39 mnemonic seed.
+- [ ] **Transaction History**: (Coming Soon) View detailed history of all transactions.
+- [ ] **Advanced Security Features**: (Planned) Implement additional security measures like 2FA.
+- [ ] **Use Nostr contacts and Nostr Accounts**: (Planned) Use Nostr contacts and Nostr Account as private key for easy social payments over Nostr DM.
+- [ ] **Automated Backups**: (Planned) Set up scheduled backups of wallet data.
+- [ ] **Adds automated refresh and notification features.**: (Planned) Automatically refresh the wallet balance and notify the user over the Nostr protocol.
+
+## Installation
+
+Begin by downloading a compatible binary from the latest releases.
+
+### Available Binaries
 
 #### Linux
-
 - [Linux amd64](https://install-latest-cli.arkdev.info/latest-release/ark-linux-amd64)
 - [Linux arm64](https://install-latest-cli.arkdev.info/latest-release/ark-linux-arm64)
 
 #### MacOS
-
 - [Apple Silicon](https://install-latest-cli.arkdev.info/latest-release/ark-darwin-arm64)
 - [Apple Intel](https://install-latest-cli.arkdev.info/latest-release/ark-darwin-amd64)
 
-### Permissions
+### Setting Permissions
 
-Move it to somewhere on your PATH:
+Move the binary to a location in your PATH and make it executable:
 
 ```bash
 mv <binary> /usr/local/bin/ark
 chmod +x /usr/local/bin/ark
 ```
 
-## ⚙️ Create a Wallet & Connect to an ASP
+## Wallet Setup and ASP Connection
 
-The CLI requires an initial setup to initialize the wallet and connect to the liquidity provider running an `arkd` server
+Initialize your wallet and connect to a liquidity provider running an `arkd` server:
 
+<Tabs>
+  <TabItem value="covenant" label="Ark">
+
+    :::tip
+  Please note that the option to use Ark with covenants is only available on the Liquid Network.
+  :::
+  
 ```bash
-ark init --network testnet --password <password> --ark-url https://asp.arkdev.info
+ark init --network liquid --password <password> --asp-url <asp_url>
 ```
+  </TabItem>
+  <TabItem value="covenant-less" label="clArk" default>
+```bash
+ark init --password <password> --asp-url <asp_url>
+```
+  </TabItem>
+</Tabs>
 
-You can also restore a wallet by specifying the hex encoded private key with the `--prvkey` flag.
+To restore a wallet, use the `--prvkey` flag with the hex-encoded private key.
 
-### View balance
+## Basic Operations
 
-You can see both the onchain and offchain balance of the wallet with:
+### Check Balance
+
+View your onchain and offchain balances:
 
 ```bash
 ark balance
 ```
 
-To see your balance with your VTXOs expiration details use `--expiry-details`:
+For balance with VTXO expiration details:
 
 ```bash
 ark balance --expiry-details
 ```
 
-### Receive funds
+### Receive Funds
 
-You can print your onchain and offchain receiving addresses with:
+Display your onchain and offchain receiving addresses:
 
 ```bash
 ark receive
 ```
 
-#### Add funds to the ark wallet
+#### Adding Funds to Your Ark Wallet
 
-Fund the `onchain_address` from previous command with the [Liquid Testnet faucet](https://liquidtestnet.com/faucet).
+Fund the `onchain_address` using the Liquid Network. Once the transaction has 2 confirmations, the funds will be available in your Ark wallet.
 
-### Onboard the ark
+### Onboarding to Ark
+
+:::danger
+Always specify amounts in _sats_ (satoshis).
+:::
+
+Transfer funds from your onchain to offchain balance:
 
 ```bash
 ark onboard --amount <amount>
 ```
 
-This command will send funds from your onchain balance to your offchain balance.
+### Making Payments
 
-After confirmation, your ark wallet will be funded and ready to spend offchain.
-
-:::danger Use sats
-Amount is always specified in _sats_ unit.
+:::tip
+You can send to both onchain and offchain addresses. The CLI will use the appropriate balance.
 :::
 
-### Make payments
-
-You can make a payment by sending to either one or many receivers:
+Send payments to one or multiple receivers co-signing only with the ASP and delivering the pending payment to te recipient through the ASP:
 
 ```bash
 ark send --to <address> --amount <amount>
 ark send --receivers '[{"to": "<address>", "amount": <amount>}, ...]'
 ```
 
-:::tip
-You can send funds to onchain or offchain addresses:
+### Claiming Pending Payments
 
-- funds to onchain addresses will come from your onchain balance
-- funds to offchain addresses will come from your offchain balance
-
-:::
-
-### Collaborative redemption
-
-You can redeem your funds onchain collaborating with the ASP:
+If you're a recipient of a pending payment inside the Ark, claim it BEFORE the [VTXO tree](../learn/concepts.md#vtxo-tree) expires, joining a round now. This commands will claim and batch ALL your pending payments if you have more than one:
 
 ```bash
-ark redeem --address <onchain_address> --amount <amount>
+ark claim --password <password>
 ```
 
-This command will send funds from your offchain balance to your onchain balance.
 
+### Redeeming Funds on-chain
+
+#### Collaborative Redemption
 :::info
-Any change produced with this operation goes to your offchain address.
+Change from this operation goes to your offchain address.
 :::
 
-### Unilateral redemption
-
-If the ASP is unresponsive you can redeem all your offchain funds unilaterally:
+Work with the ASP to redeem funds onchain:
+```bash
+ark redeem --amount <amount>
+```
+#### Unilateral Redemption
+:::info
+The `--force` flag ignores `--amount` and redeems all funds.
+:::
+If the ASP is unresponsive, redeem all offchain funds:
 
 ```bash
-ark redeem --address <onchain_address> --force
+ark redeem --force
 ```
 
-:::danger  
-The tag `--force` will make ark ignore `--amount` and redeem all funds.
-:::
+
 
 ### Help
 
-You can see all available commands with `help`:
+For a list of all available commands:
 
 ```bash
 ark help
 ```
 
-## 🧪 Create a second CLI
+## Creating a Second CLI Instance
 
-To create a second CLI, on a different terminal use a different datadir by exporting the env var `ARK_WALLET_DATADIR`:
+To run a second CLI instance, use a different data directory:
 
 ```bash
 export ARK_WALLET_DATADIR=path/to/custom
@@ -142,15 +179,9 @@ ark init --network testnet --password <password> --ark-url https://asp.arkdev.in
 ```
 
 :::info
-By default the CLI uses the following datadir:
-
-- POSIX (Linux/BSD): ~/.Ark-cli
-- Mac OS: $HOME/Library/Application Support/Ark-cli
-- Windows: %LOCALAPPDATA%\Ark-cli
-- Plan 9: $home/Ark-cli
-
-  :::
-
-## 📝 License
-
-This project is licensed under the **MIT License**.
+Default data directories:
+- POSIX (Linux/BSD): `~/.Ark-cli`
+- Mac OS: `$HOME/Library/Application Support/Ark-cli`
+- Windows: `%LOCALAPPDATA%\Ark-cli`
+- Plan 9: `$home/Ark-cli`
+:::

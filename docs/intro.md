@@ -1,9 +1,13 @@
 ---
-description: Detailed information about the protocol, guidance on providing liquidity, and instructions on how to efficiently spend your coins off-chain in a secure manner
+description: Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.
 sidebar_position: 1
 slug: /
 title: Introduction
 ---
+
+:::tip Quick Start Guide
+For a quick start, check out our [Quick Start Guide](./quick-start/overview.md) to get up and running an Ark local environment.
+:::
 
 ### 🤔 Why Ark?
 
@@ -16,25 +20,18 @@ Through the documentation, we will refer to the covenant-less version as **clArk
 
 ### 📜 How Does Ark Work?
 
-Head over our [Learn](./learn/intro.md) section to understand the Ark protocol in detail.
+Head over to our [Learn](./learn/intro.md) section to understand the Ark protocol in detail.
 
 ### 🏃‍♀️ Running Ark
 
-You can join an existing Ark service provider or run your own on the Liquid Network. The support for the covenant-less version for Bitcoin is work in progress and [tracked on Github](https://github.com/ark-network/ark/issues/147).
+You can join an existing Ark service provider or run your own on Bitcoin or Liquid. To get started, follow the guides below:
 
-To get started, follow the guides below:
-
-- [Join an Ark as User](./user/intro.md)
-- [Operate an Ark as Liquidity Provider](./provider/intro.md)
+- [Join an Ark as a simple user sending and receiving payments](./user/intro.md)
+- [Operate an Ark as Coordinator and Liquidity Provider](./provider/intro.md)
 
 ### 👩‍💻 Integrate Ark
 
-:::info
-🚧 **Work in progress**
-The Ark libraries and developer tools are currently under development. Please check back soon for updates.
-:::
-
-You ~~can~~ will [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain.
+You can [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain. Check out our SDKs for Go and JavaScript, soon also Rust and Python.
 
 ### ⌨️ Contributing
 
@@ -42,9 +39,9 @@ We welcome contributions from the community. If you'd like to contribute to the 
 
 ### ➰ Stay in the Loop
 
-- Join our developer chat on [Discord](https://discord.gg/5XwckYtXAG).
-- Ask questions or get help on [Stack Overflow](https://bitcoin.stackexchange.com/questions/tagged/ark).
-- Join our community on [Telegram](https://t.me/ark_network_community).
+- Join the Ark Labs developer chat on [Discord](https://discord.gg/5XwckYtXAG).
+- Ask questions or get help on [Stack Exchange](https://bitcoin.stackexchange.com/questions/tagged/ark).
+- Join the Ark community on [Telegram](https://t.me/ark_network_community).
 
 ### ⚖️ License
 
