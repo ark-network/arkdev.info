@@ -25,6 +25,14 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
+  scripts: [
+    {
+      src: "https://plausible.io/js/script.js",
+      defer: true,
+      'data-domain': "arkdev.info",
+    },
+  ],
+
   presets: [
     [
       "classic",
