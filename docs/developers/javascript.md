@@ -11,7 +11,7 @@ title: '📜 JavaScript (WASM)'
 
 To use the Ark SDK WASM package in your web project, you need to include two files:
 
-1. The WebAssembly file (`main.wasm`). Download from our [GitHub Releases](https://github.com/ark-network/ark/releases).
+1. The WebAssembly file (`ark-sdk.wasm`). Download from our [GitHub Releases](https://github.com/ark-network/ark/releases).
 2. The JavaScript support file (`wasm_exec.js`). This file is provided by the Go project and can be found in the Go repository. You can download it from the [Go repository](https://github.com/golang/go/blob/master/misc/wasm/wasm_exec.js)
 
 Once you have these files, you can include them in your project and start using the WASM package.
@@ -20,7 +20,7 @@ Once you have these files, you can include them in your project and start using 
     <script src="wasm_exec.js"></script>
     <script>
         const go = new Go();
-        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+        WebAssembly.instantiateStreaming(fetch("ark-sdk.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
         });
     </script>
@@ -64,7 +64,7 @@ const minRelayFee = await getMinRelayFee();
 
 ## Example HTML
 
-Here's a minimal HTML template to get you started with the Ark SDK WASM package assuming both `main.wasm` and `wasm_exec.js` are in the same directory of the `index.html` file
+Here's a minimal HTML template to get you started with the Ark SDK WASM package assuming both `ark-sdk.wasm` and `wasm_exec.js` are in the same directory of the `index.html` file
 
 ```html
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ Here's a minimal HTML template to get you started with the Ark SDK WASM package 
     <script src="wasm_exec.js"></script>
     <script>
         const go = new Go();
-        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+        WebAssembly.instantiateStreaming(fetch("ark-sdk.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
         });
 
@@ -124,7 +124,7 @@ Here's a minimal HTML template to get you started with the Ark SDK WASM package 
 To use this example:
 
 1. Save this HTML as `index.html` in your project directory.
-2. Place `main.wasm` and `wasm_exec.js` in the same directory.
+2. Place `ark-sdk.wasm` and `wasm_exec.js` in the same directory.
 3. Serve the directory with a local web server (e.g., `python -m http.server`).
 4. Open the HTML file in a web browser and interact with the Ark SDK through the browser console.
 
