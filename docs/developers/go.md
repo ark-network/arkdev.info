@@ -31,8 +31,8 @@ The code snippet below demonstrates how to set up an Ark client with in-memory s
 
 ```go
 import (
-    arksdk "github.com/ark-network/ark-sdk"
-    inmemorystore "github.com/ark-network/ark-sdk/store/inmemory"
+    arksdk "github.com/ark-network/ark/pkg/client-sdk"
+    inmemorystore "github.com/ark-network/ark/pkg/client-sdk/store/inmemory"
 )
 
 func setupInMemoryArkClient() (arksdk.ArkClient, error) {
@@ -65,8 +65,8 @@ For production use, it's recommended to use persistent storage. Here's how you c
 
 ```go
 import (
-    arksdk "github.com/ark-network/ark-sdk"
-    filestore "github.com/ark-network/ark-sdk/store/file"
+    arksdk "github.com/ark-network/ark/pkg/client-sdk"
+    filestore "github.com/ark-network/ark/pkg/client-sdk/store/file"
 )
 
 func setupFileBasedArkClient() (arksdk.ArkClient, error) {

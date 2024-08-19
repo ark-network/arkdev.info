@@ -130,6 +130,6 @@ To use this example:
 
 ## Support
 
-If you encounter any issues or have questions about the WASM package, please file an issue on our [GitHub repository](https://github.com/ark-network/ark-sdk/issues).
+If you encounter any issues or have questions about the WASM package, please file an issue on our [GitHub repository](https://github.com/ark-network/ark/issues).
 
 Happy coding with Ark and JavaScript! 🚀
