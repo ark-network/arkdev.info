@@ -158,12 +158,12 @@ defer arkClient.Lock(ctx, password)
 #### Receive Funds
 
 ```go
-offchainAddr, onchainAddr, err := arkClient.Receive(ctx)
+offchainAddr, onboardingAddr, err := arkClient.Receive(ctx)
 if err != nil {
     log.Fatal(err)
 }
 log.Infof("Offchain address: %s", offchainAddr)
-log.Infof("Onchain address: %s", onchainAddr)
+log.Infof("Onchain address: %s", onboardingAddr)
 ```
 
 #### Check Balance
@@ -175,17 +175,6 @@ if err != nil {
 }
 log.Infof("Onchain balance: %d", balance.OnchainBalance.SpendableAmount)
 log.Infof("Offchain balance: %d", balance.OffchainBalance.Total)
-```
-
-#### Onboard Funds
-
-```go
-onboardAmount := uint64(20000)
-txid, err := arkClient.Onboard(ctx, onboardAmount)
-if err != nil {
-    log.Fatal(err)
-}
-log.Infof("Onboarded with tx: %s", txid)
 ```
 
 #### Send Offchain

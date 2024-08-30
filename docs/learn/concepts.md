@@ -83,56 +83,16 @@ To ensure atomicity—preventing users from losing their VTXOs without confirmat
 
 ## ⛓️‍💥 Transactions
 
-:::note
-The boarding transaction is peculiar to the Ark protocol with covenants. It is used to fund a VTXO by sending it directly to a boarding address without having to interact with the ASP. In the covenant-less version, Alice and ASP MUST interact to finalize the funding and redeem transactions.
-:::
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-<TabItem value="ark" label="Ark" default>
-
 ### Boarding transaction
 
 - Alice funds an output that can be **accepted as a VTXO** in a future round
-- A covenant forces the creation of an output with the same script as [**VTXO**](#vtxo). No need for interactivity after funding it, anyone can spend.
-- **ASP** can unlock after a timeout ie. _4 weeks_
-- Alice is **required to be online** to maintain access to funds: after the timeout, ASP becomes the only owner funds
+- **Alice** can unlock after a timeout ie. _4 weeks_
+- **Alice and ASP** can cooperate to include the UTXO as input of a [round transaction](#round-transaction)
 
 | Inputs       | Outputs                                                     |
 | ------------ | ----------------------------------------------------------- |
-| Alice’s UTXO | `(ASP after 4w) or cov((Alice + ASP) or (Alice after 24h))` |
+| Alice’s UTXO | `(Alice after 4w) or (Alice + ASP)`                         |
 
-</TabItem>
-<TabItem value="clark" label="clArk">
-
-### Funding transaction
-
-- Alice creates a PSBT
-- Alice adds any segwit utxo as an input (must be segwit)
-- Alice adds an output with the script `(Alice + ASP) or (ASP after 1 month)`
-- Alice sends the PSBT to the ASP
-
-| Inputs       | Outputs                                                     |
-| ------------ | ----------------------------------------------------------- |
-| Alice’s UTXO | `(Alice + ASP) or (ASP after 1 month)` |
-
-### Redeem transaction
-
-- ASP creates a new PSBT
-- ASP adds the added output in the [Funding transaction](#funding-transaction) shared by Alice.
-- ASP spends from the `Alice + ASP` cooperative path.
-- ASP adds the output with the script `(Alice + ASP) or (Alice after 24h)`. This output is the [VTXO](#vtxo) of Alice.
-- ASP signs the PSBT and sends it to Alice.
-- Is now safe for Alice to broadcast his funding transaction because now she can leave anytime with Redeem transaction spending from `Alice in 24h` path.
-
-| Inputs       | Outputs                                                     |
-| ------------ | ----------------------------------------------------------- |
-| Funding's UTXO | `(Alice + ASP) or (Alice after 24h)` |
-
-</TabItem>
-</Tabs>
 
 ### Forfeit transaction
 

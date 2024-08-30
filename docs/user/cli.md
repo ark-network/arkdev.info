@@ -94,26 +94,10 @@ ark balance --expiry-details
 
 ### Receive Funds
 
-Display your onchain and offchain receiving addresses:
+Display your onboarding address and offchain receiving addresses:
 
 ```bash
 ark receive
-```
-
-#### Adding Funds to Your Ark Wallet
-
-Fund the `onchain_address` using the Liquid Network. Once the transaction has 2 confirmations, the funds will be available in your Ark wallet.
-
-### Onboarding to Ark
-
-:::danger
-Always specify amounts in _sats_ (satoshis).
-:::
-
-Transfer funds from your onchain to offchain balance:
-
-```bash
-ark onboard --amount <amount>
 ```
 
 ### Making Payments
@@ -134,7 +118,7 @@ ark send --receivers '[{"to": "<address>", "amount": <amount>}, ...]'
 If you're a recipient of a pending payment inside the Ark, claim it BEFORE the [VTXO tree](../learn/concepts.md#vtxo-tree) expires, joining a round now. This commands will claim and batch ALL your pending payments if you have more than one:
 
 ```bash
-ark claim --password <password>
+ark claim
 ```
 
 
