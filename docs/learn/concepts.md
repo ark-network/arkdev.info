@@ -18,7 +18,6 @@ toc_max_heading_level: 5
 - **Alice**: Alice signature is required
 - **Bob**: Bob signature is required
 - **ASP**: ASP signature is required
-- **cov\*\*(script)**: covenant that forces the spending transaction to have a mandatory first output with the **script**
 - **and(Alice,Bob)**: both conditions needed to unlock
 - **or(Alice,Bob)**: only one condition needed to unlock
 </details>
@@ -40,7 +39,7 @@ All time periods used on timelocks (**5s**, **24h**, **4w**, **1y**) are arbitra
 
 ### VTXO
 
-A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) commited by the [Shared Output](#shared-output) in the blockchain when the ASP broadcast his [round transaction](#round-transaction). The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
+A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) committed by the [Shared Output](#shared-output) in the blockchain when the ASP broadcast his [round transaction](#round-transaction). The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
 
 The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It has 2 tapscript closures
 
@@ -53,7 +52,7 @@ The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It sh
 
 ### VTXO Tree
 
-VTXOs are created by a [shared output](#shared-output). This output is enforcing the value to be splitted into a binary tree of other scripts.
+VTXOs are created by a [shared output](#shared-output). This output is enforcing the value to be split into a binary tree of other scripts.
 
 ![An image from the static](/img/vtxo-tree.png)
 
@@ -86,12 +85,12 @@ To ensure atomicity—preventing users from losing their VTXOs without confirmat
 ### Boarding transaction
 
 - Alice funds an output that can be **accepted as a VTXO** in a future round
-- **Alice** can unlock after a timeout ie. _4 weeks_
+- **Alice** can unlock after a timeout ie. _6 months_
 - **Alice and ASP** can cooperate to include the UTXO as input of a [round transaction](#round-transaction)
 
 | Inputs       | Outputs                                                     |
 | ------------ | ----------------------------------------------------------- |
-| Alice’s UTXO | `(Alice after 4w) or (Alice + ASP)`                         |
+| Alice’s UTXO | `(Alice after 6 months) or (Alice + ASP)`                         |
 
 
 ### Forfeit transaction
