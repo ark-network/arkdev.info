@@ -94,7 +94,7 @@ ark balance --expiry-details
 
 ### Receive Funds
 
-Display your onboarding address and offchain receiving addresses:
+Display your onboarding and offchain receiving addresses:
 
 ```bash
 ark receive
