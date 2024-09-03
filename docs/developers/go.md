@@ -163,7 +163,7 @@ if err != nil {
     log.Fatal(err)
 }
 log.Infof("Offchain address: %s", offchainAddr)
-log.Infof("Onchain address: %s", onboardingAddr)
+log.Infof("Onboarding address: %s", onboardingAddr)
 ```
 
 #### Check Balance
