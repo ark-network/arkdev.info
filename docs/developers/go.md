@@ -158,12 +158,12 @@ defer arkClient.Lock(ctx, password)
 #### Receive Funds
 
 ```go
-offchainAddr, onboardingAddr, err := arkClient.Receive(ctx)
+offchainAddr, boardingAddr, err := arkClient.Receive(ctx)
 if err != nil {
     log.Fatal(err)
 }
 log.Infof("Offchain address: %s", offchainAddr)
-log.Infof("Onboarding address: %s", onboardingAddr)
+log.Infof("Boarding address: %s", boardingAddr)
 ```
 
 #### Check Balance
@@ -219,7 +219,7 @@ log.Infof("Redeemed with tx: %s", txid)
 
 ## Full Example
 
-For a complete end-to-end example demonstrating the usage of the Ark Go SDK, including setting up multiple clients, onboarding, and transferring funds, please refer to our [GitHub repository](https://github.com/ark-network/ark/blob/master/pkg/client-sdk/example/covenantless/alice_to_bob.go).
+For a complete end-to-end example demonstrating the usage of the Ark Go SDK, including setting up multiple clients, boarding, and transferring funds, please refer to our [GitHub repository](https://github.com/ark-network/ark/blob/master/pkg/client-sdk/example/covenantless/alice_to_bob.go).
 
 ## Support
 
