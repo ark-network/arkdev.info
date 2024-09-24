@@ -12,7 +12,7 @@ title: '📜 JavaScript (WASM)'
 To use the Ark SDK WASM package in your web project, you need to include two files:
 
 1. The WebAssembly file (`ark-sdk.wasm`). Download from our [GitHub Releases](https://github.com/ark-network/ark/releases).
-2. The JavaScript support file (`wasm_exec.js`). This file is provided by the Go project and can be found in the Go repository. You can download it from the [Go repository](https://github.com/golang/go/blob/master/misc/wasm/wasm_exec.js)
+2. The JavaScript support file (`wasm_exec.js`). This file is provided by the Go project and can be found in the Go repository. You can download it from the [Go repository](https://github.com/golang/go/blob/master/lib/wasm/wasm_exec.js)
 
 Once you have these files, you can include them in your project and start using the WASM package.
 
