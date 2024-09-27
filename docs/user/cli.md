@@ -147,11 +147,11 @@ Change from this operation goes to your offchain address.
 
 Work with the ASP to redeem funds onchain:
 ```bash
-ark redeem --amount <amount>
+ark redeem --amount <amount> --address <address>
 ```
 #### Unilateral Redemption
 :::info
-The `--force` flag ignores `--amount` and redeems all funds.
+The `--force` flag ignores `--address` and `--amount` and redeems all funds.
 :::
 If the ASP is unresponsive, redeem all offchain funds:
 

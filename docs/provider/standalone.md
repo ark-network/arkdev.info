@@ -88,13 +88,21 @@ For non-interactive mode, pass `OCEAN_MNEMONIC` and `OCEAN_PASSWORD` as environm
 
 ## Setup Bitcoin Core
 
-`arkd` in `covenantless` mode uses Bitcoin Core to operate on the Bitcoin network. It uses a Neutrino client to fetch relevant bitcoin transactions via compact block filters over the peer-to-peer network.
+`arkd` in `covenantless` mode uses Bitcoin Core to operate on the Bitcoin network. It can connect to Core via RPC or Neutrino, using a Neutrino client to fetch relevant bitcoin transactions via compact block filters over the peer-to-peer network.
 
 :::info
 Support for direct connection to your full node via Bitcoin Core ZMQ and Electrum servers will be available soon.
 :::
 
-To connect `arkd` to your own Bitcoin Core node, use the environment variable:
+To connect `arkd` to your own Bitcoin Core node via RPC, use the environment variables:
+
+```sh
+export ARK_BITCOIND_RPC_USER=admin1;
+export ARK_BITCOIND_RPC_PASS=123;
+export ARK_BITCOIND_RPC_HOST=localhost:18443;
+```
+
+To connect via Neutrino:
 
 ```sh
 export ARK_NEUTRINO_PEER=yourhost:p2p_port_bitcoin
