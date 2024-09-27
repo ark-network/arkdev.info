@@ -68,20 +68,6 @@ This is the version of clArk we will present in this document: the version
 where all signers in the round not only sign their forfeit transactions, but at
 the same time become co-signers of the entire VTXO tree.
 
-
-## Onboarding
-
-As opposed to a non-interactive covenant onboard, the cosign onboard will be
-interactive. This is because the transaction for the unilateral exit has to be
-cosigned by the ASP. This is called the reveal tx and it is identical to the
-leaf txs of the VTXO trees.
-
-A user that wants to on-board will ask the ASP to cosign this reveal tx. The
-ASP does not have to do any real checks on it while signing. Only when the user
-tries to spend the on-board VTXO in a round, the ASP will have to check the
-user side of the signature.
-
-
 ## Rounds and Transactions
 
 The flow of how the Ark rounds work in clArk is very similar to covenant Ark.
@@ -122,7 +108,6 @@ The steps are as follows:
 - When the ASP collected all forfeit signatures, it signs the round tx and
   sends the public round information to all users: a copy of the signed VTXO
   tree and the signed round tx.
-
 
 
 ## Storage Requirements

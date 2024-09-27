@@ -18,7 +18,6 @@ toc_max_heading_level: 5
 - **Alice**: Alice signature is required
 - **Bob**: Bob signature is required
 - **ASP**: ASP signature is required
-- **cov\*\*(script)**: covenant that forces the spending transaction to have a mandatory first output with the **script**
 - **and(Alice,Bob)**: both conditions needed to unlock
 - **or(Alice,Bob)**: only one condition needed to unlock
 </details>
@@ -40,7 +39,7 @@ All time periods used on timelocks (**5s**, **24h**, **4w**, **1y**) are arbitra
 
 ### VTXO
 
-A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) commited by the [Shared Output](#shared-output) in the blockchain when the ASP broadcast his [round transaction](#round-transaction). The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
+A Virtual UTXO or VTXO in short, it's a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) committed by the [Shared Output](#shared-output) in the blockchain when the ASP broadcast his [round transaction](#round-transaction). The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
 
 The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It has 2 tapscript closures
 
@@ -53,7 +52,7 @@ The **VTXO leaf script** is the last level of the [VTXO tree](#vtxo-tree). It sh
 
 ### VTXO Tree
 
-VTXOs are created by a [shared output](#shared-output). This output is enforcing the value to be splitted into a binary tree of other scripts.
+VTXOs are created by a [shared output](#shared-output). This output is enforcing the value to be split into a binary tree of other scripts.
 
 ![An image from the static](/img/vtxo-tree.png)
 
@@ -83,56 +82,16 @@ To ensure atomicity—preventing users from losing their VTXOs without confirmat
 
 ## ⛓️‍💥 Transactions
 
-:::note
-The boarding transaction is peculiar to the Ark protocol with covenants. It is used to fund a VTXO by sending it directly to a boarding address without having to interact with the ASP. In the covenant-less version, Alice and ASP MUST interact to finalize the funding and redeem transactions.
-:::
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-<TabItem value="ark" label="Ark" default>
-
 ### Boarding transaction
 
 - Alice funds an output that can be **accepted as a VTXO** in a future round
-- A covenant forces the creation of an output with the same script as [**VTXO**](#vtxo). No need for interactivity after funding it, anyone can spend.
-- **ASP** can unlock after a timeout ie. _4 weeks_
-- Alice is **required to be online** to maintain access to funds: after the timeout, ASP becomes the only owner funds
+- **Alice** can unlock after a timeout ie. _6 months_
+- **Alice and ASP** can cooperate to include the UTXO as input of a [round transaction](#round-transaction)
 
 | Inputs       | Outputs                                                     |
 | ------------ | ----------------------------------------------------------- |
-| Alice’s UTXO | `(ASP after 4w) or cov((Alice + ASP) or (Alice after 24h))` |
+| Alice’s UTXO | `(Alice after 6 months) or (Alice + ASP)`                         |
 
-</TabItem>
-<TabItem value="clark" label="clArk">
-
-### Funding transaction
-
-- Alice creates a PSBT
-- Alice adds any segwit utxo as an input (must be segwit)
-- Alice adds an output with the script `(Alice + ASP) or (ASP after 1 month)`
-- Alice sends the PSBT to the ASP
-
-| Inputs       | Outputs                                                     |
-| ------------ | ----------------------------------------------------------- |
-| Alice’s UTXO | `(Alice + ASP) or (ASP after 1 month)` |
-
-### Redeem transaction
-
-- ASP creates a new PSBT
-- ASP adds the added output in the [Funding transaction](#funding-transaction) shared by Alice.
-- ASP spends from the `Alice + ASP` cooperative path.
-- ASP adds the output with the script `(Alice + ASP) or (Alice after 24h)`. This output is the [VTXO](#vtxo) of Alice.
-- ASP signs the PSBT and sends it to Alice.
-- Is now safe for Alice to broadcast his funding transaction because now she can leave anytime with Redeem transaction spending from `Alice in 24h` path.
-
-| Inputs       | Outputs                                                     |
-| ------------ | ----------------------------------------------------------- |
-| Funding's UTXO | `(Alice + ASP) or (Alice after 24h)` |
-
-</TabItem>
-</Tabs>
 
 ### Forfeit transaction
 
