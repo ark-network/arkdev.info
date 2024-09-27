@@ -124,7 +124,7 @@ import TabItem from '@theme/TabItem';
 - ASP adds the added output in the [Funding transaction](#funding-transaction) shared by Alice.
 - ASP spends from the `Alice + ASP` cooperative path.
 - ASP adds the output with the script `(Alice + ASP) or (Alice after 24h)`. This output is the [VTXO](#vtxo) of Alice.
-- ASP signs the PSBT and sends it to Alice.
+- ASP signs the Funding PSBT and sends it to Alice.
 - Is now safe for Alice to broadcast his funding transaction because now she can leave anytime with Redeem transaction spending from `Alice in 24h` path.
 
 | Inputs       | Outputs                                                     |
