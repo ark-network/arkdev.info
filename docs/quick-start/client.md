@@ -58,7 +58,7 @@ ark-alice balance
 Move funds from on-chain to off-chain for Alice:
 
 ```sh
-ark-alice onboard --amount 50000
+ark-alice claim
 ```
 
 Verify Alice's updated balance:
@@ -95,7 +95,7 @@ ark-bob balance
 Alice redeems some funds back to on-chain:
 
 ```sh
-ark-alice redeem --password alicesecret --amount 10000
+ark-alice redeem --password alicesecret --amount 10000 --address <onchain_address>
 ```
 
 Check Alice's updated balance:
