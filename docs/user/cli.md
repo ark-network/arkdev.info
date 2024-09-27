@@ -147,7 +147,7 @@ Change from this operation goes to your offchain address.
 
 Work with the ASP to redeem funds onchain:
 ```bash
-ark redeem --amount <amount> --address <address>
+ark redeem --amount <amount> --address <onchain_address>
 ```
 #### Unilateral Redemption
 :::info
