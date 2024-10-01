@@ -98,8 +98,8 @@ Here's a minimal HTML template to get you started with the Ark SDK WASM package 
         async function getBalance() {
             try {
                 const bal = await balance(false);
-                console.log("Onchain balance:", bal.onchain_balance);
-                console.log("Offchain balance:", bal.offchain_balance);
+                console.log("Onchain balance:", bal.onchainBalance);
+                console.log("Offchain balance:", bal.offchainBalance);
             } catch (err) {
                 console.error("Balance error:", err.message);
             }
