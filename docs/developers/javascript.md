@@ -50,7 +50,7 @@ const txID = await onboard(amount);
 const addresses = await receive();
 
 // Send off-chain
-const txID = await sendOffChain(false, [{ To: address, Amount: amount }]);
+const txID = await sendAsync(false, [{ To: address, Amount: amount }]);
 
 // Get configuration
 const aspUrl = await getAspUrl();

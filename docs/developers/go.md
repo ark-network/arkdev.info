@@ -36,26 +36,28 @@ import (
 )
 
 func setupInMemoryArkClient() (arksdk.ArkClient, error) {
-    storeSvc, err := inmemorystore.NewConfigStore()
-    if err != nil {
-        return nil, fmt.Errorf("failed to setup store: %s", err)
-    }
+    storeSvc, err := store.NewStore(store.Config{
+		ConfigStoreType:  types.InMemoryStore,
+	})
+	if err != nil {
+		return nil, fmt.Errorf("failed to setup store: %s", err)
+	}
 
-    client, err := arksdk.NewCovenantlessClient(storeSvc)
-    if err != nil {
-        return nil, fmt.Errorf("failed to setup ark client: %s", err)
-    }
+	client, err := arksdk.NewCovenantlessClient(storeSvc)
+	if err != nil {
+		return nil, fmt.Errorf("failed to setup ark client: %s", err)
+	}
 
-    if err := client.Init(context.Background(), arksdk.InitArgs{
-        WalletType: arksdk.SingleKeyWallet,
-        ClientType: arksdk.GrpcClient,
-        AspUrl:     "localhost:7070",
-        Password:   "your_password",
-    }); err != nil {
-        return nil, fmt.Errorf("failed to initialize wallet: %s", err)
-    }
+	if err := client.Init(context.Background(), arksdk.InitArgs{
+		WalletType: arksdk.SingleKeyWallet,
+		ClientType: arksdk.GrpcClient,
+		AspUrl:     "localhost:7070",
+		Password:   "your_password",
+	}); err != nil {
+		return nil, fmt.Errorf("failed to initialize wallet: %s", err)
+	}
 
-    return client, nil
+	return client, nil
 }
 ```
 
@@ -70,26 +72,29 @@ import (
 )
 
 func setupFileBasedArkClient() (arksdk.ArkClient, error) {
-    storeSvc, err := filestore.NewConfigStore("/path/to/storage/directory")
-    if err != nil {
-        return nil, fmt.Errorf("failed to setup file store: %s", err)
-    }
+    storeSvc, err := store.NewStore(store.Config{
+		ConfigStoreType:  types.FileStore,
+		BaseDir:          "/path/to/storage/directory",
+	})
+	if err != nil {
+		return nil, fmt.Errorf("failed to setup file store: %s", err)
+	}
 
-    client, err := arksdk.NewCovenantlessClient(storeSvc)
-    if err != nil {
-        return nil, fmt.Errorf("failed to setup ark client: %s", err)
-    }
+	client, err := arksdk.NewCovenantlessClient(storeSvc)
+	if err != nil {
+		return nil, fmt.Errorf("failed to setup ark client: %s", err)
+	}
 
-    if err := client.Init(context.Background(), arksdk.InitArgs{
-        WalletType: arksdk.SingleKeyWallet,
-        ClientType: arksdk.GrpcClient,
-        AspUrl:     "localhost:7070",
-        Password:   "your_password",
-    }); err != nil {
-        return nil, fmt.Errorf("failed to initialize wallet: %s", err)
-    }
+	if err := client.Init(context.Background(), arksdk.InitArgs{
+		WalletType: arksdk.SingleKeyWallet,
+		ClientType: arksdk.GrpcClient,
+		AspUrl:     "localhost:7070",
+		Password:   "your_password",
+	}); err != nil {
+		return nil, fmt.Errorf("failed to initialize wallet: %s", err)
+	}
 
-    return client, nil
+	return client, nil
 }
 ```
 
@@ -99,29 +104,31 @@ The `Init` function accepts various configuration options through the `InitArgs`
 
 ```go
 type InitArgs struct {
-    ClientType string // Type of client connection (e.g., "grpc" or "rest")
-    WalletType string // Type of wallet (e.g., "singlekey" or "hd")
-    AspUrl     string // URL of the Ark Service Provider
-    Seed       string // Private Key hex encoded for wallet initialization or restoration
-    Password   string // Wallet password
+    ClientType          string // Type of client connection (e.g., "grpc" or "rest")
+    WalletType          string // Type of wallet (e.g., "singlekey" or "hd")
+    AspUrl              string // URL of the Ark Service Provider
+    Seed                string // Private Key hex encoded for wallet initialization or restoration
+    Password            string // Wallet password
+    WithTransactionFeed bool // Receive notifications about received or spent funds
 }
 ```
 
 Let's explore each field in detail:
 
-- `ClientType`: Specifies the type of connection to use with the Ark Service Provider. Common values are:
+- `ClientType`: Specifies the type of connection to use with the Ark Service Provider. Options include:
   - `"grpc"`: Uses gRPC for communication (recommended for better performance)
   - `"rest"`: Uses REST API for communication
 
 - `WalletType`: Defines the type of wallet to create or restore. Options include:
   - `"singlekey"`: A wallet using a single key for all transactions
-  - `"hd"`: A Hierarchical Deterministic wallet, which generates new addresses for each transaction
 
 - `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:7070"` for a local instance.
 
 - `Seed`: The hex-encoded private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup key for restoring an existing wallet.
 
 - `Password`: The password used to encrypt and protect the wallet.
+
+- `WithTransactionFeed`: Enable receiving notifications about received or spent funds.
 
 Here's an example of how to use these options when initializing an Ark client:
 
@@ -184,7 +191,7 @@ amount := uint64(1000)
 receivers := []arksdk.Receiver{
     arksdk.NewBitcoinReceiver(recipientOffchainAddr, amount),
 }
-txid, err = arkClient.SendOffChain(ctx, false, receivers)
+txid, err = arkClient.SendAsync(ctx, false, receivers)
 if err != nil {
     log.Fatal(err)
 }
@@ -202,7 +209,7 @@ receivers := []arksdk.Receiver{
     arksdk.NewBitcoinReceiver(recipient1OffchainAddr, amount1),
     arksdk.NewBitcoinReceiver(recipient2OffchainAddr, amount2),
 }
-txid, err = arkClient.SendOffChain(ctx, false, receivers)
+txid, err = arkClient.SendAsync(ctx, false, receivers)
 ```
 
 #### Redeem Funds
@@ -210,7 +217,9 @@ txid, err = arkClient.SendOffChain(ctx, false, receivers)
 To move funds from offchain to onchain:
 
 ```go
-txid, err := arkClient.Redeem(ctx, redeemAmount, onchainAddress)
+txid, err := arkClient.CollaborativeRedeem(
+    ctx, onchainAddress, redeemAmount, false,
+)
 if err != nil {
     log.Fatal(err)
 }
