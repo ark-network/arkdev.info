@@ -1,15 +1,15 @@
 ---
 authors: [altafan]
-description: Unlocking liquidity through smarter VTXO Tree construction
-image: /img/ark-release-v0.2.jpg
-slug: improve-liquidity
+description: A new VTXO Tree signing scheme that allows the server to unlock liquidity before a round expiration.
+image: /img/ark-tree.jpg
+slug: unlock-liquidity-before-round-expiration
 tags: [ark, clark, bitcoin, layer2, blockchain]
-title: "Unlocking liquidity through smarter VTXO Tree construction"
+title: "Unlocking liquidity before round expiration"
 ---
 ![Photo by Niko](/img/ark-tree.jpg)
 _Photo by <a href="https://unsplash.com/@niko_photos">Niko</a> on <a href="https://unsplash.com/photos/green-leaf-tree-under-blue-sky-tGTVxeOr_Rs">Unsplash</a>_
 
-# Unlocking Liquidity Through Smarter VTXO Tree Construction
+# Unlocking Liquidity Before Round Expiration
 
 We're excited to share our latest advancements in optimizing liquidity allocation within Ark systems. Building on insights from external contributors, we present a generalized method for Ark users to collaborate with Ark Servers to release liquidity ahead of the scheduled expiration of shared outputs in the VTXO (Virtual Transaction Output) tree. This  approach not only enhances Servers' liquidity but also benefits all participants in the Ark ecosystem.
 
