@@ -37,7 +37,7 @@ We propose a streamlined VTXO tree signing process where users sign only their s
 - **No Ephemeral Keys**: The use of ephemeral keys is no longer necessary.
 - **Security Maintained**: The server cannot double-spend a shared output without the explicit consent of all underlying participants.
 
-This simplified process empowers the server to regain liquidity allocated for a round — either fully or partially — before the shared outputs naturally expire. This is achieved through user collaboration after they've spent their VTXOs and can be incentivized in different ways.
+This simplified process empowers the server to regain liquidity allocated into a previous round — either fully or partially — before the shared outputs naturally expire. This is achieved through user collaboration after they've spent their VTXOs and can be incentivized in different ways.
 
 ## How It Works
 
@@ -52,7 +52,7 @@ In this example, users A and B spent their VTXOs (VTXO_A, VTXO_B) so server asks
 
 ### Pros
 
-- **Reduced signing overhead**: Users sign far fewer transactions when joining a round, thus reducing the amount of data exchanged in the process 
+- **Reduced signing overhead**: Users sign far fewer transactions when joining a round, thus reducing the amount of data exchanged in the process.
 - **Efficient Liquidity**: Servers can adopt strategies to group high-value VTXOs, allowing for partial sweeps and better liquidity allocation.
 - **Win-Win**: Users are rewarded by the server for participating in the early unlocking of liquidity
 
