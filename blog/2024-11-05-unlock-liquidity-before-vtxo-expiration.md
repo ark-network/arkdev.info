@@ -10,8 +10,6 @@ title: "Unlocking Liquidity Before Shared Output Expiration"
 
 Building on [insights from Brandon Black](https://x.com/reardencode/status/1667968763927592960), we present a generalized method for Ark clients to collaborate with Ark Servers to release liquidity ahead of the expiration of the shared output that commits to a **Virtual Tree of Bitcoin transactions** kept off the chain, also known as **VTXOs (Virtual Transaction Outputs)** tree.
 
-Early unlocking of liquidity not only enhances Servers' liquidity but also benefits all participants in the Ark protocol.
-
 <!-- truncate -->
 
 ## The Evolution of the VTXO Tree Signing Process
@@ -50,7 +48,7 @@ This simplified process empowers the server to regain liquidity allocated for a 
 
 In this example, users A and B spent their VTXOs (VTXO_A, VTXO_B) so server asks for their collaboration to double-spend and sweep their shared output (SO'). Once the server collected both signatures, he starts unrolling the tree to broadcast the transaction that sweeps SO'.
 
-## Benefits of the proposal
+## Benefits
 
 ### Pros
 
@@ -64,9 +62,9 @@ In this example, users A and B spent their VTXOs (VTXO_A, VTXO_B) so server asks
 
 ## Conclusion
 
-Such optimizations illustrate Ark's evolving properties. After spending more time with the protocol, we believe its early iterations were only a stepping stone for future, more optimized, implementations. While the method we've shared in this post is by no means groundbreaking, it is only one example of the protocol's versatile nature.
+After spending more time with the protocol, we believe its early iterations were only a stepping stone for future, more optimized, implementations.
 
-By simplifying the VTXO tree signing process and incentivizing users to participate in liquidity unlocking, we create a more efficient and user-friendly platform. We’re excited about the possibilities this opens up and look forward to your participation in making Ark even better.
+By simplifying the VTXO tree signing process and incentivizing users to participate in early **liquidity callout**, we create a more efficient and user-friendly platform. We're excited about the possibilities this opens up and look forward to your participation in making Ark even better.
 
 ## Credits
 
