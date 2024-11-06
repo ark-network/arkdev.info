@@ -85,7 +85,7 @@ Connectors are used to ensure atomicity when forfeiting VTXOs in exchange for ot
 
 As introduced before, a round transaction typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.
 
-A connector is a dust value ouptut that _connects_ a forfeit tx to the round tx that creates a new VTXO. A connector is simply used as input of a forfeit tx and is signed by the Server only. It's purpose is to force the forfeit tx to be broadcastable only if the round one is broadcasted as well. Without connectors, the users would need to trust the Server to broadcast the round transaction after they signed their forfeit txs. With connectors, instead, there's no need of trust as connectors are the guarantee for the users that the Server can't broadcast them unless he already broadcasted the round transaction.
+A connector is a dust value ouptut that _connects_ a forfeit tx to the round tx that creates a new VTXO. It's created in the round tx and used as input of the forfeit tx, and it's signed by the Server only. It's purpose is to force the forfeit tx to be broadcastable only if the round one is broadcasted as well. Without connectors, the users would need to trust the Server to broadcast the round transaction after they signed their forfeit txs. With connectors, instead, there's no need of trust as connectors are the guarantee for the users that the Server can't broadcast the forfeit txs unless the round tx is already onchain.
 
 ![connectors](/img/connectors.png)
 In this example Alice owns a 10k sats VTXO and joins a round to send 2k sats to Bob.
