@@ -1,6 +1,6 @@
 ---
 authors: [altafan]
-description: A new VTXO Tree signing scheme that allows the server to unlock liquidity before a round expiration.
+description: A new VTXO Tree signing scheme that allows the server to unlock liquidity before shared output expiration.
 image: /img/blog/unlock-liquidity.jpg
 slug: unlock-liquidity-before-shared-output-expiration
 tags: [ark, bitcoin, layer2, blockchain, vtxo, liquidity]
@@ -58,7 +58,7 @@ In this example, users A and B spent their VTXOs (VTXO_A, VTXO_B) so server asks
 
 ### Cons
 
-- **Potential for Collusion**: Users could theoretically collude with the server to sweep shared outputs before the receivers of the OOR txs settled their funds. However, this risk isn’t new; similar issues exist with OOR itself -- user and server can collude to double-spend a VTXO spent out of round before the receiver's settlement. The inherent trust dynamics between parties remain unchanged.
+- **Potential for Collusion**: Users could theoretically collude with the server to sweep shared outputs before the receivers of the OOR txs settled their funds. However, this risk isn’t new; similar issues exist with OOR itself — user and server can collude to double-spend a VTXO spent out of round before the receiver's settlement. The inherent trust dynamics between parties remain unchanged.
 
 ## Conclusion
 
