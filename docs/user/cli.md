@@ -113,14 +113,12 @@ ark send --to <address> --amount <amount>
 ark send --receivers '[{"to": "<address>", "amount": <amount>}, ...]'
 ```
 
-### Claiming Pending Payments & Boarding UTXOs
+### Settle Boarding UTXOs
 
-If you're a recipient of a pending payment inside the Ark, claim it BEFORE the [VTXO tree](../learn/concepts.md#vtxo-tree) expires, joining a round now. This commands will claim and batch ALL your pending payments if you have more than one:
-
-Claim will also settle your available boarding UTXO(s), moving them to your offchain balance.
+The `settle` command can be used to settle your out-of-round VTXOs or to complete the onboarding procedure and join the Ark with your own funds.
 
 ```bash
-ark claim
+ark settle
 ```
 
 

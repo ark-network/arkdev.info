@@ -58,7 +58,7 @@ ark-alice balance
 Move funds from on-chain to off-chain for Alice:
 
 ```sh
-ark-alice claim
+ark-alice settle
 ```
 
 Verify Alice's updated balance:
@@ -73,12 +73,6 @@ ark-alice balance
 
 ```sh
 ark-alice send --password alicesecret --to <bob_offchain_address> --amount 15000
-```
-
-### Bob claims all the pending payments
-
-```sh
-ark-bob claim --password bobsecret
 ```
 
 ## 5. Check Balances
@@ -118,4 +112,4 @@ Verify Alice's final balance:
 ark-alice balance
 ```
 
-This guide demonstrates how Alice can interact with the Ark network, including sending a payment to Bob and managing her on-chain and off-chain balances. It also shows how Bob can claim a received payment.
+This guide demonstrates how Alice can interact with the Ark network, including sending a payment to Bob and managing her on-chain and off-chain balances.
