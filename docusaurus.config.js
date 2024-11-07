@@ -42,9 +42,9 @@ const config = {
           sidebarPath: "./sidebars.js",
         },
         blog: {
-          blogTitle: "ARK - Blog",
+          blogTitle: "Developers Blog",
           blogDescription:
-            "Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.",
+            "Blog for Bitcoin and Ark developers. Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.",
           postsPerPage: "ALL",
           blogSidebarTitle: "All posts",
           blogSidebarCount: "ALL",
