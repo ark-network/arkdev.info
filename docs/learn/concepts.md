@@ -46,10 +46,42 @@ All time periods used on timelocks (**5s**, **24h**, **4w**, **1y**) are arbitra
 
 A Virtual UTXO, or VTXO in short, is a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) to which the [Shared Output](#shared-output) of a [round transaction](#round-transaction) commits to. The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
 
-A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It's locked by a taproot script that must contain only two types of spending paths:
 
-1. **Forfeit paths**: The VTXO owner(s) and the Server cooperate to transfer the value to someone else within Ark [rounds](#rounds).
-2. **Redeem paths**: The VTXO owner(s) can unilaterally withdraw their Bitcoin back to the main chain after a time delay, even if the Server is offline.
+A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It's locked by a taproot script that must contain only two types of spending paths: 
+
+#### Redeem Paths
+Allow unilateral spending after a CSV delay. Each path requires:
+- The transaction must be on-chain (the VTXO has to be unrolled on-chain)
+- The delay must not be shorter than a threshold set by the Server
+- Only the designated user(s) signature is needed
+
+examples:
+
+```btcscript
+// 1-sig redeem path
+<delay> CHECKSEQUENCEVERIFY DROP <pubkey> CHECKSIG
+
+// 2-sig redeem path
+<delay> CHECKSEQUENCEVERIFY DROP <pubkey1> CHECKSIGVERIFY <pubkey2> CHECKSIG
+```
+
+#### Forfeit Paths
+
+Allow cooperative spending between parties. Each path requires:
+- The Server's signature must always be included
+- Can optionally require additional signatures
+
+examples:
+
+```btcscript
+// 1-sig forfeit path
+<pubkey> CHECKSIGVERIFY <server_pubkey> CHECKSIG
+
+// 2-sig forfeit path
+<pubkey1> CHECKSIGVERIFY <pubkey2> CHECKSIGVERIFY <server_pubkey> CHECKSIG
+```
+
+#### Default VTXO Script
 
 The most common VTXO script, where Alice is the only owner of the coin, is composed by one forfeit path and one redeem path:
 
@@ -57,7 +89,12 @@ The most common VTXO script, where Alice is the only owner of the coin, is compo
 (Alice + Server) OR (Alice after 24hr)
 ```
 
-For more examples, see the [VTXO scripts examples](../developers/protocol/vtxo#vtxo-scripts-examples).
+```btcscript
+<delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG
+<alice> CHECKSIGVERIFY <server> CHECKSIG
+```
+
+For more examples, see the [VTXO scripts examples](../developers/protocol/address#vtxo-scripts-examples).
 
 ### VTXO Tree
 
