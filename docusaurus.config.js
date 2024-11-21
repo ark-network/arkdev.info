@@ -170,7 +170,7 @@ const config = {
       prism: {
         theme: prismThemes.vsDark,
         darkTheme: prismThemes.vsDark,
-        additionalLanguages: ['bash', 'diff', 'json'],
+        additionalLanguages: ['bash', 'diff', 'json', 'btcscript'],
       },
     }),
 };

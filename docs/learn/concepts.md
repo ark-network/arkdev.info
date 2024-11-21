@@ -53,7 +53,7 @@ A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exi
    - The delay must not be shorter than a threshold set by the Server
    - Only the designated user(s) signature is needed
 
-```hack
+```btcscript
 // 1-sig redeem path
 <delay> CHECKSEQUENCEVERIFY DROP <pubkey> CHECKSIG
 
@@ -65,7 +65,7 @@ A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exi
    - The Server's signature must always be included
    - Can optionally require additional signatures
 
-```hack
+```btcscript
 // 1-sig forfeit path
 <pubkey> CHECKSIGVERIFY <server_pubkey> CHECKSIG
 
@@ -74,13 +74,13 @@ A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exi
 ```
 
 Therefore, the default VTXO script is:
-```hack
+```btcscript
 <alice> CHECKSIGVERIFY <server> CHECKSIG            // (Alice + Server)
 <delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG   // (Alice after <delay>)
 ```
 
 2-of-2 VTXO script:
-```hack
+```btcscript
 <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Bob + Server)
 <delay1> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG               // (Alice after <delay1>)
 <delay2> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIG                 // (Bob after <delay2>)
