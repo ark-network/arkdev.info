@@ -79,3 +79,5 @@ The VTXO address is:
 ```
 ark1x0lm8hhr2wc6n6lyemtyh9rz8rg2ftpkfun46aca56kjg3ws0tsztfpuanaquxc6faedvjk3tax0575y6perapg3e95654pk8r4fjecs5fyd2
 ``` 
+
+To send funds, the sender doesn't have to know the scripts encoded in the address. The taproot tree scripts are revealed only when the VTXO is spent off-chain. Thus, the server validates the spending paths before including the VTXO as input of a round transaction. If the taproot key is not a valid VTXO script, the only way to unlock the funds is to unilateral spend the VTXO.
