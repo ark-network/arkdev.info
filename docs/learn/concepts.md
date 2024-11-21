@@ -48,60 +48,16 @@ A Virtual UTXO, or VTXO in short, is a Bitcoin transaction output that can be sp
 
 A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It's locked by a taproot script that must contain only two types of spending paths:
 
-1. **Redeem paths**: Allow unilateral spending after a CSV delay. Each path requires:
-   - The transaction must be on-chain, the VTXO has to be unrolled on-chain
-   - The delay must not be shorter than a threshold set by the Server
-   - Only the designated user(s) signature is needed
+1. **Forfeit paths**: The VTXO owner(s) and the Server cooperate to transfer the value to someone else within Ark [rounds](#rounds).
+2. **Redeem paths**: The VTXO owner(s) can unilaterally withdraw their Bitcoin back to the main chain after a time delay, even if the Server is offline.
 
-```btcscript
-// 1-sig redeem path
-<delay> CHECKSEQUENCEVERIFY DROP <pubkey> CHECKSIG
+The most common VTXO script, where Alice is the only owner of the coin, is composed by one forfeit path and one redeem path:
 
-// 2-sig redeem path
-<delay> CHECKSEQUENCEVERIFY DROP <pubkey1> CHECKSIGVERIFY <pubkey2> CHECKSIG
+```hack
+(Alice + Server) OR (Alice after 24hr)
 ```
 
-2. **Forfeit paths**: Allow cooperative spending between parties. Each path requires:
-   - The Server's signature must always be included
-   - Can optionally require additional signatures
-
-```btcscript
-// 1-sig forfeit path
-<pubkey> CHECKSIGVERIFY <server_pubkey> CHECKSIG
-
-// 2-sig forfeit path
-<pubkey1> CHECKSIGVERIFY <pubkey2> CHECKSIGVERIFY <server_pubkey> CHECKSIG
-```
-
-Therefore, the default VTXO script is:
-```btcscript
-<alice> CHECKSIGVERIFY <server> CHECKSIG            // (Alice + Server)
-<delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG   // (Alice after <delay>)
-```
-
-2-of-2 VTXO script:
-```btcscript
-<alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Bob + Server)
-<delay1> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG               // (Alice after <delay1>)
-<delay2> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIG                 // (Bob after <delay2>)
-```
-
-:::note
-The server considers the VTXO invalid if any other type of tapscript path is used.
-:::
-
-### VTXO Address
-
-VTXO address is built from the taproot key concatenated with the server's public key. We use bech32m encoding for the address. The server public key aims to identify the Ark service provider. The taproot key encodes the forfeits and redeem paths of the VTXO, the server will use it as a scriptpubkey of a VTXO tree leaf transaction.
-
-Example:
-* VTXO public key: `25a43cecfa0e1b1a4f72d64ad15f4cfa7a84d0723e8511c969aa543638ea9967`
-* Server public key: `33ffb3dee353b1a9ebe4ced64b946238d0a4ac364f275d771da6ad2445d07ae0`
-
-The VTXO address is:
-```
-ark1x0lm8hhr2wc6n6lyemtyh9rz8rg2ftpkfun46aca56kjg3ws0tsztfpuanaquxc6faedvjk3tax0575y6perapg3e95654pk8r4fjecs5fyd2
-```
+For more examples, see the [VTXO scripts examples](../developers/protocol/vtxo#vtxo-scripts-examples).
 
 ### VTXO Tree
 
