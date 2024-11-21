@@ -57,12 +57,14 @@ Default VTXO script:
 <delay2> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIG                 // (Bob after <delay2>)
 ```
 
-2-of-3 VTXO script with collaborative redeem:
+2-of-3 VTXO script:
 ```btcscript
 <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Bob + Server)
 <alice> CHECKSIGVERIFY <charlie> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Charlie + Server)
 <bob> CHECKSIGVERIFY <charlie> CHECKSIGVERIFY <server> CHECKSIG    // (Bob + Charlie + Server)
-<delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <charlie> CHECKSIG    // (Alice + Bob + Charlie after <delay>)
+<delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIGVERIFY <bob> CHECKSIG    // (Alice + Bob after <delay>)
+<delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIGVERIFY <charlie> CHECKSIG    // (Alice + Charlie after <delay>)
+<delay> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIGVERIFY <charlie> CHECKSIG    // (Bob + Charlie after <delay>)
 ```
 
 ## VTXO Address Format
