@@ -68,11 +68,12 @@ examples:
 <delay> CHECKSEQUENCEVERIFY DROP <pubkey1> CHECKSIGVERIFY <pubkey2> CHECKSIG
 ```
 
-#### Forfeit Paths
+#### Forfeit
 
-Allow cooperative spending between parties. Each path requires:
-- The Server's signature must always be included
-- Can optionally require additional signatures
+A forfeit closure allows the owner of VTXO to spend it off-chain in collaboration with the server and must respect the following rules:
+- Must not be delayed
+- Must include server's pubkey
+- At least one forfeit closure must be included in the VTXO script
 
 examples:
 
