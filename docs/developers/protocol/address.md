@@ -18,7 +18,7 @@ An Ark address is the [bech32m](https://bips.dev/350/) encoding of a prefix, the
 > ```
 > mainnet: ark1x0lm8hhr2wc6n6lyemtyh9rz8rg2ftpkfun46aca56kjg3ws0tsztfpuanaquxc6faedvjk3tax0575y6perapg3e95654pk8r4fjecs5fyd2
 > testnet: tark1x0lm8hhr2wc6n6lyemtyh9rz8rg2ftpkfun46aca56kjg3ws0tsztfpuanaquxc6faedvjk3tax0575y6perapg3e95654pk8r4fjec4q8efp
->```
+> ```
 ![Ark Address Structure](/img/address.png)
 
 :::tip
@@ -47,6 +47,7 @@ Default VTXO script:
 ```btcscript
 // forfeit
 <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Bob + Server)
+<delay1> CHECKLOCKTIMEVERIFY DROP <alice> CHECKSIGVERIFY <server> // refund
 // redeems
 <delay1> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG               // (Alice after <delay1>)
 <delay2> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIG                 // (Bob after <delay2>)
