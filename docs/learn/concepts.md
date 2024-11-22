@@ -51,11 +51,12 @@ A VTXO should appear on-chain only if the owner decided to unilaterally exit the
 
 A VTXO is locked by a taproot script that must contain these kinds of spending conditions: 
 
-#### Redeem Paths
-Allow unilateral spending after a CSV delay. Each path requires:
-- The transaction must be on-chain (the VTXO has to be unrolled on-chain)
-- The delay must not be shorter than a threshold set by the Server
-- Only the designated user(s) signature is needed
+#### Redeem
+A redeem closure allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
+- Must be delayed with CSV
+- The delay must not be shorter than a threshold set by the server
+- Must not include server pubkey/signature
+- At least one redeem closure must be included in the VTXO script
 
 examples:
 
