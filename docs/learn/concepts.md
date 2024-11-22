@@ -47,7 +47,9 @@ All time periods used on timelocks (**5s**, **24h**, **4w**, **1y**) are arbitra
 A Virtual UTXO, or VTXO in short, is a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) to which the [Shared Output](#shared-output) of a [round transaction](#round-transaction) commits to. The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
 
 
-A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It's locked by a taproot script that must contain only two types of spending paths: 
+A VTXO should appear on-chain only if the owner decided to unilaterally exit the Ark.
+
+A VTXO is locked by a taproot script that must contain these kinds of spending conditions: 
 
 #### Redeem Paths
 Allow unilateral spending after a CSV delay. Each path requires:
