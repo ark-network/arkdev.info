@@ -49,7 +49,9 @@ A Virtual UTXO, or VTXO in short, is a Bitcoin transaction output that can be sp
 
 A VTXO should appear on-chain only if the owner decided to unilaterally exit the Ark.
 
-A VTXO is locked by a taproot script that must contain these kinds of spending conditions: 
+A VTXO is locked by a [taproot](https://bips.dev/341/) script that must contain the following spending conditions:
+- unspendable key path
+- any script path must be either a **redeem** or a **forfeit**
 
 #### Redeem
 A redeem closure allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
