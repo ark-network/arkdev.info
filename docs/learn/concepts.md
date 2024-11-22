@@ -47,13 +47,16 @@ All time periods used on timelocks (**5s**, **24h**, **4w**, **1y**) are arbitra
 A Virtual UTXO, or VTXO in short, is a Bitcoin transaction output that can be spent off-chain and can be redeemed on-chain at any time. A VTXO is the leaf of the [VTXO tree](#vtxo-tree) to which the [Shared Output](#shared-output) of a [round transaction](#round-transaction) commits to. The VTXO refers to a set of transactions owned by a user, whose validity cannot be revoked by anyone, allowing the user to create a specific UTXO on the blockchain if needed.
 
 
-A VTXO should appear on-chain only if the VTXO owner decided to unilaterally exit the Ark. It's locked by a taproot script that must contain only two types of spending paths: 
+A VTXO should appear on-chain only if the owner decided to unilaterally exit the Ark.
 
-#### Redeem Paths
-Allow unilateral spending after a CSV delay. Each path requires:
-- The transaction must be on-chain (the VTXO has to be unrolled on-chain)
-- The delay must not be shorter than a threshold set by the Server
-- Only the designated user(s) signature is needed
+A VTXO is locked by a taproot script that must contain these kinds of spending conditions: 
+
+#### Redeem
+A redeem closure allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
+- Must be delayed with CSV
+- The delay must not be shorter than a threshold set by the server
+- Must not include server pubkey/signature
+- At least one redeem closure must be included in the VTXO script
 
 examples:
 
@@ -65,11 +68,12 @@ examples:
 <delay> CHECKSEQUENCEVERIFY DROP <pubkey1> CHECKSIGVERIFY <pubkey2> CHECKSIG
 ```
 
-#### Forfeit Paths
+#### Forfeit
 
-Allow cooperative spending between parties. Each path requires:
-- The Server's signature must always be included
-- Can optionally require additional signatures
+A forfeit closure allows the owner of VTXO to spend it off-chain in collaboration with the server and must respect the following rules:
+- Must not be delayed
+- Must include server's pubkey
+- At least one forfeit closure must be included in the VTXO script
 
 examples:
 
