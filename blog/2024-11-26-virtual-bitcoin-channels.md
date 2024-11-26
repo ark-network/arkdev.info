@@ -6,7 +6,7 @@ slug: bitcoin-virtual-channels
 tags: [ark-protocol, bitcoin, payment-channel, virtual-channel, bitcoin-script, vtxo, utxo]
 title: "Bitcoin Virtual Channels: Bringing Instant Settlement To Ark"
 ---
-![Dollars Wrapped](/img/blog/virtual-channels.jpg)
+![Venice Canals](/img/blog/virtual-channels.jpg)
 
 One of the most promising opportunities introduced by Ark is the ability to lift Bitcoin-native contracts onto off-chain trees.
 Payment channels are an ideal candidate to showcase this potential.
