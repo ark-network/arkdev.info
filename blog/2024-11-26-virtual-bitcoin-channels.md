@@ -130,7 +130,7 @@ OP_CHECKSIG
 
 ### Opening the channel
 
-The payer [forfeits his own VTXO (or UTXO)](https://github.com/ark-network/ark/blob/master/api-spec/protobuf/ark/v1/service.proto#L24-L29) to fund the channel joining the next round, and together with the receiver, they register an additional [public key](https://github.com/ark-network/ark/blob/master/api-spec/protobuf/ark/v1/service.proto#L141) only used to sign the virtual tree. The taproot tree is revealed at spending time, when registering an input, providing a list of hex-encoded tapscripts.
+The payer [forfeits his own VTXO (or UTXO)](https://github.com/ark-network/ark/blob/master/api-spec/protobuf/ark/v1/service.proto#L24-L29) to fund the channel joining the next round, and together with the receiver, they both register an additional [public key](https://github.com/ark-network/ark/blob/master/api-spec/protobuf/ark/v1/service.proto#L141) that correspond to their own private key only used to both sign the virtual tree. The taproot tree is revealed at spending time, when registering an input, providing a list of hex-encoded tapscripts.
 
 ```protobuf
 message Input {
