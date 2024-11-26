@@ -3,7 +3,7 @@ sidebar_position: 2
 title: 'Round'
 ---
 
-An Ark round transaction contains a [Shared Output](/docs/developers/protocol/shared-output) that commits to a VTXO tree. This tree is composed of transactions pre-signed by the server and all the round participants - the owner of the VTXOs at leaf-level.
+An Ark round transaction contains a Shared Output that commits to a VTXO tree. This tree is composed of transactions pre-signed by the server and all the round participants - the owner of the VTXOs at leaf-level.
 
 The process of creating a round transaction is an interactive session between server and users that is divided in 3 phases:
 1. **Tree signing phase** 
