@@ -46,6 +46,8 @@ The most obvious drawback, as the reader might have guessed, is that this approa
 
 The most powerful feature of the VTXO paradigm is its native support for the UTXO model, allowing us to extend the bare VTXO script beyond a single signer using Tapscript. By defining additional spending paths, we can encapsulate multi-party contracts—creating **Virtual Channels** that involve the Payer, Receiver, and Ark server.
 
+![Tapscripts for a Channel in a VTXO](/img/ark-vtxo-channel.png)
+
 The Taproot script paths are as follow:
 
 - **Forfeit**: All parties agree on how to spend the VTXO at any time.
@@ -76,13 +78,13 @@ If the Ark server goes offline or fails to respond, the alternative spending pat
 
 Do we need to fork the code to support Virtual Channels? Not at all!
 
-From `arkd` v0.4, the Server  doesn't need to explicitly support a specific script template, as long the [forfeit path](/docs/learn/concepts#forfeit-transaction) exists and all the [unilateral redeem path(s)](/docs/learn/concepts#vtxo) are timelocked.
+With the v0.4 upcoming release of `arkd`, the Server  doesn't need to explicitly support a specific script template, as long the [forfeit path](/docs/learn/concepts#forfeit-transaction) exists and all the [unilateral redeem path(s)](/docs/learn/concepts#vtxo) are timelocked.
 
 ### Script Paths
 
 #### Forfeit
 
-```hack
+```btcscript
 <PayerPubKey
 OP_CHECKSIGVERIFY
 <ReceiverPubKey>
@@ -93,7 +95,7 @@ OP_CHECKSIG
 
 #### Refund and Forfeit
 
-```hack
+```btcscript
 <BlockHeight>
 OP_CHECKLOCKTIMEVERIFY
 OP_DROP
@@ -105,7 +107,7 @@ OP_CHECKSIG
 
 #### Channel: Update
 
-```hack
+```btcscript
 <144>  // 1 day in blocks
 OP_CHECKSEQUENCEVERIFY
 OP_DROP
@@ -117,7 +119,7 @@ OP_CHECKSIG
 
 #### Channel: Refund
 
-```hack
+```btcscript
 <288>  // 2 days in blocks
 OP_CHECKSEQUENCEVERIFY
 OP_DROP
