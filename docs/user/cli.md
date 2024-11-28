@@ -64,12 +64,12 @@ Initialize your wallet and connect to a liquidity provider running an `arkd` ser
   :::
   
 ```bash
-ark init --network liquid --password <password> --asp-url <asp_url>
+ark init --network liquid --password <password> --server-url <server_url>
 ```
   </TabItem>
   <TabItem value="covenant-less" label="clArk" default>
 ```bash
-ark init --password <password> --asp-url <asp_url>
+ark init --password <password> --server-url <server_url>
 ```
   </TabItem>
 </Tabs>
@@ -159,7 +159,7 @@ To run a second CLI instance, use a different data directory:
 
 ```bash
 export ARK_WALLET_DATADIR=path/to/custom
-ark init --network testnet --password <password> --ark-url https://asp.arkdev.info
+ark init --network testnet --password <password> --server-url <server_url>
 ```
 
 :::info
