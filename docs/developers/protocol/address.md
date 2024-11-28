@@ -5,10 +5,7 @@ title: 'Ark Address'
 
 A VTXO is locked by a [P2TR](https://bips.dev/341/) script composed of forfeit and redeem script paths - the key path is always the unspendable key `0250929b74c1a04954b78b4b6035e97a5e078a5a0f28ec96d547bfee9ace803ac0`.
 
-
 An Ark address is the [bech32m](https://bips.dev/350/) encoding of a prefix, the P2TR output key, and the server's x-only public key.
-
-
 
 > on mainnet, the address prefix is `ark`, while on test networks the prefix is always `tark`.
 > For instance:
