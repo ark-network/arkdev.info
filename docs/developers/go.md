@@ -27,7 +27,7 @@ The Ark client can be set up with different storage options and configurations. 
 
 #### Using In-Memory Storage (only for testing)
 
-The code snippet below demonstrates how to set up an Ark client with in-memory storage. This will create a neew seed and holds it in the storeSvc variable.
+The code snippet below demonstrates how to set up an Ark client with in-memory storage. This will create a new seed and holds it in the storeSvc variable.
 
 ```go
 import (
@@ -191,7 +191,7 @@ amount := uint64(1000)
 receivers := []arksdk.Receiver{
     arksdk.NewBitcoinReceiver(recipientOffchainAddr, amount),
 }
-txid, err = arkClient.SendAsync(ctx, false, receivers)
+txid, err = arkClient.SendOffchain(ctx, false, receivers)
 if err != nil {
     log.Fatal(err)
 }
@@ -209,7 +209,7 @@ receivers := []arksdk.Receiver{
     arksdk.NewBitcoinReceiver(recipient1OffchainAddr, amount1),
     arksdk.NewBitcoinReceiver(recipient2OffchainAddr, amount2),
 }
-txid, err = arkClient.SendAsync(ctx, false, receivers)
+txid, err = arkClient.SendOffchain(ctx, false, receivers)
 ```
 
 #### Redeem Funds
