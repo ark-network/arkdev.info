@@ -8,20 +8,20 @@ import TabItem from '@theme/TabItem';
 
 ## What is the Ark Wallet CLI?
 
-The Ark Wallet CLI (Command Line Interface) is a powerful tool that allows users to interact with the Ark protocol directly from their terminal. It provides a streamlined way to manage your Ark wallet, conduct transactions, and interact with Ark Service Providers (ASPs) without the need for a graphical interface.
+The Ark Wallet CLI (Command Line Interface) is a powerful tool that allows users to interact with the Ark protocol directly from their terminal. It provides a streamlined way to manage your Ark wallet, conduct transactions, and interact with Ark Servers without the need for a graphical interface.
 
 ## Key Features and Roadmap
 
 The following roadmap outlines the key features of the Ark Wallet CLI. As development progresses, more features may be added or existing ones enhanced:
 
 - [x] **Wallet Creation and Management**: Create new wallets or restore existing ones with a private key.
-- [x] **ASP Connection**: Connect to Ark Service Providers for off-chain transactions.
+- [x] **Server Connection**: Connect to Ark Service Providers for off-chain transactions.
 - [x] **Balance**: View both onchain and offchain balances.
 - [x] **Offline Fund Reception**: Claim offline payments for pending off-chain transactions before expiration.
 - [x] **Onboarding**: Transfer funds from onchain to offchain balance.
 - [x] **Off-chain Payments**: Send funds to one or multiple recipients off-chain.
-- [x] **Collaborative Redemption**: Work with ASPs to redeem funds onchain to an address of your choice.
-- [x] **Unilateral Redemption**: Force redemption of all funds if ASP is unresponsive.
+- [x] **Collaborative Redemption**: Work with Servers to redeem funds onchain to an address of your choice.
+- [x] **Unilateral Redemption**: Force redemption of all funds if Server is unresponsive.
 - [ ] **Determinsitic Wallet**: (Planned) Manage multiple keys from a single BIP39 mnemonic seed.
 - [ ] **Transaction History**: (Coming Soon) View detailed history of all transactions.
 - [ ] **Advanced Security Features**: (Planned) Implement additional security measures like 2FA.
@@ -52,7 +52,7 @@ mv <binary> /usr/local/bin/ark
 chmod +x /usr/local/bin/ark
 ```
 
-## Wallet Setup and ASP Connection
+## Wallet Setup and Server Connection
 
 Initialize your wallet and connect to a liquidity provider running an `arkd` server:
 
@@ -106,7 +106,7 @@ ark receive
 You can send to both onchain and offchain addresses. The CLI will use the appropriate balance.
 :::
 
-Send payments to one or multiple receivers co-signing only with the ASP and delivering the pending payment to te recipient through the ASP:
+Send payments to one or multiple receivers co-signing only with the Server and delivering the pending payment to te recipient through the Server:
 
 ```bash
 ark send --to <address> --amount <amount>
@@ -129,7 +129,7 @@ ark settle
 Change from this operation goes to your offchain address.
 :::
 
-Work with the ASP to redeem funds onchain:
+Work with the Server to redeem funds onchain:
 ```bash
 ark redeem --amount <amount> --address <onchain_address>
 ```
@@ -137,7 +137,7 @@ ark redeem --amount <amount> --address <onchain_address>
 :::info
 The `--force` flag ignores `--address` and `--amount` and redeems all funds.
 :::
-If the ASP is unresponsive, redeem all offchain funds:
+If the Server is unresponsive, redeem all offchain funds:
 
 ```bash
 ark redeem --force

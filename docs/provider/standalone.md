@@ -57,7 +57,7 @@ For non-interactive mode, pass `OCEAN_MNEMONIC` and `OCEAN_PASSWORD` as environm
    ARK_WALLET_ADDR=localhost:18000 ARK_VTXO_TREE_SCRIPT_TYPE=covenant ARK_NETWORK=liquid arkd
    ```
 
-4. Create and unlock the ASP wallet:
+4. Create and unlock the Server wallet:
 
    ```sh
    arkd wallet create --password <password>
@@ -119,13 +119,13 @@ export ARK_NEUTRINO_PEER=yourhost:p2p_port_bitcoin
    chmod +x /usr/local/bin/arkd
    ```
 
-3. Start the ASP:
+3. Start the Server:
 
    ```sh
    arkd
    ```
 
-4. Create and unlock the ASP wallet:
+4. Create and unlock the Server wallet:
 
    ```sh
    arkd wallet create --password <password>

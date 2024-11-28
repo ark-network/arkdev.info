@@ -18,7 +18,7 @@ the effect of a covenant.
 
 Instead of using a covenant primitive, which allows deterministic encoding of
 child transactions and encoding them inside the output scripts of the parent
-output. This is very practical because it means that the ASP can encode
+output. This is very practical because it means that the Server can encode
 commitments to these transactions and then send them to the users who can in
 their turn deterministically verify that all the correct child transactions
 have been committed.
@@ -44,7 +44,7 @@ long as any of the stakeholders wants the covenant to hold.
 
 In the context of the VTXO tree in Ark, this would mean that all owners of the
 leaves of the trees have to sign all the transactions on the nodes between
-their leaf and the root, and the ASP has to sign all transactions as well. This
+their leaf and the root, and the Server has to sign all transactions as well. This
 poses an obvious difficulty though: it requires that these receivers are online
 at the time of receiving and it requires that they actively participate in the
 Ark round. As opposed to only the signers having to participate to sign their
@@ -59,7 +59,7 @@ with the requirement that all receivers have to show up for the Ark round.
 But interestingly, during an Ark round, we already require a lot of
 interactions with all the **senders** in the round. They have to participate in
 the round because they have to sign their forfeit transactions. So what if all
-the senders of the entire round and the ASP become the co-signers of all
+the senders of the entire round and the Server become the co-signers of all
 pre-signed transactions? As long as a single signer behaves honestly (i.e.
 removes their cosign key or at least never double-spends any of the signed
 transactions), the simulated covenant will hold.
@@ -72,17 +72,17 @@ the same time become co-signers of the entire VTXO tree.
 
 The flow of how the Ark rounds work in clArk is very similar to covenant Ark.
 There is one extra step: the step in which all participants, i.e. all senders
-plus the ASP, cosign the entire VTXO tree.
+plus the Server, cosign the entire VTXO tree.
 
 The steps are as follows:
 
-- Users inform the ASP of which inputs they want to spend and which outputs
+- Users inform the Server of which inputs they want to spend and which outputs
   they want to create.
   - Together with this, they create a new temporary keypair to use for the VTXO
     tree signing and attach it together a series of pre-generated MuSig2
     signing nonces that they will use to sign the VTXO tree.
 
-- The ASP collects all this information, creates an unsigned round tx and an
+- The Server collects all this information, creates an unsigned round tx and an
   unsigned VTXO tree. It sends this info to the users in a "VTXO proposal".
   - It also generates its own signing nonces and uses the nonces provided by
     the users to calculate the aggregate nonces for all signatures in the
@@ -94,7 +94,7 @@ The steps are as follows:
   - They proceed to sign all the txs in the VTXO tree using the aggregated
     nonces and all the cosigner public keys.
 
-- The ASP aggregates all the partial signatures for the VTXO tree transactions
+- The Server aggregates all the partial signatures for the VTXO tree transactions
   and as such constructs a fully signed VTXO tree.
   - It then generates their MuSig2 signing nonces for all the forfeit
     transactions for all participating input VTXOs.
@@ -103,9 +103,9 @@ The steps are as follows:
 - The users validate that the signed VTXO tree is still the same one that they
   signed before and they validate that all signatures are correct.
   - They then sign all forfeit transactions using the connectors and the nonces
-    provided by the ASP. They send the finished forfeit signatures to the ASP.
+    provided by the Server. They send the finished forfeit signatures to the Server.
 
-- When the ASP collected all forfeit signatures, it signs the round tx and
+- When the Server collected all forfeit signatures, it signs the round tx and
   sends the public round information to all users: a copy of the signed VTXO
   tree and the signed round tx.
 
