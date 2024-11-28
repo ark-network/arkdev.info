@@ -19,6 +19,7 @@ toc_max_heading_level: 5
   - [Boarding transaction](#boarding-transaction)
   - [Forfeit transaction](#forfeit-transaction)
   - [Round transaction](#round-transaction)
+  - [Redeem transaction](#redeem-transaction)
 
 <details>
 <summary>Legend</summary>
@@ -171,11 +172,10 @@ The Server creates the next VTXO tree with the new VTXO, and a chain of connecto
 
 ### Redeem transaction
 
-- Funded by Alice, allows her to send funds to Bob without joining a round
+- Funded by Alice, creates an output for Bob and an eventual change for her. They can both spend their VTXOs in another redeem tx or settle, ie. they can forfeit the VTXOs and join a round at any time prior the VTXO expiration
 - Signed by both Alice and Server
-- Delegates Bob to settle, ie. join a round and have the vtxo backed by a tree signed by him
 
 | Inputs   | Outputs           |
 | -------- | ----------------- |
-| VTXO spending `Alice + Server` | `(Bob and Server) or (Bob after 24 hours) |
-|          | `Change - (Alice and Server) or (Alice after 24 hours)` |
+| VTXO spending `Alice + Server` | `(Bob and Server) or (Bob after 24 hours)` |
+|          | `(Alice and Server) or (Alice after 24 hours)` (change) |
