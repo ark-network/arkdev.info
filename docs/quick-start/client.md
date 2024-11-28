@@ -111,5 +111,3 @@ Verify Alice's final balance:
 ```sh
 ark-alice balance
 ```
-
-This guide demonstrates how Alice can interact with the Ark network, including sending a payment to Bob and managing her on-chain and off-chain balances.

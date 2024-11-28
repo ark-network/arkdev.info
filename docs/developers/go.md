@@ -51,7 +51,7 @@ func setupInMemoryArkClient() (arksdk.ArkClient, error) {
 	if err := client.Init(context.Background(), arksdk.InitArgs{
 		WalletType: arksdk.SingleKeyWallet,
 		ClientType: arksdk.GrpcClient,
-		AspUrl:     "localhost:7070",
+		ServerUrl:     "localhost:7070",
 		Password:   "your_password",
 	}); err != nil {
 		return nil, fmt.Errorf("failed to initialize wallet: %s", err)
@@ -88,7 +88,7 @@ func setupFileBasedArkClient() (arksdk.ArkClient, error) {
 	if err := client.Init(context.Background(), arksdk.InitArgs{
 		WalletType: arksdk.SingleKeyWallet,
 		ClientType: arksdk.GrpcClient,
-		AspUrl:     "localhost:7070",
+		ServerUrl:     "localhost:7070",
 		Password:   "your_password",
 	}); err != nil {
 		return nil, fmt.Errorf("failed to initialize wallet: %s", err)
@@ -106,7 +106,7 @@ The `Init` function accepts various configuration options through the `InitArgs`
 type InitArgs struct {
     ClientType          string // Type of client connection (e.g., "grpc" or "rest")
     WalletType          string // Type of wallet (e.g., "singlekey" or "hd")
-    AspUrl              string // URL of the Ark Service Provider
+    ServerUrl              string // URL of the Ark Server
     Seed                string // Private Key hex encoded for wallet initialization or restoration
     Password            string // Wallet password
     WithTransactionFeed bool // Receive notifications about received or spent funds
@@ -115,14 +115,14 @@ type InitArgs struct {
 
 Let's explore each field in detail:
 
-- `ClientType`: Specifies the type of connection to use with the Ark Service Provider. Options include:
+- `ClientType`: Specifies the type of connection to use with the Ark Server. Options include:
   - `"grpc"`: Uses gRPC for communication (recommended for better performance)
   - `"rest"`: Uses REST API for communication
 
 - `WalletType`: Defines the type of wallet to create or restore. Options include:
   - `"singlekey"`: A wallet using a single key for all transactions
 
-- `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:7070"` for a local instance.
+- `ServerUrl`: The URL of the Ark Server to connect to. For example, `"localhost:7070"` for a local instance.
 
 - `Seed`: The hex-encoded private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup key for restoring an existing wallet.
 
@@ -141,7 +141,7 @@ if err != nil {
 if err := client.Init(context.Background(), arksdk.InitArgs{
     ClientType: arksdk.GrpcClient,
     WalletType: arksdk.SingleKeyWallet,
-    AspUrl:     "localhost:7070",
+    ServerUrl:     "localhost:7070",
     Seed:       "private key hex-encoded",
     Password:   "your-strong-password",
 }); err != nil {
@@ -195,7 +195,7 @@ txid, err = arkClient.SendOffchain(ctx, false, receivers)
 if err != nil {
     log.Fatal(err)
 }
-log.Infof("Payment completed in round tx: %s", txid)
+log.Infof("Transaction completed in round tx: %s", txid)
 ```
 
 ### 4. Advanced Usage

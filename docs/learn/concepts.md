@@ -38,7 +38,7 @@ Ark **Servers** are always-on servers that provide liquidity to the network, sim
 
 ### Users
 
-**Users** are the ones who sends and receive VTXOs, virtual UTXOs that can be transformed in UTXO at any time, but are kept off-chain for cheaper and faster settlements of Bitcoin payments. They can unilaterally exit their funds from the Ark to the mainchain without asking the Server for permission, assuming the cost of the on-chain transaction to exit is not greater than the value of the VTXO being spent.
+**Users** are the ones who sends and receive VTXOs, virtual UTXOs that can be transformed in UTXO at any time, but are kept off-chain for cheaper and faster settlements of Bitcoin transactions. They can unilaterally exit their funds from the Ark to the mainchain without asking the Server for permission, assuming the cost of the on-chain transaction to exit is not greater than the value of the VTXO being spent.
 
 ## 📝 Contracts and Primitives
 :::note
@@ -115,7 +115,7 @@ A shared output is a bitcoin transaction output locked by a taproot script with 
 
 ### Rounds
 
-One of the jobs of the Ark server is to periodically create round transactions in order for users to settle or refresh their VTXOs whenever they need. During these rounds, users with a VTXO in the Ark can request the Server to include their new virtual transactions output. The Server then creates a new [shared output](#shared-output) that aggregates all the payments from that round.
+One of the jobs of the Ark server is to periodically create round transactions in order for users to settle or refresh their VTXOs whenever they need. During these rounds, users with a VTXO in the Ark can request the Server to include their new virtual transactions output. The Server then creates a new [shared output](#shared-output) that aggregates all the off-chain transactions from that round.
 To participate, users sign an off-chain [forfeit transaction](#forfeit-transaction), transferring their input VTXO to the Server. In exchange, the Server generates a new shared on-chain UTXO containing the desired output VTXOs and broadcasts the transaction.
 
 A round transaction typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.

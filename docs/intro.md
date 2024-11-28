@@ -1,5 +1,5 @@
 ---
-description: Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain payments.
+description: Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap, fast and confidential off-chain transactions.
 sidebar_position: 1
 slug: /
 title: Introduction
@@ -11,7 +11,7 @@ For a quick start, check out our [Quick Start Guide](./quick-start/overview.md) 
 
 ### 🤔 Why Ark?
 
-Bitcoin is the world's most secure and censorship-resistant blockchain. However, it's not the fastest or the cheapest. Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for off-chain payments through an intermediary server that cannot access your funds.
+Bitcoin is the world's most secure and censorship-resistant blockchain. However, it's not the fastest or the cheapest. Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for off-chain transactions through an intermediary server that cannot access your funds.
 
 ### 🧐 Does Ark require covenants?
 
@@ -24,14 +24,14 @@ Head over to our [Learn](./learn/intro.md) section to understand the Ark protoco
 
 ### 🏃‍♀️ Running Ark
 
-You can join an existing Ark service provider or run your own on Bitcoin or Liquid. To get started, follow the guides below:
+You can join an existing Ark Network or run your own on Bitcoin or Liquid. To get started, follow the guides below:
 
-- [Join an Ark as a simple user sending and receiving payments](./user/intro.md)
-- [Operate an Ark as Coordinator and Liquidity Provider](./provider/intro.md)
+- [Join an Ark as a simple user sending and receiving funds](./user/intro.md)
+- [Operate an Ark as always-on server](./provider/intro.md)
 
 ### 👩‍💻 Integrate Ark
 
-You can [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin payments off-chain. Check out our SDKs for Go and JavaScript, soon also Rust and Python.
+You can [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin funds off-chain. Check out our SDKs for Go and JavaScript, soon also Rust and Python.
 
 ### ⌨️ Contributing
 

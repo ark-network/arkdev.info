@@ -17,4 +17,4 @@ Should the digital bank cease to exist, **users can still retrieve their digital
 
 ### 📜 How Does Ark Work?
 
-Start by exploring the [Key Concepts](./concepts.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./boarding.md), [Send Payments](./payments.md), and eventually [Leave the Ark](./leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.
+Start by exploring the [Key Concepts](./concepts.md) to familiarize yourself with key concepts and terminology. Then, learn how to [Board the Ark](./boarding.md), [Send Transactions](./payments.md), and eventually [Leave the Ark](./leaving.md) to withdraw your funds back to the Bitcoin blockchain in case of server unresponsiveness.

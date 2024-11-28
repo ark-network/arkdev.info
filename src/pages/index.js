@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for confidential and off-chain payments."
+      description="Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap and fast off-chain transactions."
     >
       <HomepageHeader />
       <main className={styles.main}>
@@ -79,7 +79,7 @@ export default function Home() {
           <FeatureItem
             icon="/img/provide-liquidity.png"
             title="Provide Liquidity to Ark"
-            description="Join the network of service providers to facilitate seamless bitcoin transactions."
+            description="Join the network of Ark Servers to facilitate seamless bitcoin transactions."
             buttonText="Learn more"
             buttonLink="/docs/provider/intro"
           />
