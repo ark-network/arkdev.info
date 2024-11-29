@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: 'Key Concepts'
 toc_max_heading_level: 5
 ---
@@ -9,10 +9,12 @@ toc_max_heading_level: 5
   - [Users](#users)
 - [📝 Contracts and Primitives](#-contracts-and-primitives)
   - [VTXO](#vtxo)
-    - [Redeem](#redeem)
-    - [Forfeit](#forfeit)
+    - [Redeem path](#redeem-path)
+    - [Forfeit path](#forfeit-path)
   - [VTXO Tree](#vtxo-tree)
   - [Shared Output](#shared-output)
+    - [Unroll path](#unroll-path)
+    - [Sweep path](#sweep-path)
   - [Rounds](#rounds)
   - [Connectors](#connectors)
 - [⛓️‍💥 Transactions](#️-transactions)
@@ -55,8 +57,8 @@ A VTXO is locked by a [taproot](https://bips.dev/341/) script that must contain 
 - unspendable key path
 - any script path must be either a **redeem** or a **forfeit**
 
-#### Redeem
-A redeem closure allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
+#### Redeem path
+A redeem path allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
 - Must be delayed with CSV (relative timelock)
 - The delay must not be shorter than a threshold set by the server
 - Must not require server's signature
@@ -69,9 +71,9 @@ Example:
 <delay> CHECKSEQUENCEVERIFY DROP <pubkey> CHECKSIG
 ```
 
-#### Forfeit
+#### Forfeit path
 
-A forfeit closure allows the owner of VTXO to spend it off-chain in collaboration with the server and must respect the following rules:
+A forfeit path allows the owner of VTXO to spend it off-chain in collaboration with the server and must respect the following rules:
 - Can be delayed with CLTV (absolute timelock)
 - Must require server's signature
 - At least one forfeit closure must be included in the VTXO script
@@ -83,7 +85,7 @@ Example:
 <pubkey> CHECKSIGVERIFY <server_pubkey> CHECKSIG
 ```
 
-The most common VTXO script, where Alice is the only owner of the coin, is composed by one forfeit path and one redeem path:
+The most common VTXO script, where Alice is the only owner of a coin, is composed of one forfeit path and one redeem path like:
 
 ```hack
 (Alice + Server) OR (Alice after 24hr)
@@ -108,17 +110,25 @@ VTXOs are created by a [shared output](#shared-output). The root of the VTXO tre
 
 ### Shared Output
 
-A shared output is a bitcoin transaction output locked by a taproot script with 2 tapscript closures:
+A shared output is a bitcoin transaction output funded by the server that is locked by a taproot script that must contain the following spending conditions:
 
-1. **Unroll** forces the spending transaction format. A shared output can be spent only by being split into 2 other sub-shared outputs. This gives the VTXO tree the shape of a binary tree.
-2. **Sweep** lets the Ark Server to spend a shared output after a timeout.
+* unspendable key path
+* there must be only 2 script paths,  **unroll** and **sweep**
+
+#### Unroll path
+
+The unroll path is the one used by the server and the users when signing the VTXO tree. The server builds the VTXO tree and shares it with the users. Once all parties validated the tree, they can sign it so it's ready to be revealed onchain in the (rare) case a user wants to unilateral exit and redeem a VTXO.
+
+#### Sweep path
+
+The sweep path allows the Ark Server to spend a shared output alone after a locktime, for example 1 month. This locktime defines the expiry duration of the VTXOs included in a tree.
 
 ### Rounds
 
-One of the jobs of the Ark server is to periodically create round transactions in order for users to settle or refresh their VTXOs whenever they need. During these rounds, users with a VTXO in the Ark can request the Server to include their new virtual transactions output. The Server then creates a new [shared output](#shared-output) that aggregates all the off-chain transactions from that round.
-To participate, users sign an off-chain [forfeit transaction](#forfeit-transaction), transferring their input VTXO to the Server. In exchange, the Server generates a new shared on-chain UTXO containing the desired output VTXOs and broadcasts the transaction.
-
-A round transaction typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.
+The Ark Server's main job is to build new VTXO trees whenever users want to swap close-to-expiry VTXOs for new ones to extend their liveness.  
+To make it possible at any time, one strategy the server can adopt is to periodically attempt to create a new VTXO tree in so-called "round transactions".
+Users can request the server to join the next round and when they are selected, they forfeit (send back) their close-to-expiry VTXOs to the server in exchange for new ones in the next VTXO tree.  
+The result of this process is an onchain transaction funded by the server that typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.
 
 ### Connectors
 
