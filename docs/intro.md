@@ -13,14 +13,9 @@ For a quick start, check out our [Quick Start Guide](./quick-start/overview.md) 
 
 Bitcoin is the world's most secure and censorship-resistant blockchain. However, it's not the fastest or the cheapest. Ark is a layer-two protocol designed to scale Bitcoin transactions. It uses a shared UTXO model for off-chain transactions through an intermediary server that cannot access your funds.
 
-### 🧐 Does Ark require covenants?
-
-No (but they improve Ark a lot!). A covenant-less version of **Ark is possible on Bitcoin** today!
-Through the documentation, we will refer to the covenant-less version as **clArk** and the covenant version as **Ark**. To better understand the impact of covenants and the drawbacks of clArk, check out the [Ark vs clArk](./learn/clark) page to see the differences between the two implementations.
-
 ### 📜 How Does Ark Work?
 
-Head over to our [Learn](./learn/intro.md) section to understand the Ark protocol in detail.
+Head over to our [Learn](./learn/concepts) section to understand the Ark protocol in detail.
 
 ### 🏃‍♀️ Running Ark
 
@@ -31,7 +26,7 @@ You can join an existing Ark Network or run your own on Bitcoin or Liquid. To ge
 
 ### 👩‍💻 Integrate Ark
 
-You can [integrate Ark](./developers/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin funds off-chain. Check out our SDKs for Go and JavaScript, soon also Rust and Python.
+You can [integrate Ark](./developers/sdk/get-started.md) into your wallet or application to enable your users to send and receive Bitcoin funds off-chain. Check out our SDKs for Go and JavaScript, soon also Rust and Python.
 
 ### ⌨️ Contributing
 

@@ -32,4 +32,4 @@ After the boarding transaction is confirmed, Alice can exit the boarding contrac
 
 ### Collaborative
 
-If Alice wants to exit the boarding contract before the timeout, she can [swap her boarding UTXO for a UTXO instead of a VTXO](./leaving.md#cooperative-exit) by spending in cooperation with the Server with the collaborative path.
+If Alice wants to exit the boarding contract before the timeout, she can [swap her boarding UTXO for a UTXO instead of a VTXO](./leaving.md#collaborative-exit) by spending in cooperation with the Server with the collaborative path.

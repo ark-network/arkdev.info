@@ -106,7 +106,7 @@ The `Init` function accepts various configuration options through the `InitArgs`
 type InitArgs struct {
     ClientType          string // Type of client connection (e.g., "grpc" or "rest")
     WalletType          string // Type of wallet (e.g., "singlekey" or "hd")
-    ServerUrl              string // URL of the Ark Server
+    ServerUrl           string // URL of the Ark Server
     Seed                string // Private Key hex encoded for wallet initialization or restoration
     Password            string // Wallet password
     WithTransactionFeed bool // Receive notifications about received or spent funds
@@ -129,25 +129,6 @@ Let's explore each field in detail:
 - `Password`: The password used to encrypt and protect the wallet.
 
 - `WithTransactionFeed`: Enable receiving notifications about received or spent funds.
-
-Here's an example of how to use these options when initializing an Ark client:
-
-```go
-client, err := arksdk.NewCovenantlessClient(storeSvc)
-if err != nil {
-    return nil, fmt.Errorf("failed to setup ark client: %s", err)
-}
-
-if err := client.Init(context.Background(), arksdk.InitArgs{
-    ClientType: arksdk.GrpcClient,
-    WalletType: arksdk.SingleKeyWallet,
-    ServerUrl:     "localhost:7070",
-    Seed:       "private key hex-encoded",
-    Password:   "your-strong-password",
-}); err != nil {
-    return nil, fmt.Errorf("failed to initialize wallet: %s", err)
-}
-```
 
 Note: Always ensure that you keep your seed phrase and password secure. Never share them or store them in plaintext.
 

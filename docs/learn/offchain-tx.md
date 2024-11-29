@@ -12,8 +12,8 @@ The receiver can spend the incoming VTXOs to either make another offchain transa
 
 ## Timeline
 
-1. **Alice wants to send bitcoin to Bob:** Alice asks the Server to spend from her [VTXO](./concepts.md#vtxo).
-2. **Creating the transaction:** This transaction spends from the [forfeit path](./concepts.md#forfeit) of the VTXO, and creates an actual [VTXO](./concepts.md#vtxo) output that can be spent by Bob alone or Bob and Server.
+1. **Alice wants to send bitcoin to Bob:** Alice asks the Server to spend from her VTXO.
+2. **Creating the transaction:** This transaction spends from the forfeit path of the VTXO, and creates an actual VTXO that can be spent by Bob alone or Bob and Server.
 3. **Bob can spend the VTXO:** Bob can spend the received VTXO by doing a similar transaction, or can settle it and make it backed by a VTXO tree signed by him.
 
 ![Ark Transaction OOR](/img/OOR.png)

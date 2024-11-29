@@ -90,7 +90,7 @@ Choose your preferred language to get started:
       <p>Integrate Ark with your Go applications</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/go" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/go" className="sdk-button">Get Started</Link>
     </div>
   </div>
   
@@ -102,7 +102,7 @@ Choose your preferred language to get started:
       <p>Build robust Ark integrations with Rust</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/rust" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/rust" className="sdk-button">Get Started</Link>
     </div>
   </div>
   
@@ -114,7 +114,7 @@ Choose your preferred language to get started:
       <p>Add Ark functionality to your web and Node.js projects</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/javascript" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/javascript" className="sdk-button">Get Started</Link>
     </div>
   </div>
   
@@ -126,7 +126,7 @@ Choose your preferred language to get started:
       <p>Implement Ark in your Python applications</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/python" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/python" className="sdk-button">Get Started</Link>
     </div>
   </div>
 </div>

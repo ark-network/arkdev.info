@@ -65,7 +65,7 @@ export default function Home() {
             title="Learn Ark"
             description="Dive into the world of Ark with comprehensive learning resources tailored for developers."
             buttonText="Learn more"
-            buttonLink="/docs/learn/intro"
+            buttonLink="/docs/learn/concepts"
           />
           <Separator />
           <FeatureItem
@@ -73,7 +73,7 @@ export default function Home() {
             title="Start Using Ark"
             description="Integrate ARK in your own bitcoin wallet for easy, cheap and fast bitcoin transactions."
             buttonText="Build now"
-            buttonLink="/docs/developers/get-started"
+            buttonLink="/docs/developers/sdk/get-started"
           />
           <Separator />
           <FeatureItem
