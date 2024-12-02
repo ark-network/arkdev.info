@@ -36,7 +36,12 @@ toc_max_heading_level: 5
 
 ### Server
 
-Ark **Servers** are always-on servers that provide liquidity to the network, similar to how Lightning service providers work. The Server is responsible for creating new [VTXOs](#vtxo) and broadcasting periodically the [Round transactions](#round-transaction) and it's incentivized by the fees charged on the virtual UTXOs created. Each of these rounds expire after a certain period of time, to allow Server to reclaim the Bitcoin liquidity locked on-chain, unless the user decides to refresh their VTXOs and pay the liquidity provider fees again.
+The **Ark Server** is an always-on service with two primary functions:
+
+1.	Batching VTXOs into UTXOs: It consolidates Virtual Transaction Outputs ([VTXOs](#vtxo)) into on-chain Unspent Transaction Outputs (UTXOs), reducing the blockchain footprint to a single on-chain transaction, regardless of the number of VTXOs involved.
+2.	Funding On-Chain Transactions: It provides the inputs needed to fund and publish these on-chain transactions, utilizing its own liquidity.
+
+It is important to note that, by no means, does the Ark Server have trusted control over user funds.
 
 ### Users
 
@@ -118,7 +123,7 @@ A shared output is a bitcoin transaction output funded by the server that is loc
 
 #### Unroll path
 
-The unroll path is the one used by the server and the users when signing the VTXO tree. The server builds the VTXO tree and shares it with the users. Once all parties validated the tree, they can sign it so it's ready to be revealed onchain in the (rare) case a user wants to unilateral exit and redeem a VTXO.
+The unroll path is the one used by the server and the users when signing the VTXO tree. The server builds the VTXO tree and shares it with the users. Once all parties validated the tree, they can sign it so it's ready to be revealed on-chain in the (rare) case a user wants to unilateral exit and redeem a VTXO.
 
 #### Sweep path
 
@@ -129,7 +134,7 @@ The sweep path allows the Ark Server to spend a shared output alone after a lock
 The Ark Server's main job is to build new VTXO trees whenever users want to swap close-to-expiry VTXOs for new ones to extend their liveness.  
 To make it possible at any time, one strategy the server can adopt is to periodically attempt to create a new VTXO tree in so-called "round transactions".
 Users can request the server to join the next round and when they are selected, they forfeit (send back) their close-to-expiry VTXOs to the server in exchange for new ones in the next VTXO tree.  
-The result of this process is an onchain transaction funded by the server that typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of [connectors](#connectors).
+The result of this process is an on-chain transaction funded by the server that typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of [connectors](#connectors).
 
 ### Connectors
 
@@ -139,7 +144,7 @@ As introduced before, a round transaction typically has two outputs: a _Shared O
 
 A connector is a dust value ouptut that _connects_ a forfeit tx that spends a VTXO, to the round tx that creates another one.  
 The connector is created by the server in the round tx and is used as input of a user's forfeit tx. It's signed by the Server only and its purpose is to force the forfeit tx to be broadcastable only if the round tx is broadcasted as well.  
-Without connectors, the users would need to trust the Server to broadcast the round tx after they signed their forfeit txs. With connectors, instead, there's no need of trust as they are the guarantee for the users that the Server can't broadcast the forfeit txs unless the round tx is already onchain.
+Without connectors, the users would need to trust the Server to broadcast the round tx after they signed their forfeit txs. With connectors, instead, there's no need of trust as they are the guarantee for the users that the Server can't broadcast the forfeit txs unless the round tx is already on-chain.
 
 ![connectors](/img/connectors.png)
 In this example Alice owns a 10k sats VTXO and joins a round to refresh it.
