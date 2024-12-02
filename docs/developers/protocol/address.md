@@ -3,7 +3,7 @@ sidebar_position: 1
 title: 'Ark Address'
 ---
 
-A VTXO is locked by a [P2TR](https://bips.dev/341/) script composed of forfeit and redeem script paths - the key path is always the unspendable key `0250929b74c1a04954b78b4b6035e97a5e078a5a0f28ec96d547bfee9ace803ac0`.
+A VTXO is locked by a [P2TR](https://bips.dev/341/) script composed of collaborative and exit script paths - the key path is always the unspendable key `0250929b74c1a04954b78b4b6035e97a5e078a5a0f28ec96d547bfee9ace803ac0`.
 
 An Ark address is the [bech32m](https://bips.dev/350/) encoding of a prefix, the P2TR output key, and the server's x-only public key.
 
@@ -26,37 +26,46 @@ Like Bitcoin, the taproot tree encoded in the ark address is revealed only when 
 
 Default VTXO script:
 ```btcscript
-// forfeit
+// collaborative path
 <alice> CHECKSIGVERIFY <server> CHECKSIG            // (Alice + Server)
-// redeem
+// exit path
 <delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG   // (Alice after <delay>)
 ```
 
-2-of-2 VTXO script with collaborative redeem:
+VTXO with delayed collaborative path:
 ```btcscript
-// forfeit
+// collaborative path
+<alice> CHECKSIGVERIFY <server> CHECKSIG            // (Alice + Server)
+<free_at> CHECKLOCKTIMEVERIFY DROP <bob> CHECKSIGVERIFY <server> CHECKSIG            // (Bob + Server, available at <free_at>)
+// exit path
+<delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG   // (Alice after <delay>)
+```
+
+2-of-2 VTXO script with multisig exit path:
+```btcscript
+// collaborative path
 <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG             // (Alice + Bob + Server)
-// redeem
+// exit path
 <delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIGVERIFY <bob> CHECKSIG    // (Alice + Bob after <delay>)
 ```
 
-2-of-2 VTXO script with unilateral redeem paths:
+2-of-2 VTXO script with 2 unilateral exit paths:
 ```btcscript
-// forfeit
+// collaborative path
 <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Bob + Server)
 <delay1> CHECKLOCKTIMEVERIFY DROP <alice> CHECKSIGVERIFY <server> // refund
-// redeems
+// exit paths
 <delay1> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIG               // (Alice after <delay1>)
 <delay2> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIG                 // (Bob after <delay2>)
 ```
 
 2-of-3 VTXO script:
 ```btcscript
-// forfeits
+// collaborative paths
 <alice> CHECKSIGVERIFY <bob> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Bob + Server)
 <alice> CHECKSIGVERIFY <charlie> CHECKSIGVERIFY <server> CHECKSIG    // (Alice + Charlie + Server)
 <bob> CHECKSIGVERIFY <charlie> CHECKSIGVERIFY <server> CHECKSIG    // (Bob + Charlie + Server)
-// redeems
+// exit paths
 <delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIGVERIFY <bob> CHECKSIG    // (Alice + Bob after <delay>)
 <delay> CHECKSEQUENCEVERIFY DROP <alice> CHECKSIGVERIFY <charlie> CHECKSIG    // (Alice + Charlie after <delay>)
 <delay> CHECKSEQUENCEVERIFY DROP <bob> CHECKSIGVERIFY <charlie> CHECKSIG    // (Bob + Charlie after <delay>)

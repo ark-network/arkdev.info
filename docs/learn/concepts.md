@@ -9,8 +9,8 @@ toc_max_heading_level: 5
   - [Users](#users)
 - [📝 Contracts and Primitives](#-contracts-and-primitives)
   - [VTXO](#vtxo)
-    - [Redeem path](#redeem-path)
-    - [Forfeit path](#forfeit-path)
+    - [Exit path](#exit-path)
+    - [Collaborative path](#collaborative-path)
   - [VTXO Tree](#vtxo-tree)
   - [Shared Output](#shared-output)
     - [Unroll path](#unroll-path)
@@ -55,37 +55,37 @@ A VTXO should appear on-chain only if the owner decided to unilaterally exit the
 
 A VTXO is locked by a [taproot](https://bips.dev/341/) script that must contain the following spending conditions:
 - unspendable key path
-- any script path must be either a **redeem** or a **forfeit**
+- any script path must be either a **collaborative** or a **exit**
 
-#### Redeem path
-A redeem path allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
+#### Exit path
+The exit path allows the owner of a VTXO to spend it unilaterally, without the collaboration of the server and must respect the following rules:
 - Must be delayed with CSV (relative timelock)
 - The delay must not be shorter than a threshold set by the server
 - Must not require server's signature
-- At least one redeem closure must be included in the VTXO script
+- At least one exit path must be included in the VTXO script
 
 Example:
 
 ```btcscript
-// 1-sig redeem path
+// 1-sig exit path
 <delay> CHECKSEQUENCEVERIFY DROP <pubkey> CHECKSIG
 ```
 
-#### Forfeit path
+#### Collaborative path
 
-A forfeit path allows the owner of VTXO to spend it off-chain in collaboration with the server and must respect the following rules:
+A collaborative path allows the owner of VTXO to spend it off-chain in collaboration with the server and must respect the following rules:
 - Can be delayed with CLTV (absolute timelock)
 - Must require server's signature
-- At least one forfeit closure must be included in the VTXO script
+- At least one collaborative path must be included in the VTXO script
 
 Example:
 
 ```btcscript
-// 1-sig forfeit path
+// 1-sig collaborative path
 <pubkey> CHECKSIGVERIFY <server_pubkey> CHECKSIG
 ```
 
-The most common VTXO script, where Alice is the only owner of a coin, is composed of one forfeit path and one redeem path like:
+The most common VTXO script, where Alice is the only owner of a coin, is composed of one collaborative path and one exit path like:
 
 ```hack
 (Alice + Server) OR (Alice after 24hr)
@@ -100,13 +100,14 @@ For more examples, see the [VTXO scripts examples](../developers/protocol/addres
 
 ### VTXO Tree
 
-VTXOs are created by a [shared output](#shared-output). The root of the VTXO tree spends the shared output and splits it into 2 other shared outputs, which are respecively split into other 2 shared outputs, etc. At the leaf level of this binary tree we find the VTXOs of the round participants.
+VTXOs are created by a [shared output](#shared-output). The root transaction of the VTXO tree spends the shared output and splits it into 2 other shared outputs, which are respecively split into other 2 shared outputs, etc.  
+At the leaf level of this binary tree we find the 1-input-1-output transactions. The outputs of these transactions are the VTXOs of the users.
 
 ![An image from the static](/img/vtxo-tree.png)
 
 - Represents a tree of virtual transactions on the blockchain
+- All transactions are fully signed and ready to be brodcasted for users to unilateral exit
 - In an optimistic scenario, this tree is never revealed
-- Each leaf on this tree represents a [VTXO](#vtxo)
 
 ### Shared Output
 

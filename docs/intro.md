@@ -19,7 +19,7 @@ Head over to our [Learn](./learn/concepts) section to understand the Ark protoco
 
 ### 🏃‍♀️ Running Ark
 
-You can join an existing Ark Network or run your own on Bitcoin or Liquid. To get started, follow the guides below:
+You can join an existing Ark Server or run your own on Bitcoin or Liquid. To get started, follow the guides below:
 
 - [Join an Ark as a simple user sending and receiving funds](./user/intro.md)
 - [Operate an Ark as always-on server](./provider/intro.md)
