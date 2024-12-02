@@ -129,15 +129,17 @@ The sweep path allows the Ark Server to spend a shared output alone after a lock
 The Ark Server's main job is to build new VTXO trees whenever users want to swap close-to-expiry VTXOs for new ones to extend their liveness.  
 To make it possible at any time, one strategy the server can adopt is to periodically attempt to create a new VTXO tree in so-called "round transactions".
 Users can request the server to join the next round and when they are selected, they forfeit (send back) their close-to-expiry VTXOs to the server in exchange for new ones in the next VTXO tree.  
-The result of this process is an onchain transaction funded by the server that typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.
+The result of this process is an onchain transaction funded by the server that typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of [connectors](#connectors).
 
 ### Connectors
 
-Connectors are used to ensure atomicity when forfeiting VTXOs in exchange for others in a new VTXO tree, ie. spending a VTXO by joining a round.
+Connectors are used to ensure atomicity when forfeiting VTXOs in exchange for others in a new VTXO tree.
 
 As introduced before, a round transaction typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.
 
-A connector is a dust value ouptut that _connects_ a forfeit tx to the round tx that creates a new VTXO. The connector is created by the server in the round tx and is used as input of a user's forfeit tx. It's signed by the Server only and its purpose is to force the forfeit tx to be broadcastable only if the round tx is broadcasted as well. Without connectors, the users would need to trust the Server to broadcast the round transaction after they signed their forfeit txs. With connectors, instead, there's no need of trust as connectors are the guarantee for the users that the Server can't broadcast the forfeit txs unless the round tx is already onchain.
+A connector is a dust value ouptut that _connects_ a forfeit tx that spends a VTXO, to the round tx that creates another one.  
+The connector is created by the server in the round tx and is used as input of a user's forfeit tx. It's signed by the Server only and its purpose is to force the forfeit tx to be broadcastable only if the round tx is broadcasted as well.  
+Without connectors, the users would need to trust the Server to broadcast the round tx after they signed their forfeit txs. With connectors, instead, there's no need of trust as they are the guarantee for the users that the Server can't broadcast the forfeit txs unless the round tx is already onchain.
 
 ![connectors](/img/connectors.png)
 In this example Alice owns a 10k sats VTXO and joins a round to refresh it.
