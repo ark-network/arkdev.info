@@ -15,7 +15,7 @@ The Ark Wallet CLI (Command Line Interface) is a powerful tool that allows users
 The following roadmap outlines the key features of the Ark Wallet CLI. As development progresses, more features may be added or existing ones enhanced:
 
 - [x] **Wallet Creation and Management**: Create new wallets or restore existing ones with a private key.
-- [x] **Server Connection**: Connect to Ark Service Providers for off-chain transactions.
+- [x] **Server Connection**: Connect to Ark Server for off-chain transactions.
 - [x] **Balance**: View both onchain and offchain balances.
 - [x] **Offline Fund Reception**: Claim offline payments for pending off-chain transactions before expiration.
 - [x] **Onboarding**: Transfer funds from onchain to offchain balance.
@@ -23,7 +23,7 @@ The following roadmap outlines the key features of the Ark Wallet CLI. As develo
 - [x] **Collaborative Redemption**: Work with Servers to redeem funds onchain to an address of your choice.
 - [x] **Unilateral Redemption**: Force redemption of all funds if Server is unresponsive.
 - [ ] **Determinsitic Wallet**: (Planned) Manage multiple keys from a single BIP39 mnemonic seed.
-- [ ] **Transaction History**: (Coming Soon) View detailed history of all transactions.
+- [x] **Transaction History**: View detailed history of all transactions.
 - [ ] **Advanced Security Features**: (Planned) Implement additional security measures like 2FA.
 - [ ] **Use Nostr contacts and Nostr Accounts**: (Planned) Use Nostr contacts and Nostr Account as private key for easy social payments over Nostr DM.
 - [ ] **Automated Backups**: (Planned) Set up scheduled backups of wallet data.
