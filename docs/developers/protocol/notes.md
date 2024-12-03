@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: 'Ark Notes'
 ---
 
@@ -15,7 +15,7 @@ Here’s an example:
 arknoteTepTrEfaDqq6cpc47jmxkwmeHhgRdmDn36tejLvp7nZ6QzhmeDDy5d27Gy2fwy1M5cpTJ5eMgrD2iA84xrj9qCQoFpR9eopW92rULYbtZ
 ```
 
-Redeeming a note requires to join a round. It has the same flow as a normal [round](/developers/protocol/rounds), except that it does not require any forfeit transactions.
+Redeeming a note requires to join a round. It has the same flow as a normal [round](./round.md), except that it does not require any forfeit transactions.
 
 ### Receiving notes when VTXO is swept
 
@@ -28,7 +28,7 @@ To register nostr identity, the user must provide a [proof of ownership](https:/
 The server will then be able to verify the user owns one of the key signing the VTXO script path provided in the proof. The control block is used to verify if the revealed script path belongs to the VTXO taproot tree.
 
 :::tip
-The user is also able to unsubscribe the nostr notifications at any time using [DeleteNostrRecipient](https://github.com/ark-network/ark/blob/master/api-spec/protobuf/ark/v1/service.proto#L348-L352).
+The user is also able to unsubscribe the nostr notifications at any time using [DeleteNostrRecipient](https://github.com/ark-network/ark/blob/master/api-spec/protobuf/ark/v1/service.proto#L106).
 :::
 
 
