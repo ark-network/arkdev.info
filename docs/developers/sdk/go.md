@@ -179,6 +179,31 @@ if err != nil {
 log.Infof("Transaction completed in round tx: %s", txid)
 ```
 
+#### Submit Redeem Transaction
+
+`SendOffchain` is useful for simple send operations. But complex contract or collaborative transactions require more flexibility. In this case, you can use the `TransportClient.SubmitRedeemTx` function.
+
+```go
+// Create a new transport client
+transportClient, err := grpcclient.NewClient("localhost:7070")
+require.NoError(t, err)
+
+// use common/bitcointree utility function to build redeem transactions
+redeemPartialTx, err := bitcointree.BuildRedeemTx(
+	[]common.VtxoInput{
+		// ... your inputs here
+	},
+	[]*wire.TxOut{
+		// ... your outputs here
+	},
+)
+
+// once signed, submit the transaction to the Ark
+// if accepted, the Ark server will counter sign and returns the fully signed transaction
+fullySignedRedeemTx, err := transportClient.SubmitRedeemTx(ctx, redeemPartialTx)
+```
+
+
 ### 4. Advanced Usage
 
 #### Multiple Recipients
