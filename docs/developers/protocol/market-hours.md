@@ -23,4 +23,4 @@ Clients can fetch the server's [GetInfo](https://github.com/ark-network/ark/blob
 - `next_start_time` is the timestamp of the next starting market hour - or the current if it's already started.
 - `next_end_time` is the ending timestamp of the next market hour
 - `period` describes the frequency of market hours so that clients can calculate those following without polling the endpoint
-- `round_interval` is the frequency with which the Ark Server generates new rounds
+- `round_interval` is the frequency with which the Ark Server generates new rounds during market hours
