@@ -151,5 +151,11 @@ export ARK_NEUTRINO_PEER=yourhost:p2p_port_bitcoin
 
 7. Fund the on-chain address with BTC and wait for 2 confirmations.
 
+## Mint Ark Notes
+
+```sh
+arkd wallet note --amount <amount> --quantity <quantity>
+```
+
   </TabItem>
 </Tabs>

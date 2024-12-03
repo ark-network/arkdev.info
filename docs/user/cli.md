@@ -121,6 +121,13 @@ The `settle` command can be used to settle your out-of-round VTXOs or to complet
 ark settle
 ```
 
+### Redeem an ark-note
+
+The `redeem-notes` command can be used to redeem ark-notes.
+
+```bash
+ark redeem-notes --note <ark-note>
+```
 
 ### Redeeming Funds on-chain
 
