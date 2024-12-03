@@ -15,7 +15,7 @@ Here’s an example:
 arknoteTepTrEfaDqq6cpc47jmxkwmeHhgRdmDn36tejLvp7nZ6QzhmeDDy5d27Gy2fwy1M5cpTJ5eMgrD2iA84xrj9qCQoFpR9eopW92rULYbtZ
 ```
 
-Redeeming a note requires to join a round. It has the same flow as a normal [round](./round.md), except that it does not require any forfeit transactions.
+Redeeming a note requires to join a round. It has the same flow as a normal [round](round.md), except that it does not require any forfeit transactions.
 
 ### Receiving notes when VTXO is swept
 

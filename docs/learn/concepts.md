@@ -17,7 +17,6 @@ toc_max_heading_level: 5
     - [Sweep path](#sweep-path)
   - [Rounds](#rounds)
   - [Connectors](#connectors)
-  - [Market hours](#market-hours)
 - [⛓️‍💥 Transactions](#️-transactions)
   - [Boarding transaction](#boarding-transaction)
   - [Forfeit transaction](#forfeit-transaction)
@@ -151,13 +150,9 @@ Without connectors, the users would need to trust the Server to broadcast the ro
 In this example Alice owns a 10k sats VTXO and joins a round to refresh it.
 The Server creates the next VTXO tree with the new VTXO, and a chain of connectors for each spent (forfeited) VTXO, included the one used in Alice's forfeit tx. The example doesn't take into account service fees for sake of simplicity.
 
-### Market hours
 
-Ark faces a bootstrap issue where transaction costs can be high if there if a VTXO tree is built for few participants. Additionally, efficient cost-sharing among users is crucial for the network's success.
 
-To tackle these challenges, the Ark Server can announce so-called **market hours**, that are specific periods during which it will offer lower service fees for users joining rounds.
 
-Market hours allow users to schedule their settlements at predetermined times in the future, potentially saving on fees. The Ark Server's strategy in its very early stages is to concentrate users' activity during these periods, with the aim of increasing the number of participants in each round.
 
 ## ⛓️‍💥 Transactions
 
