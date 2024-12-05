@@ -105,4 +105,4 @@ arkd --no-macaroon wallet balance
 
 ## Conclusion
 
-Your Ark Server is now set up and provisioned. It's ready to process payments and create round transactions.
+Your Ark Server is now set up and provisioned. It's ready to process off-chain transactions and create VTXO trees in rounds.

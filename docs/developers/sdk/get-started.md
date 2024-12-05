@@ -75,7 +75,7 @@ This guide will help you get started with integrating Ark into your applications
 - Create a Bitcoin wallet for your users with cheap and fast transactions.
 - Integrate Ark and Lightning Network to provide a seamless experience for your users.
 - Accept Bitcoin payments in your ecommerce store or point of sale.
-- Create virtual payment channels between your users.
+- Create virtual channels between your users.
 
 ## SDK Languages
 
@@ -90,7 +90,7 @@ Choose your preferred language to get started:
       <p>Integrate Ark with your Go applications</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/go" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/go" className="sdk-button">Get Started</Link>
     </div>
   </div>
   
@@ -102,7 +102,7 @@ Choose your preferred language to get started:
       <p>Build robust Ark integrations with Rust</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/rust" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/rust" className="sdk-button">Get Started</Link>
     </div>
   </div>
   
@@ -114,7 +114,7 @@ Choose your preferred language to get started:
       <p>Add Ark functionality to your web and Node.js projects</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/javascript" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/javascript" className="sdk-button">Get Started</Link>
     </div>
   </div>
   
@@ -126,7 +126,7 @@ Choose your preferred language to get started:
       <p>Implement Ark in your Python applications</p>
     </div>
     <div class="sdk-card__footer">
-      <Link to="/docs/developers/python" className="sdk-button">Get Started</Link>
+      <Link to="/docs/developers/sdk/python" className="sdk-button">Get Started</Link>
     </div>
   </div>
 </div>

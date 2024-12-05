@@ -3,36 +3,38 @@ sidebar_position: 6
 title: 'Leaving the Ark'
 ---
 
-### Overview
+Users can leave the Ark, ie. redeeming their [VTXOs](concepts.md#vtxo) onchain at any time in two different ways: **collaboratively** - by cooperating with the Ark Server - or **unilaterally** - without the server's cooperation.
 
-Alice wants to leave the Ark and get her funds back on-chain. It requires an on-chain transaction.
+### Collaborative exit
 
-### Cooperative exit
+A user requests to swap a VTXO for a UTXO, instead of another VTXO in the next tree. The server adds an extra output in the next round transaction for the user, who forfeit his VTXO in exchange.
 
 #### Timeline of events
 
-1. Alice tells ASP she wants to trade [VTXO](/docs/learn/concepts#vtxo) for UTXO
-2. ASP (with Alice) prepares next [Round transaction](/docs/learn/concepts#round-transaction):
+1. Alice tells Server she wants to trade VTXO for UTXO
+2. Server (with Alice) prepares next [round transaction](concepts.md#round-transaction):
    - an additional output is added, locked by `Alice`
-3. Alice creates a [Forfeit transaction](/docs/learn/concepts#forfeit-transaction):
-   - spends from VTXO (1) with `Alice + ASP`
-   - adds connector output from Round transaction (2) as input
-   - signs it and send it to the ASP
-4. ASP broadcasts [Round transaction](/docs/learn/concepts#round-transaction)
+3. Alice creates a [forfeit transaction](concepts.md#forfeit-transaction):
+   - spends the VTXO (1) with `Alice + Server`
+   - adds the connector output from round transaction (2) as input
+   - signs it and sends it to the Server
+4. Server broadcasts the round transaction
 5. Alice has now a new UTXO
-6. For at most 4 weeks, Alice will be able to double spend her [VTXO](/docs/learn/concepts#vtxo), but if she does it, the ASP will have time (24 hours) to grab the funds from the [VTXO](/docs/learn/concepts#vtxo) to itself using the [Forfeit transaction](/docs/learn/concepts#forfeit-transaction)
+6. Alice can try to double spend her VTXO by revealing the tree onchain. If she does so, the Server can react by co-signing and broadcasting the forfeit tx once the leaf tx hits the blockchain.
 
-### Non-cooperative exit
+### Unilateral exit
 
-If ASP is unresponsive, Alice can unilaterally exit revealing the branch of the Round transaction that locks her funds.
+If the Server is unresponsive, a user can unilaterally exit by revealing the branch of the VTXO tree that generates his VTXO.  
+The length of the branch can vary and depends on the overall size of the tree - how many leaves it includes.  
+This operation can be costly as the user must pay for the cost of broadcasting these transactions and depends on the actual fee rate of the Bitcoin blockchain.
 
 #### Timeline of events
 
-1. Assuming a [VTXO](/docs/learn/concepts#vtxo) tree with radix of 2 and 8 [VTXOs](/docs/learn/concepts#vtxo):
+1. Assuming a tree with 8 VTXOs at leaf-level:
 ![binary tree](/img/binary-tree.png)
-2. Assuming VTXO 1 and 2 belong to Alice and Bob
-3. Alice reveals the [VTXO](/docs/learn/concepts#vtxo) tree to spend the [Shared Output](/docs/learn/concepts#shared-output).
-4. Alice doesn't need to reveal the entire tree, just enough to validate it:
+2. Assuming VTXO 1 belongs to Alice
+3. Alice reveals her branch of the VTXO tree, no need to reveal the whole tree:
+
 ![branch of tree](/img/branch-tree.png)
-5. Alice will need to wait 24 hours to be able to spend her [VTXO](/docs/learn/concepts#vtxo). This gives enough time to the ASP to prevent any double spend attempts by Alice.
-6. Bob can also spend his [VTXO](/docs/learn/concepts#vtxo) in 24 hours, or do nothing and maintain his [VTXO](/docs/learn/concepts#vtxo) on the Ark.
+
+4. The VTXO became a UTXO, but Alice still need to wait 24 hours to be able to spend it. This gives enough time to the Server to prevent any double-spend attempts by Alice.

@@ -13,7 +13,7 @@ Welcome to the **Ark** quick-start guide! This guide will help you set up a loca
 
 In this guide, you'll learn how to run a **covenant-less** Ark for **Bitcoin regtest** locally with just a few commands.
 
-We'll walk you through setting up a local Bitcoin testing environment, running and provisioning the `arkd` server (an ASP implementation), and making off-chain transactions with the `ark` client.
+We'll walk you through setting up a local Bitcoin testing environment, running and provisioning the `arkd` server (an Ark implementation), and making off-chain transactions with the `ark` client.
 
 ### Getting Started
 

@@ -113,8 +113,8 @@ const config = {
                 to: "/docs/learn/boarding",
               },
               {
-                label: "Send Payments",
-                to: "/docs/learn/payments",
+                label: "Make a transaction",
+                to: "/docs/learn/offchain-tx",
               },
               {
                 label: "Leave an Ark",
@@ -170,7 +170,7 @@ const config = {
       prism: {
         theme: prismThemes.vsDark,
         darkTheme: prismThemes.vsDark,
-        additionalLanguages: ['bash', 'diff', 'json'],
+        additionalLanguages: ['bash', 'diff', 'json', 'btcscript'],
       },
     }),
 };

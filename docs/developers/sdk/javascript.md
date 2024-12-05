@@ -32,7 +32,7 @@ Here's a quick overview of the main functions available in the WASM package:
 
 ```javascript
 // Initialize the wallet
-await init(walletType, clientType, aspUrl, privateKey, password, chain);
+await init(walletType, clientType, serverUrl, privateKey, password, chain);
 
 // Unlock the wallet
 await unlock(password);
@@ -50,11 +50,11 @@ const txID = await onboard(amount);
 const addresses = await receive();
 
 // Send off-chain
-const txID = await sendAsync(false, [{ To: address, Amount: amount }]);
+const txID = await sendOffChain(false, [{ To: address, Amount: amount }]);
 
 // Get configuration
-const aspUrl = await getAspUrl();
-const aspPubKeyHex = await getAspPubKeyHex();
+const serverUrl = await getServerUrl();
+const serverPubKeyHex = await getserverPubKeyHex();
 const walletType = await getWalletType();
 const clientType = await getClientType();
 const roundLifetime = await getRoundLifetime();
@@ -86,10 +86,10 @@ Here's a minimal HTML template to get you started with the Ark SDK WASM package 
                 const clientType = "rest";
                 const privateKey = document.getElementById("prvkey").value;
                 const password = document.getElementById("password").value;
-                const aspUrl = document.getElementById("aspUrl").value;
+                const serverUrl = document.getElementById("serverUrl").value;
                 
-                await init(walletType, clientType, aspUrl, privateKey, password, chain);
-                console.log("Wallet initialized and connected to ASP");
+                await init(walletType, clientType, serverUrl, privateKey, password, chain);
+                console.log("Wallet initialized and connected to Ark Server");
             } catch (err) {
                 console.error("Init error:", err.message);
             }
@@ -109,7 +109,7 @@ Here's a minimal HTML template to get you started with the Ark SDK WASM package 
 <body>
     <h1>Ark SDK WASM Example</h1>
     <div>
-        <input type="text" id="aspUrl" placeholder="ASP URL">
+        <input type="text" id="serverUrl" placeholder="Ark Server URL">
         <input type="password" id="password" placeholder="Password">
         <input type="text" id="prvkey" placeholder="Private Key (optional)">
         <button onclick="initWallet()">Initialize Wallet</button>

@@ -17,10 +17,10 @@ alias ark-alice='ark --datadir ./alice-tmp'
 alias ark-bob='ark --datadir ./bob-tmp'
 
 # Initialize Alice's client
-ark-alice init --password alicesecret --asp-url localhost:7070 --network regtest --explorer http://localhost:3000
+ark-alice init --password alicesecret --server-url localhost:7070 --network regtest --explorer http://localhost:3000
 
 # Initialize Bob's client
-ark-bob init --password bobsecret --asp-url localhost:7070 --network regtest --explorer http://localhost:3000
+ark-bob init --password bobsecret --server-url localhost:7070 --network regtest --explorer http://localhost:3000
 ```
 
 ## 1. Get On-chain Addresses
@@ -111,5 +111,3 @@ Verify Alice's final balance:
 ```sh
 ark-alice balance
 ```
-
-This guide demonstrates how Alice can interact with the Ark network, including sending a payment to Bob and managing her on-chain and off-chain balances.

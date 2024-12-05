@@ -27,7 +27,7 @@ The Ark client can be set up with different storage options and configurations. 
 
 #### Using In-Memory Storage (only for testing)
 
-The code snippet below demonstrates how to set up an Ark client with in-memory storage. This will create a neew seed and holds it in the storeSvc variable.
+The code snippet below demonstrates how to set up an Ark client with in-memory storage. This will create a new seed and holds it in the storeSvc variable.
 
 ```go
 import (
@@ -51,7 +51,7 @@ func setupInMemoryArkClient() (arksdk.ArkClient, error) {
 	if err := client.Init(context.Background(), arksdk.InitArgs{
 		WalletType: arksdk.SingleKeyWallet,
 		ClientType: arksdk.GrpcClient,
-		AspUrl:     "localhost:7070",
+		ServerUrl:     "localhost:7070",
 		Password:   "your_password",
 	}); err != nil {
 		return nil, fmt.Errorf("failed to initialize wallet: %s", err)
@@ -88,7 +88,7 @@ func setupFileBasedArkClient() (arksdk.ArkClient, error) {
 	if err := client.Init(context.Background(), arksdk.InitArgs{
 		WalletType: arksdk.SingleKeyWallet,
 		ClientType: arksdk.GrpcClient,
-		AspUrl:     "localhost:7070",
+		ServerUrl:     "localhost:7070",
 		Password:   "your_password",
 	}); err != nil {
 		return nil, fmt.Errorf("failed to initialize wallet: %s", err)
@@ -106,7 +106,7 @@ The `Init` function accepts various configuration options through the `InitArgs`
 type InitArgs struct {
     ClientType          string // Type of client connection (e.g., "grpc" or "rest")
     WalletType          string // Type of wallet (e.g., "singlekey" or "hd")
-    AspUrl              string // URL of the Ark Service Provider
+    ServerUrl           string // URL of the Ark Server
     Seed                string // Private Key hex encoded for wallet initialization or restoration
     Password            string // Wallet password
     WithTransactionFeed bool // Receive notifications about received or spent funds
@@ -115,39 +115,20 @@ type InitArgs struct {
 
 Let's explore each field in detail:
 
-- `ClientType`: Specifies the type of connection to use with the Ark Service Provider. Options include:
+- `ClientType`: Specifies the type of connection to use with the Ark Server. Options include:
   - `"grpc"`: Uses gRPC for communication (recommended for better performance)
   - `"rest"`: Uses REST API for communication
 
 - `WalletType`: Defines the type of wallet to create or restore. Options include:
   - `"singlekey"`: A wallet using a single key for all transactions
 
-- `AspUrl`: The URL of the Ark Service Provider to connect to. For example, `"localhost:7070"` for a local instance.
+- `ServerUrl`: The URL of the Ark Server to connect to. For example, `"localhost:7070"` for a local instance.
 
 - `Seed`: The hex-encoded private key used to initialize or restore a wallet. This should be a secure, randomly generated string for new wallets, or the backup key for restoring an existing wallet.
 
 - `Password`: The password used to encrypt and protect the wallet.
 
 - `WithTransactionFeed`: Enable receiving notifications about received or spent funds.
-
-Here's an example of how to use these options when initializing an Ark client:
-
-```go
-client, err := arksdk.NewCovenantlessClient(storeSvc)
-if err != nil {
-    return nil, fmt.Errorf("failed to setup ark client: %s", err)
-}
-
-if err := client.Init(context.Background(), arksdk.InitArgs{
-    ClientType: arksdk.GrpcClient,
-    WalletType: arksdk.SingleKeyWallet,
-    AspUrl:     "localhost:7070",
-    Seed:       "private key hex-encoded",
-    Password:   "your-strong-password",
-}); err != nil {
-    return nil, fmt.Errorf("failed to initialize wallet: %s", err)
-}
-```
 
 Note: Always ensure that you keep your seed phrase and password secure. Never share them or store them in plaintext.
 
@@ -191,12 +172,37 @@ amount := uint64(1000)
 receivers := []arksdk.Receiver{
     arksdk.NewBitcoinReceiver(recipientOffchainAddr, amount),
 }
-txid, err = arkClient.SendAsync(ctx, false, receivers)
+txid, err = arkClient.SendOffchain(ctx, false, receivers)
 if err != nil {
     log.Fatal(err)
 }
-log.Infof("Payment completed in round tx: %s", txid)
+log.Infof("Transaction completed in round tx: %s", txid)
 ```
+
+#### Submit Redeem Transaction
+
+`SendOffchain` is useful for simple send operations. But complex contract or collaborative transactions require more flexibility. In this case, you can use the `TransportClient.SubmitRedeemTx` function.
+
+```go
+// Create a new transport client
+transportClient, err := grpcclient.NewClient("localhost:7070")
+require.NoError(t, err)
+
+// use common/bitcointree utility function to build redeem transactions
+redeemPartialTx, err := bitcointree.BuildRedeemTx(
+	[]common.VtxoInput{
+		// ... your inputs here
+	},
+	[]*wire.TxOut{
+		// ... your outputs here
+	},
+)
+
+// once signed, submit the transaction to the Ark
+// if accepted, the Ark server will counter sign and returns the fully signed transaction
+fullySignedRedeemTx, err := transportClient.SubmitRedeemTx(ctx, redeemPartialTx)
+```
+
 
 ### 4. Advanced Usage
 
@@ -209,7 +215,7 @@ receivers := []arksdk.Receiver{
     arksdk.NewBitcoinReceiver(recipient1OffchainAddr, amount1),
     arksdk.NewBitcoinReceiver(recipient2OffchainAddr, amount2),
 }
-txid, err = arkClient.SendAsync(ctx, false, receivers)
+txid, err = arkClient.SendOffchain(ctx, false, receivers)
 ```
 
 #### Redeem Funds

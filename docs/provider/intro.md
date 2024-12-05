@@ -6,7 +6,7 @@ title: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-`arkd` is the core server component of the Ark ecosystem, designed for Ark Service Providers (ASPs). It serves as the backbone of the Ark, facilitating off-chain Bitcoin transactions and providing the liquidity to the protocol.
+`arkd` is the implementation of the Ark Server, the core component of the Ark ecosystem. It serves as the backbone of the Ark, facilitating off-chain Bitcoin transactions and providing the liquidity to the protocol.
 
 ## Key Features
 
@@ -23,7 +23,7 @@ The following roadmap outlines the key features of `arkd`. As the system evolves
 
 ## Role in the Ark protocol
 
-As an ASP, running `arkd` allows you to:
+As an Ark Server, running `arkd` allows you to:
 
 - Facilitate fast, off-chain Bitcoin transactions for your users.
 - Create and Sweep the VTXO trees, which is crucial for the security and liquidity efficiency of the Ark.
