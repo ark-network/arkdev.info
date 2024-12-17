@@ -40,7 +40,7 @@ function HomepageHeader() {
         </p>
         <div className={styles.heroButtons}>
           <Link to="/docs/developers/get-started" className={styles.buttonPrimary}>
-            Build with Ark
+            Developers
           </Link>
           <Link to="/docs/learn/concepts" className={styles.buttonSecondary}>
             Learn more
@@ -71,8 +71,8 @@ export default function Home() {
           
           <div className={styles.statsContainer}>
             <StatsCard 
-              value="Up to $4.86"
-              description="High transaction cost on the Bitcoin blockchain"
+              value="Avg. $4.86"
+              description="High transaction cost on the Bitcoin blockchain at scale"
             />
             <StatsCard
               value="$0.289"
@@ -92,7 +92,7 @@ export default function Home() {
           <div className={styles.featureGrid}>
             <FeatureCard
               icon="💸"
-              title="$0.01 fees"
+              title="Lower fees"
               description="You can trade, send money globally, or use applications without worrying about high costs."
             />
             <FeatureCard
