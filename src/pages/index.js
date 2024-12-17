@@ -3,46 +3,47 @@ import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
+import getBlogPosts from '../utils/getBlogPosts'
 
-const FeatureItem = ({ icon, title, description, buttonText, buttonLink }) => (
-  <div className={styles.featureItem}>
-    <img src={icon} alt={title} className={styles.featureIcon} />
-    <h3 className={styles.featureTitle}>{title}</h3>
-    <p className={styles.featureDescription}>{description}</p>
-    <Link to={buttonLink} className={styles.featureButton}>
-      {buttonText}
-    </Link>
+const StatsCard = ({ value, description }) => (
+  <div className={styles.statsCard}>
+    <h2 className={styles.statsValue}>{value}</h2>
+    <p className={styles.statsDescription}>{description}</p>
   </div>
 );
 
-const Separator = () => <div className={styles.separator}></div>;
+const FeatureCard = ({ icon, title, description }) => (
+  <div className={styles.featureCard}>
+    <div className={styles.featureIcon}>{icon}</div>
+    <h3 className={styles.featureTitle}>{title}</h3>
+    <p className={styles.featureDescription}>{description}</p>
+  </div>
+);
+
+const BlogPostCard = ({ title, description, date, link }) => (
+  <Link to={link} className={styles.blogPostCard}>
+    <div className={styles.blogPostDate}>{date}</div>
+    <h3 className={styles.blogPostTitle}>{title}</h3>
+    <p className={styles.blogPostDescription}>{description}</p>
+    <span className={styles.readMore}>Read more →</span>
+  </Link>
+);
 
 function HomepageHeader() {
   return (
     <header className={styles.heroBanner}>
       <div className={styles.heroContent}>
-        <img
-          src="/img/ark-cubes.png"
-          alt="Ark Cubes"
-          className={styles.arkCubes}
-        />
-        <h1 className={styles.heroTitle}>Build on Ark</h1>
+        <div className={styles.layer2Label}>LAYER 2</div>
+        <h1 className={styles.heroTitle}>Build on Bitcoin, with Ark</h1>
         <p className={styles.heroSubtitle}>
-          Ark is a Bitcoin layer-two protocol for cheap and fast bitcoin
-          transactions.
+          Use Bitcoin for a fraction of the cost.
         </p>
         <div className={styles.heroButtons}>
-          <Link
-            to="/docs/quick-start/overview"
-            className={`${styles.button} ${styles.buttonPrimary}`}
-          >
-            Quick Start <span className={styles.buttonIcon}>⏱️</span>
+          <Link to="/networks" className={styles.buttonPrimary}>
+            Start using Ark
           </Link>
-          <Link
-            to="/blog"
-            className={`${styles.button} ${styles.buttonSecondary}`}
-          >
-            Blog
+          <Link to="/learn" className={styles.buttonSecondary}>
+            Learn more
           </Link>
         </div>
       </div>
@@ -52,37 +53,98 @@ function HomepageHeader() {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const latestPosts = getBlogPosts();
+
   return (
-    <Layout
-      title={siteConfig.title}
-      description="Ark is a layer-two protocol designed to scale Bitcoin transactions with a shared UTXO model for cheap and fast off-chain transactions."
-    >
+    <Layout title={siteConfig.title}>
       <HomepageHeader />
-      <main className={styles.main}>
+      <main>
+        <section className={styles.poweredBy}>
+          <h2>Powered by Bitcoin</h2>
+          <p>
+            Move your Bitcoin transactions off-chain. With Ark's batching technology,
+            you can make instant transfers while maintaining Bitcoin's security.
+          </p>
+          <p>
+            Join thousands of users making cheap Bitcoin transactions!
+          </p>
+          
+          <div className={styles.statsContainer}>
+            <StatsCard 
+              value="Up to $4.86"
+              description="High transaction cost on the Bitcoin blockchain"
+            />
+            <StatsCard
+              value="$0.289"
+              description="Average transaction cost on Ark backed trees"
+            />
+          </div>
+        </section>
+
         <section className={styles.features}>
-          <FeatureItem
-            icon="/img/learn-ark.png"
-            title="Learn Ark"
-            description="Dive into the world of Ark with comprehensive learning resources tailored for developers."
-            buttonText="Learn more"
-            buttonLink="/docs/learn/concepts"
-          />
-          <Separator />
-          <FeatureItem
-            icon="/img/use-ark.png"
-            title="Start Using Ark"
-            description="Integrate ARK in your own bitcoin wallet for easy, cheap and fast bitcoin transactions."
-            buttonText="Build now"
-            buttonLink="/docs/developers/sdk/get-started"
-          />
-          <Separator />
-          <FeatureItem
-            icon="/img/provide-liquidity.png"
-            title="Provide Liquidity to Ark"
-            description="Join the network of Ark Servers to facilitate seamless bitcoin transactions."
-            buttonText="Learn more"
-            buttonLink="/docs/provider/intro"
-          />
+          <h2>Transaction batching power</h2>
+          <p>
+            Ark's strength comes from Bitcoin's security and its innovative transaction
+            batching technology. Any Bitcoin Script is compatible and
+            connects seamlessly.
+          </p>
+          
+          <div className={styles.featureGrid}>
+            <FeatureCard
+              icon="💸"
+              title="$0.01 fees"
+              description="You can trade, send money globally, or use applications without worrying about high costs."
+            />
+            <FeatureCard
+              icon="👨🏼‍⚖️"
+              title="PSBT and Tapscript"
+              description="Deploy payments channels, HTLCs, or DLCs, all with same Bitcoin wallet infrastructure."
+            />
+            <FeatureCard
+              icon="🔒"
+              title="Bitcoin security"
+              description="All transactions are ultimately settled on Bitcoin's blockchain, maintaining its security guarantees."
+            />
+          </div>
+        </section>
+
+        <section className={styles.blogSection}>
+          <h2>Latest Updates</h2>
+          <p>Stay up to date with Ark's development and community news</p>
+          
+          <div className={styles.blogGrid}>
+            {latestPosts.map(post => (
+              <BlogPostCard
+                key={post.id}
+                title={post.title}
+                description={post.description}
+                date={new Date(post.date).toLocaleDateString('en-US', { 
+                  year: 'numeric',
+                  month: 'long'
+                })}
+                link={`/blog/${post.slug}`}
+              />
+            ))}
+          </div>
+
+          <div className={styles.blogCta}>
+            <Link to="/blog" className={styles.buttonSecondary}>
+              View all updates
+            </Link>
+          </div>
+        </section>
+
+        <section className={styles.callToAction}>
+          <h2>Ready to start?</h2>
+          <p>Learn how Ark can help you scale your Bitcoin transactions.</p>
+          <div className={styles.ctaButtons}>
+            <Link to="/docs/quick-start" className={styles.buttonPrimary}>
+              Get Started
+            </Link>
+            <Link to="/docs/learn" className={styles.buttonSecondary}>
+              How Ark works
+            </Link>
+          </div>
         </section>
       </main>
     </Layout>

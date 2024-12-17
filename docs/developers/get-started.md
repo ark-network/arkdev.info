@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: 'Get Started'
+title: 'Overview'
 ---
 
 import Link from '@docusaurus/Link';
@@ -66,16 +66,15 @@ import Link from '@docusaurus/Link';
   </style>
 </head>
 
-# Overview
+This guide will help you get started with learning the lifecycle of Ark "virtual" transactions and integrating VTXOs into your applications. 
+Ark perform bitcoin transactions off-chain and then a compressed version of the transactions is posted to on-chain. As transaction data is included in the Bitcoin blockchain, this allows Ark to be secured by native Bitcoin security.
 
-This guide will help you get started with integrating Ark into your applications.
+## Before you start
 
-## Use cases
+If you're new to Ark, you should start by reading the following concepts:
 
-- Create a Bitcoin wallet for your users with cheap and fast transactions.
-- Integrate Ark and Lightning Network to provide a seamless experience for your users.
-- Accept Bitcoin payments in your ecommerce store or point of sale.
-- Create virtual channels between your users.
+- [Address](./address)
+- [Batch Transaction](./batch-tx)
 
 ## SDK Languages
 

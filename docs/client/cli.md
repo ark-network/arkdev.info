@@ -132,14 +132,17 @@ ark redeem-notes --note <ark-note>
 ### Redeeming Funds on-chain
 
 #### Collaborative Redemption
+
 :::info
 Change from this operation goes to your offchain address.
 :::
 
 Work with the Server to redeem funds onchain:
+
 ```bash
 ark redeem --amount <amount> --address <onchain_address>
 ```
+
 #### Unilateral Redemption
 :::info
 The `--force` flag ignores `--address` and `--amount` and redeems all funds.
