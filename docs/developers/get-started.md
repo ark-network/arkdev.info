@@ -73,8 +73,8 @@ Ark perform bitcoin transactions off-chain and then a compressed version of the 
 
 If you're new to Ark, you should start by reading the following concepts:
 
-- [Address](./address)
-- [Batch Transaction](./batch-tx)
+- [Address](./address.md)
+- [Batch Transaction](./batch.md)
 
 ## SDK Languages
 

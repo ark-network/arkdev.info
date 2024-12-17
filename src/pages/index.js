@@ -39,10 +39,10 @@ function HomepageHeader() {
           Use Bitcoin for a fraction of the cost.
         </p>
         <div className={styles.heroButtons}>
-          <Link to="/networks" className={styles.buttonPrimary}>
-            Start using Ark
+          <Link to="/docs/developers/get-started" className={styles.buttonPrimary}>
+            Build with Ark
           </Link>
-          <Link to="/learn" className={styles.buttonSecondary}>
+          <Link to="/docs/learn/concepts" className={styles.buttonSecondary}>
             Learn more
           </Link>
         </div>
@@ -122,7 +122,7 @@ export default function Home() {
                   year: 'numeric',
                   month: 'long'
                 })}
-                link={`/blog/${post.slug}`}
+                link={post.permalink}
               />
             ))}
           </div>
@@ -138,10 +138,10 @@ export default function Home() {
           <h2>Ready to start?</h2>
           <p>Learn how Ark can help you scale your Bitcoin transactions.</p>
           <div className={styles.ctaButtons}>
-            <Link to="/docs/quick-start" className={styles.buttonPrimary}>
+            <Link to="/docs/quick-start/overview" className={styles.buttonPrimary}>
               Get Started
             </Link>
-            <Link to="/docs/learn" className={styles.buttonSecondary}>
+            <Link to="/docs/learn/concepts" className={styles.buttonSecondary}>
               How Ark works
             </Link>
           </div>

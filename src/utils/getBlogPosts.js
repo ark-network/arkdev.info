@@ -6,7 +6,6 @@ function getBlogPosts() {
     .map(key => {
       const post = blogContext(key)
       const id = key.replace(/^\.\//, '').replace(/\.md$/, '')
-      
       return {
         id,
         title: post.metadata.title,
@@ -14,8 +13,8 @@ function getBlogPosts() {
         date: post.metadata.date,
         authors: post.metadata.authors,
         tags: post.metadata.tags,
-        slug: post.metadata.slug,
-        image: post.metadata.image
+        permalink: post.metadata.permalink,
+        image: post.metadata.frontMatter?.image
       }
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date))

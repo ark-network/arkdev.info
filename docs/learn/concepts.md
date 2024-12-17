@@ -101,8 +101,6 @@ The most common VTXO script, where Alice is the only owner of a coin, is compose
 <alice> CHECKSIGVERIFY <server> CHECKSIG
 ```
 
-For more examples, see the [VTXO scripts examples](../developers/protocol/address#vtxo-scripts-examples).
-
 ### VTXO Tree
 
 VTXOs are created by a [shared output](#shared-output). The root transaction of the VTXO tree spends the shared output and splits it into 2 other shared outputs, which are respecively split into other 2 shared outputs, etc.  

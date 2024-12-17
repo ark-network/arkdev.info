@@ -6,7 +6,7 @@ title: Introduction
 ---
 
 Ark is a scaling solution for Bitcoin that involves **moving transactions off-chain**. Ark executes transactions outside of the Bitcoin main chain but posts transaction data back on-chain in a compressed format.
-Ark servers bundle multiple off-chain transactions into large batches before submitting them to the Bitcoin blockchain. This method spreads fixed costs across multiple transactions in each batch, significantly reducing fees for end-users. 
+Ark servers bundle multiple off-chain transactions into large batches before submitting them to the Bitcoin blockchain. This method spreads fixed costs across multiple transactions in each batch, significantly reducing fees for end-users.
 
 ### 📜 How Does Ark Work?
 
