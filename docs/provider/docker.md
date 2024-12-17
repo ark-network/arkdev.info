@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # Docker
 
-Here you will learn how to get your Ark server ready for processing offchain payments. We'll cover everything from initial setup to funding your wallet.
+Here you will learn how to get your Ark server ready for processing offchain transactions. We'll cover everything from initial setup to funding your wallet.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
