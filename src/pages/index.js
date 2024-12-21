@@ -59,28 +59,6 @@ export default function Home() {
     <Layout title={siteConfig.title}>
       <HomepageHeader />
       <main>
-        <section className={styles.poweredBy}>
-          <h2>Powered by Bitcoin</h2>
-          <p>
-            Move your Bitcoin transactions off-chain. With Ark's batching technology,
-            you can make instant transfers while maintaining Bitcoin's security.
-          </p>
-          <p>
-            Join thousands of users making cheap Bitcoin transactions!
-          </p>
-          
-          <div className={styles.statsContainer}>
-            <StatsCard 
-              value="Avg. $4.86"
-              description="High transaction cost on the Bitcoin blockchain at scale"
-            />
-            <StatsCard
-              value="$0.289"
-              description="Average transaction cost on Ark backed trees"
-            />
-          </div>
-        </section>
-
         <section className={styles.features}>
           <h2>Transaction batching power</h2>
           <p>
