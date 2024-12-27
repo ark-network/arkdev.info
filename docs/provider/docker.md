@@ -84,7 +84,7 @@ This command:
 To make interacting with the Ark daemon easier, add this alias to your bash profile:
 
 ```sh
-alias arkd="docker exec -it arkd arkd"
+alias arkd="docker exec -it arkd arkd --macaroon-path /app/data/macaroons/admin.macaroon --tls-cert-path /app/data/tls/cert.pem"
 ```
 
 This allows you to run `arkd` commands as if it were installed locally.
@@ -150,7 +150,7 @@ docker run -d \
 Add alias to bash profile:
 
 ```sh
-alias arkd="docker exec -it arkd arkd"
+alias arkd="docker exec -it arkd arkd --macaroon-path /app/data/macaroons/admin.macaroon --tls-cert-path /app/data/tls/cert.pem"
 ```
 
 ### 1.2 Create and unlock wallet
