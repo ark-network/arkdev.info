@@ -11,16 +11,16 @@ First, let's set up instances of the Ark client for both Alice and Bob:
 
 ```sh
 # Set up Alice's alias
-alias ark-alice='ark --datadir ./alice-tmp'
+alias ark-alice='ark --datadir /app/ark-alice'
 
 # Set up Bob's alias
-alias ark-bob='ark --datadir ./bob-tmp'
+alias ark-bob='ark --datadir /app/ark-bob'
 
 # Initialize Alice's client
-ark-alice init --password alicesecret --server-url localhost:7070 --network regtest --explorer http://localhost:3000
+ark-alice init --password alicesecret --server-url localhost:7070 --network regtest --explorer http://chopsticks:3000
 
 # Initialize Bob's client
-ark-bob init --password bobsecret --server-url localhost:7070 --network regtest --explorer http://localhost:3000
+ark-bob init --password bobsecret --server-url localhost:7070 --network regtest --explorer http://chopsticks:3000
 ```
 
 ## 1. Get On-chain Addresses
@@ -44,7 +44,7 @@ Both commands will output their respective off-chain and on-chain addresses.
 Use the Nigiri faucet to fund Alice's on-chain wallet:
 
 ```sh
-nigiri faucet <alice_onchain_address>
+nigiri faucet <alice_onchain_address> 0.01
 ```
 
 Check Alice's balance:
@@ -58,7 +58,7 @@ ark-alice balance
 Move funds from on-chain to off-chain for Alice:
 
 ```sh
-ark-alice settle
+ark-alice settle --password alicesecret
 ```
 
 Verify Alice's updated balance:
@@ -103,7 +103,7 @@ ark-alice balance
 If needed, Alice can force all her VTXOs to exit on-chain:
 
 ```sh
-ark-alice redeem --force
+ark-alice redeem --password alicesecret --force
 ```
 
 Verify Alice's final balance:
