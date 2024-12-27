@@ -22,7 +22,8 @@ Use the following command to run the Ark Server:
 
 ```sh
 docker run -d --name arkd \
-  -v ark:/app/wallet-data \
+  -v ark-alice:/app/ark-alice \
+  -v ark-bob:/app/ark-bob \
   -v arkd:/app/data \
   --network nigiri \
   -p 7070:7070 \
