@@ -146,7 +146,7 @@ export ARK_NEUTRINO_PEER=yourhost:p2p_port_bitcoin
 6. Get a funding address:
 
    ```sh
-   arkd --macaroon-path /app/data/macaroons/admin.macaroon --tls-cert-path /app/data/tls/cert.pem wallet address
+   arkd wallet address
    ```
 
 7. Fund the on-chain address with BTC and wait for 2 confirmations.
@@ -154,7 +154,7 @@ export ARK_NEUTRINO_PEER=yourhost:p2p_port_bitcoin
 ## Mint Ark Notes
 
 ```sh
-arkd --macaroon-path /app/data/macaroons/admin.macaroon --tls-cert-path /app/data/tls/cert.pem wallet note --amount <amount> --quantity <quantity>
+arkd wallet note --amount <amount> --quantity <quantity>
 ```
 
   </TabItem>
