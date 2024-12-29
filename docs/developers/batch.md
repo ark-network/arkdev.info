@@ -11,7 +11,7 @@ Before taking a closer look at this process, it's worth to mention that users mu
 
 ## Signing session
 
-The creation of a batch transaction in Ark involves a sequence of actions done by both the server and the users. The process begins with the server initiating the siging session by selecting pending requests from the queue. It then constructs a VTXO tree, shared output, connectors, and an unsigned batch transaction, and shares these data with the participating users.
+The creation of a batch transaction in Ark involves a sequence of actions done by both the server and the users. The process begins with the server initiating the signing session by selecting pending requests from the queue. It then constructs a VTXO tree, shared output, connectors, and an unsigned batch transaction, and shares these data with the participating users.
 
 As soon as the users receive and validate the data, they interact with the server to sign the VTXO tree.
 
