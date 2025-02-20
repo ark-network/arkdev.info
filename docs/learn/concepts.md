@@ -138,15 +138,15 @@ The result of this process is an on-chain transaction funded by the server that 
 
 Connectors are used to ensure atomicity when forfeiting VTXOs in exchange for others in a new VTXO tree.
 
-As introduced before, a round transaction typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a chain of connectors.
+As introduced before, a round transaction typically has two outputs: a _Shared Output_ that commits to a VTXO tree, and a _Connector Output_ that commits to a tree of connectors.
 
 A connector is a dust value ouptut that _connects_ a forfeit tx that spends a VTXO, to the round tx that creates another one.  
-The connector is created by the server in the round tx and is used as input of a user's forfeit tx. It's signed by the Server only and its purpose is to force the forfeit tx to be broadcastable only if the round tx is broadcasted as well.  
+The connector is created by the server in the round tx and is used as input of a user's forfeit tx. It's signed by the Server only and its purpose is to force the forfeit tx to be broadcastable only if the round tx is broadcasted as well.
 Without connectors, the users would need to trust the Server to broadcast the round tx after they signed their forfeit txs. With connectors, instead, there's no need of trust as they are the guarantee for the users that the Server can't broadcast the forfeit txs unless the round tx is already on-chain.
 
 ![connectors](/img/connectors.png)
 In this example Alice owns a 10k sats VTXO and joins a round to refresh it.
-The Server creates the next VTXO tree with the new VTXO, and a chain of connectors for each spent (forfeited) VTXO, included the one used in Alice's forfeit tx. The example doesn't take into account service fees for sake of simplicity.
+The Server creates the next VTXO tree with the new VTXO, and a connectors tree with one leaf for each spent (forfeited) VTXO, included the one used in Alice's forfeit tx. The example doesn't take into account service fees for sake of simplicity.
 
 
 
@@ -181,7 +181,7 @@ The Server creates the next VTXO tree with the new VTXO, and a chain of connecto
 - Funded by the Server, creates VTXOs.
 - Has at least two outputs:
   - A shared output that commits to a VTXO tree
-  - A connector output that commits to a connector chain
+  - A connector output that commits to a connector tree
 - A new transaction is periodically broadcasted by the Server to create new VTXOs. 
 
 | Inputs   | Outputs           |
