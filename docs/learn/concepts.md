@@ -181,7 +181,7 @@ The Server creates the next VTXO tree with the new VTXO, and a connectors tree w
 - Funded by the Server, creates VTXOs.
 - Has at least two outputs:
   - A shared output that commits to a VTXO tree
-  - A connector output that commits to a connector chain
+  - A connector output that commits to a connector tree
 - A new transaction is periodically broadcasted by the Server to create new VTXOs. 
 
 | Inputs   | Outputs           |
