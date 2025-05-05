@@ -87,7 +87,7 @@ arkd wallet unlock --password password
 Get the address of the wallet:
 
 ```sh
-arkd --no-macaroon wallet address
+arkd wallet address
 ```
 
 Use the Nigiri faucet to fund your wallet:
@@ -101,7 +101,7 @@ nigiri faucet address
 Verify the wallet balance:
 
 ```sh
-arkd --no-macaroon wallet balance
+arkd wallet balance
 ```
 
 ## Conclusion
